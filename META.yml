@@ -1,0 +1,14 @@
+--- 
+abstract: work with nestable POD elements
+author: 
+  - Ricardo SIGNES <rjbs@cpan.org>
+generated_by: Dist::Zilla::Plugin::MetaYaml version 1.003
+license: perl
+name: Pod-Elemental
+requires: 
+  Mixin::Linewise::Readers: 0
+  Moose: 0
+  Moose::Autobox: 0
+  Pod::Eventual::Simple: 0.004
+  Test::Deep: 0
+version: 0.001
