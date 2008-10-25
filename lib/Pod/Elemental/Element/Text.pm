@@ -1,11 +1,13 @@
 package Pod::Elemental::Element::Text;
-our $VERSION = '0.001';
+our $VERSION = '0.002';
 
 use Moose;
 extends 'Pod::Elemental::Element';
 # ABSTRACT: a POD text or verbatim element
 
 use Moose::Autobox;
+
+has '+type' => (default => 'text');
 
 __PACKAGE__->meta->make_immutable;
 no Moose;
@@ -21,7 +23,7 @@ Pod::Elemental::Element::Text - a POD text or verbatim element
 
 =head1 VERSION
 
-version 0.001
+version 0.002
 
 =head1 AUTHOR
 

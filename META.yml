@@ -8,7 +8,7 @@ name: Pod-Elemental
 requires: 
   Mixin::Linewise::Readers: 0
   Moose: 0
-  Moose::Autobox: 0
+  Moose::Autobox: 0.09
   Pod::Eventual::Simple: 0.004
   Test::Deep: 0
-version: 0.001
+version: 0.002

@@ -1,5 +1,5 @@
 package Pod::Elemental::Nester;
-our $VERSION = '0.001';
+our $VERSION = '0.002';
 
 use Moose;
 use Moose::Autobox;
@@ -13,16 +13,17 @@ my %RANK = do {
   map { $_ => $i++ } qw(head1 head2 head3 head4 over item begin for);
 };
 
-sub can_recurse {
+sub _can_recurse {
   my ($self, $element) = @_;
   return 1 if $element->command eq [ qw(over begin) ]->any;
   return 0;
 }
 
-sub rank_for {
+sub _rank_for {
   my ($self, $element) = @_;
   return $RANK{ $element->command };
 }
+
 
 sub nest_elements {
   my ($self, $elements) = @_;
@@ -96,18 +97,18 @@ sub nest_elements {
         $element->start_line;
     }
 
-    pop @stack until @stack == 1 or defined $self->rank_for($stack[-1]);
+    pop @stack until @stack == 1 or defined $self->_rank_for($stack[-1]);
 
-    my $rank        = $self->rank_for($element);
-    my $parent_rank = $self->rank_for($stack[-1]) || 0;
+    my $rank        = $self->_rank_for($element);
+    my $parent_rank = $self->_rank_for($stack[-1]) || 0;
 
     if (@stack > 1) {
       if (! $rank) {
         @stack = $top;
       } else {
         until (@stack == 1) {
-          last if $self->rank_for($stack[-1]) < $rank;
-          last if $self->can_recurse($element)
+          last if $self->_rank_for($stack[-1]) < $rank;
+          last if $self->_can_recurse($element)
               and $element->command eq $stack[-1]->command;
 
           pop @stack;
@@ -137,7 +138,18 @@ Pod::Elemental::Nester - it organizes a sequence of elements into a tree
 
 =head1 VERSION
 
-version 0.001
+version 0.002
+
+=head1 METHODS
+
+=head2 nest_elements
+
+    $nester->nest_elements(\@elements);
+
+This method reorganizes the given elements into a tree.  It returns the same
+reference it was given, which will have been reorganized in place.
+
+Some elements may be dropped (like C<=cut> commands).
 
 =head1 AUTHOR
 

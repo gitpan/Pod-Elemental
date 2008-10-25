@@ -1,5 +1,5 @@
 package Pod::Elemental;
-our $VERSION = '0.001';
+our $VERSION = '0.002';
 
 use Moose;
 use Moose::Autobox;
@@ -11,11 +11,13 @@ use Pod::Elemental::Nester;
 use Pod::Elemental::Objectifier;
 use Pod::Eventual::Simple;
 
+
 has event_reader => (
   is => 'ro',
   required => 1,
   default  => sub { return Pod::Eventual::Simple->new },
 );
+
 
 has objectifier => (
   is => 'ro',
@@ -23,11 +25,13 @@ has objectifier => (
   default  => sub { return Pod::Elemental::Objectifier->new },
 );
 
+
 has nester => (
   is => 'ro',
   required => 1,
   default  => sub { return Pod::Elemental::Nester->new },
 );
+
 
 sub read_handle {
   my ($self, $handle) = @_;
@@ -55,7 +59,39 @@ Pod::Elemental - work with nestable POD elements
 
 =head1 VERSION
 
-version 0.001
+version 0.002
+
+=head1 ATTRIBUTES
+
+=head2 event_reader
+
+The event reader (by default a new instance of
+L<Pod::Eventual::Simple|Pod::Eventual::Simple> is used to convert input into an
+event stream.  In general, it should provide C<read_*> methods that behave like
+Pod::Eventual::Simple.
+
+=head2 objectifier
+
+The objectifier (by default a new Pod::Elemental::Objectifier) must provide an
+C<objectify_events> method that converts POD events into
+Pod::Elemental::Element objects.
+
+=head2 nester
+
+The nester (by default a new Pod::Elemental::Nester) provides a
+C<nest_elements> method that, given an array of elements, structures them into
+a tree.
+
+=head1 METHODS
+
+=head2 read_handle
+
+=head2 read_file
+
+=head2 read_string
+
+These methods read the given input and return an arrayref of the elements that
+form the top of element trees describing the document.
 
 =head1 AUTHOR
 

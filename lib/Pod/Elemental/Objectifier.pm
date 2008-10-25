@@ -1,5 +1,5 @@
 package Pod::Elemental::Objectifier;
-our $VERSION = '0.001';
+our $VERSION = '0.002';
 
 use Moose;
 use Moose::Autobox;
@@ -9,20 +9,23 @@ use Pod::Elemental::Element::Command;
 use Pod::Elemental::Element::Nonpod;
 use Pod::Elemental::Element::Text;
 
-sub element_class_for_event_type {
-  my ($self, $t) = @_;
+
+sub element_class_for_event {
+  my ($self, $event) = @_;
+  my $t = $event->{type};
   return 'Pod::Elemental::Element::Command' if $t eq 'command';
   return 'Pod::Elemental::Element::Text' if $t eq 'verbatim' or $t eq 'text';
   return 'Pod::Elemental::Element::Nonpod' if $t eq 'nonpod';
   Carp::croak "unknown event type: $t";
 }
 
+
 sub objectify_events {
   my ($self, $events) = @_;
   return $events->map(sub {
     Carp::croak("not a valid event") unless ref $_;
 
-    my $class = $self->element_class_for_event_type($_->{type});
+    my $class = $self->element_class_for_event($_);
 
     my %guts = (
       type       => $_->{type},
@@ -52,7 +55,20 @@ Pod::Elemental::Objectifier - it turns a Pod::Eventual event stream into objects
 
 =head1 VERSION
 
-version 0.001
+version 0.002
+
+=head1 METHODS
+
+=head2 element_class_for_event
+
+This method returns the name of the class to be used for the given event.
+
+=head2 objectify_events
+
+    my $elements = $objectifier->objectify_events(\@events);
+
+Given an arrayref of POD events, this method returns an arrayref of
+Pod::Elemental::Element objects formed from the event stream.
 
 =head1 AUTHOR
 

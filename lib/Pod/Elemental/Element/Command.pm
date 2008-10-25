@@ -1,11 +1,17 @@
 package Pod::Elemental::Element::Command;
-our $VERSION = '0.001';
+our $VERSION = '0.002';
 
 use Moose;
 extends 'Pod::Elemental::Element';
 # ABSTRACT: a POD =command element
 
 use Moose::Autobox;
+
+has '+type' => (default => 'command');
+
+
+has command => (is => 'ro', isa => 'Str', required => 0);
+
 
 has children => (
   is   => 'ro',
@@ -78,7 +84,19 @@ Pod::Elemental::Element::Command - a POD =command element
 
 =head1 VERSION
 
-version 0.001
+version 0.002
+
+=head1 ATTRIBUTES
+
+=head2 command
+
+This attribute contains the name of the command, like C<head1> or C<encoding>.
+
+=head2 children
+
+This attribute is an arrayref of
+L<Pod::Elemental::Element|Pod::Elemental::Element> objects, and represents
+elements contained by this node.
 
 =head1 AUTHOR
 
