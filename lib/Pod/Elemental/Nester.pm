@@ -1,5 +1,5 @@
 package Pod::Elemental::Nester;
-our $VERSION = '0.002';
+our $VERSION = '0.003';
 
 use Moose;
 use Moose::Autobox;
@@ -25,6 +25,8 @@ sub _rank_for {
 }
 
 
+# TODO: handle the stupid verbatim-correction when inside non-colon-begin
+
 sub nest_elements {
   my ($self, $elements) = @_;
 
@@ -37,8 +39,6 @@ sub nest_elements {
   my @stack  = $top;
 
   EVENT: while (my $element = $elements->shift) {
-    Carp::croak("can't nest nonpod element") if $element->type eq 'nonpod';
-
     # =cut?  Where we're going, we don't need =cut. -- rjbs, 2015-11-05
     next if $element->type eq 'command' and $element->command eq 'cut';
 
@@ -138,7 +138,7 @@ Pod::Elemental::Nester - it organizes a sequence of elements into a tree
 
 =head1 VERSION
 
-version 0.002
+version 0.003
 
 =head1 METHODS
 
@@ -157,7 +157,7 @@ Some elements may be dropped (like C<=cut> commands).
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2008 by Ricardo SIGNES.
+This software is copyright (c) 2009 by Ricardo SIGNES.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as perl itself.

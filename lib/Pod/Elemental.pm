@@ -1,11 +1,12 @@
 package Pod::Elemental;
-our $VERSION = '0.002';
+our $VERSION = '0.003';
 
 use Moose;
 use Moose::Autobox;
 # ABSTRACT: work with nestable POD elements
 
 use Mixin::Linewise::Readers -readers;
+use Pod::Elemental::Document;
 use Pod::Elemental::Element;
 use Pod::Elemental::Nester;
 use Pod::Elemental::Objectifier;
@@ -27,9 +28,16 @@ has objectifier => (
 
 
 has nester => (
-  is => 'ro',
+  is       => 'ro',
   required => 1,
   default  => sub { return Pod::Elemental::Nester->new },
+);
+
+
+has document_class => (
+  is       => 'ro',
+  required => 1,
+  default  => 'Pod::Elemental::Document',
 );
 
 
@@ -37,12 +45,14 @@ sub read_handle {
   my ($self, $handle) = @_;
   $self = $self->new unless ref $self;
 
-  my $events   = $self->event_reader->read_handle($handle)
-                 ->grep(sub { $_->{type} ne 'nonpod' });
+  my $events   = $self->event_reader->read_handle($handle);
   my $elements = $self->objectifier->objectify_events($events);
   $self->nester->nest_elements($elements);
 
-  return $elements;
+  my $document = $self->document_class->new;
+  $document->add_elements($elements);
+
+  return $document;
 }
 
 __PACKAGE__->meta->make_immutable;
@@ -59,7 +69,7 @@ Pod::Elemental - work with nestable POD elements
 
 =head1 VERSION
 
-version 0.002
+version 0.003
 
 =head1 ATTRIBUTES
 
@@ -82,6 +92,10 @@ The nester (by default a new Pod::Elemental::Nester) provides a
 C<nest_elements> method that, given an array of elements, structures them into
 a tree.
 
+=head2 document_class
+
+This is the class for documents created by reading pod.
+
 =head1 METHODS
 
 =head2 read_handle
@@ -90,8 +104,7 @@ a tree.
 
 =head2 read_string
 
-These methods read the given input and return an arrayref of the elements that
-form the top of element trees describing the document.
+These methods read the given input and return a Pod::Elemental::Document.
 
 =head1 AUTHOR
 
@@ -99,7 +112,7 @@ form the top of element trees describing the document.
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2008 by Ricardo SIGNES.
+This software is copyright (c) 2009 by Ricardo SIGNES.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as perl itself.

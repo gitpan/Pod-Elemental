@@ -1,5 +1,5 @@
 package Pod::Elemental::Element::Nonpod;
-our $VERSION = '0.002';
+our $VERSION = '0.003';
 
 use Moose;
 extends 'Pod::Elemental::Element';
@@ -28,7 +28,7 @@ Pod::Elemental::Element::Nonpod - a non-pod element in a POD document
 
 =head1 VERSION
 
-version 0.002
+version 0.003
 
 =head1 AUTHOR
 
@@ -36,7 +36,7 @@ version 0.002
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2008 by Ricardo SIGNES.
+This software is copyright (c) 2009 by Ricardo SIGNES.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as perl itself.

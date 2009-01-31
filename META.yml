@@ -11,4 +11,4 @@ requires:
   Moose::Autobox: 0.09
   Pod::Eventual::Simple: 0.004
   Test::Deep: 0
-version: 0.002
+version: 0.003

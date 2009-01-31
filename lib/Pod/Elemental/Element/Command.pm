@@ -1,8 +1,9 @@
 package Pod::Elemental::Element::Command;
-our $VERSION = '0.002';
+our $VERSION = '0.003';
 
 use Moose;
 extends 'Pod::Elemental::Element';
+with 'Pod::Elemental::Role::Children';
 # ABSTRACT: a POD =command element
 
 use Moose::Autobox;
@@ -11,15 +12,6 @@ has '+type' => (default => 'command');
 
 
 has command => (is => 'ro', isa => 'Str', required => 0);
-
-
-has children => (
-  is   => 'ro',
-  isa  => 'ArrayRef[Pod::Elemental::Element]',
-  auto_deref => 1,
-  required   => 1,
-  default    => sub { [] },
-);
 
 sub as_hash {
   my ($self) = @_;
@@ -84,7 +76,7 @@ Pod::Elemental::Element::Command - a POD =command element
 
 =head1 VERSION
 
-version 0.002
+version 0.003
 
 =head1 ATTRIBUTES
 
@@ -92,19 +84,13 @@ version 0.002
 
 This attribute contains the name of the command, like C<head1> or C<encoding>.
 
-=head2 children
-
-This attribute is an arrayref of
-L<Pod::Elemental::Element|Pod::Elemental::Element> objects, and represents
-elements contained by this node.
-
 =head1 AUTHOR
 
   Ricardo SIGNES <rjbs@cpan.org>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2008 by Ricardo SIGNES.
+This software is copyright (c) 2009 by Ricardo SIGNES.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as perl itself.

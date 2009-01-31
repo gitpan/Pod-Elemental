@@ -1,13 +1,13 @@
-package Pod::Elemental::Element::Text;
+package Pod::Elemental::Element::Data;
 our $VERSION = '0.003';
 
 use Moose;
 extends 'Pod::Elemental::Element';
-# ABSTRACT: a POD text or verbatim element
+# ABSTRACT: a POD data paragraph
 
 use Moose::Autobox;
 
-has '+type' => (default => 'text');
+has '+type' => (default => 'data');
 
 __PACKAGE__->meta->make_immutable;
 no Moose;
@@ -19,7 +19,7 @@ __END__
 
 =head1 NAME
 
-Pod::Elemental::Element::Text - a POD text or verbatim element
+Pod::Elemental::Element::Data - a POD data paragraph
 
 =head1 VERSION
 
