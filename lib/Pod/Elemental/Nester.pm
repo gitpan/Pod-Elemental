@@ -1,5 +1,5 @@
 package Pod::Elemental::Nester;
-our $VERSION = '0.003';
+our $VERSION = '0.091470';
 
 use Moose;
 use Moose::Autobox;
@@ -138,7 +138,7 @@ Pod::Elemental::Nester - it organizes a sequence of elements into a tree
 
 =head1 VERSION
 
-version 0.003
+version 0.091470
 
 =head1 METHODS
 

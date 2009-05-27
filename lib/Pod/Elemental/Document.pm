@@ -1,5 +1,5 @@
 package Pod::Elemental::Document;
-our $VERSION = '0.003';
+our $VERSION = '0.091470';
 
 use Moose;
 with 'Pod::Elemental::Role::Children';
@@ -226,7 +226,7 @@ Pod::Elemental::Document - a pod document
 
 =head1 VERSION
 
-version 0.003
+version 0.091470
 
 =head1 ATTRIBUTES
 

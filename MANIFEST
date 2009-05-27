@@ -1,9 +1,10 @@
 Changes
 LICENSE
 MANIFEST
-META.yml
+META.json
 Makefile.PL
 README
+dist.ini
 lib/Pod/Elemental.pm
 lib/Pod/Elemental/Document.pm
 lib/Pod/Elemental/Element.pm

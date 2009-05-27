@@ -1,5 +1,5 @@
 package Pod::Elemental::Objectifier;
-our $VERSION = '0.003';
+our $VERSION = '0.091470';
 
 use Moose;
 use Moose::Autobox;
@@ -14,8 +14,8 @@ sub element_class_for_event {
   my ($self, $event) = @_;
   my $t = $event->{type};
   return 'Pod::Elemental::Element::Command' if $t eq 'command';
-  return 'Pod::Elemental::Element::Text' if $t eq 'verbatim' or $t eq 'text';
-  return 'Pod::Elemental::Element::Nonpod' if $t eq 'nonpod';
+  return 'Pod::Elemental::Element::Text'    if $t eq 'verbatim' or $t eq 'text';
+  return 'Pod::Elemental::Element::Nonpod'  if $t eq 'nonpod';
   Carp::croak "unknown event type: $t";
 }
 
@@ -24,6 +24,7 @@ sub objectify_events {
   my ($self, $events) = @_;
   return $events->map(sub {
     Carp::croak("not a valid event") unless ref $_;
+    return if $_->{type} eq 'blank';
 
     my $class = $self->element_class_for_event($_);
 
@@ -55,7 +56,7 @@ Pod::Elemental::Objectifier - it turns a Pod::Eventual event stream into objects
 
 =head1 VERSION
 
-version 0.003
+version 0.091470
 
 =head1 METHODS
 

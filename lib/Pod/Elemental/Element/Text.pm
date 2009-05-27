@@ -1,5 +1,5 @@
 package Pod::Elemental::Element::Text;
-our $VERSION = '0.003';
+our $VERSION = '0.091470';
 
 use Moose;
 extends 'Pod::Elemental::Element';
@@ -23,7 +23,7 @@ Pod::Elemental::Element::Text - a POD text or verbatim element
 
 =head1 VERSION
 
-version 0.003
+version 0.091470
 
 =head1 AUTHOR
 

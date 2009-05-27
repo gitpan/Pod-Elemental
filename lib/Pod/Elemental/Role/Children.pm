@@ -1,5 +1,5 @@
 package Pod::Elemental::Role::Children;
-our $VERSION = '0.003';
+our $VERSION = '0.091470';
 
 use Moose::Role;
 # ABSTRACT: a thing with Pod::Elemental::Elements as children
@@ -28,7 +28,7 @@ Pod::Elemental::Role::Children - a thing with Pod::Elemental::Elements as childr
 
 =head1 VERSION
 
-version 0.003
+version 0.091470
 
 =head1 ATTRIBUTES
 

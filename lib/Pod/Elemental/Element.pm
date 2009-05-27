@@ -1,5 +1,5 @@
 package Pod::Elemental::Element;
-our $VERSION = '0.003';
+our $VERSION = '0.091470';
 
 use Moose;
 use Moose::Autobox;
@@ -46,7 +46,7 @@ Pod::Elemental::Element - a POD element
 
 =head1 VERSION
 
-version 0.003
+version 0.091470
 
 =head1 ATTRIBUTES
 
