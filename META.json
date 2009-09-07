@@ -6,19 +6,19 @@
       "version" : 1.4,
       "url" : "http://module-build.sourceforge.net/META-spec-v1.4.html"
    },
-   "generated_by" : "Dist::Zilla::Plugin::MetaJSON version 1.091440",
-   "version" : "0.091470",
+   "generated_by" : "Dist::Zilla::Plugin::MetaJSON version 1.092400",
+   "version" : "0.092500",
    "name" : "Pod-Elemental",
    "author" : [
       "Ricardo SIGNES <rjbs@cpan.org>"
    ],
    "license" : "perl",
    "requires" : {
-      "Pod::Eventual::Simple" : "0.004",
-      "Test::Deep" : "0",
       "Moose::Autobox" : "0.09",
-      "Mixin::Linewise::Readers" : "0",
-      "Moose" : "0"
+      "Test::Deep" : "0",
+      "Pod::Eventual::Simple" : "0.004",
+      "Moose" : "0",
+      "Mixin::Linewise::Readers" : "0"
    },
    "abstract" : "work with nestable POD elements"
 }

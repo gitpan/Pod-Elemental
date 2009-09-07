@@ -1,23 +1,13 @@
-package Pod::Elemental::Document;
+use strict;
+use warnings;
+package Pod::Elemental::Types;
 our $VERSION = '0.092500';
 
-use Moose;
-with 'Pod::Elemental::Node';
-# ABSTRACT: a pod document
+use MooseX::Types -declare => [ qw(FormatName) ];
+use MooseX::Types::Moose qw(Str);
 
-use Moose::Autobox;
-use namespace::autoclean;
-
-sub as_pod_string   {
-  my ($self) = @_;
-
-  join q{},
-    "=pod\n\n",
-    $self->children->map(sub { $_->as_pod_string })->flatten,
-    "=cut\n";
-}
-
-sub as_debug_string { die }
+# Probably needs refining -- rjbs, 2009-05-26
+subtype FormatName, as Str, where { length $_ and /\A\S+\z/ };
 
 1;
 
@@ -27,7 +17,7 @@ __END__
 
 =head1 NAME
 
-Pod::Elemental::Document - a pod document
+Pod::Elemental::Types
 
 =head1 VERSION
 

@@ -1,23 +1,11 @@
-package Pod::Elemental::Document;
+package Pod::Elemental::Element::Pod5::Ordinary;
 our $VERSION = '0.092500';
 
 use Moose;
-with 'Pod::Elemental::Node';
-# ABSTRACT: a pod document
+with 'Pod::Elemental::Paragraph';
+# ABSTRACT: a Pod5 ordinary text paragraph
 
-use Moose::Autobox;
 use namespace::autoclean;
-
-sub as_pod_string   {
-  my ($self) = @_;
-
-  join q{},
-    "=pod\n\n",
-    $self->children->map(sub { $_->as_pod_string })->flatten,
-    "=cut\n";
-}
-
-sub as_debug_string { die }
 
 1;
 
@@ -27,7 +15,7 @@ __END__
 
 =head1 NAME
 
-Pod::Elemental::Document - a pod document
+Pod::Elemental::Element::Pod5::Ordinary - a Pod5 ordinary text paragraph
 
 =head1 VERSION
 

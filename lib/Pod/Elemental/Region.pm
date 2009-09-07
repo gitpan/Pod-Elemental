@@ -1,23 +1,17 @@
-package Pod::Elemental::Document;
+package Pod::Elemental::Region;
 our $VERSION = '0.092500';
 
-use Moose;
-with 'Pod::Elemental::Node';
-# ABSTRACT: a pod document
+use Moose::Role;
+with qw(
+  Pod::Elemental::Paragraph
+  Pod::Elemental::Node
+);
+# ABSTRACT: a command that establishes a region
 
-use Moose::Autobox;
-use namespace::autoclean;
+use Pod::Elemental::Types qw(FormatName);
+use MooseX::Types::Moose qw(Bool);
 
-sub as_pod_string   {
-  my ($self) = @_;
-
-  join q{},
-    "=pod\n\n",
-    $self->children->map(sub { $_->as_pod_string })->flatten,
-    "=cut\n";
-}
-
-sub as_debug_string { die }
+requires 'closing_command';
 
 1;
 
@@ -27,7 +21,7 @@ __END__
 
 =head1 NAME
 
-Pod::Elemental::Document - a pod document
+Pod::Elemental::Region - a command that establishes a region
 
 =head1 VERSION
 

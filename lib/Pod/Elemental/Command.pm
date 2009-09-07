@@ -1,23 +1,21 @@
-package Pod::Elemental::Document;
+package Pod::Elemental::Command;
 our $VERSION = '0.092500';
 
-use Moose;
-with 'Pod::Elemental::Node';
-# ABSTRACT: a pod document
+use Moose::Role;
+with 'Pod::Elemental::Paragraph' => { excludes => [ 'as_pod_string' ] };
+# ABSTRACT: a =command paragraph
 
 use Moose::Autobox;
-use namespace::autoclean;
 
-sub as_pod_string   {
+requires 'command';
+
+sub as_pod_string {
   my ($self) = @_;
 
-  join q{},
-    "=pod\n\n",
-    $self->children->map(sub { $_->as_pod_string })->flatten,
-    "=cut\n";
-}
+  my $content = $self->content;
 
-sub as_debug_string { die }
+  sprintf "=%s%s", $self->command, ($content =~ /\S/ ? " $content" : "\n");
+}
 
 1;
 
@@ -27,7 +25,7 @@ __END__
 
 =head1 NAME
 
-Pod::Elemental::Document - a pod document
+Pod::Elemental::Command - a =command paragraph
 
 =head1 VERSION
 

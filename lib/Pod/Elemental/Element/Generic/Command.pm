@@ -1,23 +1,23 @@
-package Pod::Elemental::Document;
+package Pod::Elemental::Element::Generic::Command;
 our $VERSION = '0.092500';
 
 use Moose;
-with 'Pod::Elemental::Node';
-# ABSTRACT: a pod document
+# ABSTRACT: a POD =command element
 
-use Moose::Autobox;
 use namespace::autoclean;
 
-sub as_pod_string   {
-  my ($self) = @_;
+use Moose::Autobox;
 
-  join q{},
-    "=pod\n\n",
-    $self->children->map(sub { $_->as_pod_string })->flatten,
-    "=cut\n";
-}
+sub type { 'command' }
 
-sub as_debug_string { die }
+
+has command => (
+  is  => 'ro',
+  isa => 'Str',
+  required => 1,
+);
+
+with 'Pod::Elemental::Command';
 
 1;
 
@@ -27,11 +27,17 @@ __END__
 
 =head1 NAME
 
-Pod::Elemental::Document - a pod document
+Pod::Elemental::Element::Generic::Command - a POD =command element
 
 =head1 VERSION
 
 version 0.092500
+
+=head1 ATTRIBUTES
+
+=head2 command
+
+This attribute contains the name of the command, like C<head1> or C<encoding>.
 
 =head1 AUTHOR
 

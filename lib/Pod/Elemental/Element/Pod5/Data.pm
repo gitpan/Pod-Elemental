@@ -1,16 +1,12 @@
-package Pod::Elemental::Element::Data;
-our $VERSION = '0.091470';
+package Pod::Elemental::Element::Pod5::Data;
+our $VERSION = '0.092500';
 
 use Moose;
-extends 'Pod::Elemental::Element';
+with 'Pod::Elemental::Paragraph';
 # ABSTRACT: a POD data paragraph
 
-use Moose::Autobox;
+use namespace::autoclean;
 
-has '+type' => (default => 'data');
-
-__PACKAGE__->meta->make_immutable;
-no Moose;
 1;
 
 __END__
@@ -19,11 +15,11 @@ __END__
 
 =head1 NAME
 
-Pod::Elemental::Element::Data - a POD data paragraph
+Pod::Elemental::Element::Pod5::Data - a POD data paragraph
 
 =head1 VERSION
 
-version 0.091470
+version 0.092500
 
 =head1 AUTHOR
 
@@ -34,7 +30,7 @@ version 0.091470
 This software is copyright (c) 2009 by Ricardo SIGNES.
 
 This is free software; you can redistribute it and/or modify it under
-the same terms as perl itself.
+the same terms as the Perl 5 programming language system itself.
 
 =cut 
 

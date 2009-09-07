@@ -1,6 +1,6 @@
 use strict;
 package Simple;
-our $VERSION = '0.091470';
+our $VERSION = '0.092500';
 
 # ABSTRACT: this is just a test
 
@@ -11,6 +11,8 @@ This is a test.  How many times do I need to tell you that?
 =synopsis
 
   use Test::Example::Pod q(uisp);
+
+  uisp('q');
 
 =head2 Free Radical
 

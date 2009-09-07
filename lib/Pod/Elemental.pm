@@ -1,14 +1,15 @@
 package Pod::Elemental;
-our $VERSION = '0.091470';
+our $VERSION = '0.092500';
 
 use Moose;
 use Moose::Autobox;
 # ABSTRACT: work with nestable POD elements
 
 use Mixin::Linewise::Readers -readers;
+
 use Pod::Elemental::Document;
 use Pod::Elemental::Element;
-use Pod::Elemental::Nester;
+use Pod::Elemental::Transformer::Pod5;
 use Pod::Elemental::Objectifier;
 use Pod::Eventual::Simple;
 
@@ -27,13 +28,6 @@ has objectifier => (
 );
 
 
-has nester => (
-  is       => 'ro',
-  required => 1,
-  default  => sub { return Pod::Elemental::Nester->new },
-);
-
-
 has document_class => (
   is       => 'ro',
   required => 1,
@@ -47,10 +41,10 @@ sub read_handle {
 
   my $events   = $self->event_reader->read_handle($handle);
   my $elements = $self->objectifier->objectify_events($events);
-  $self->nester->nest_elements($elements);
 
-  my $document = $self->document_class->new;
-  $document->add_elements($elements);
+  my $document = $self->document_class->new({
+    children => $elements,
+  });
 
   return $document;
 }
@@ -69,7 +63,7 @@ Pod::Elemental - work with nestable POD elements
 
 =head1 VERSION
 
-version 0.091470
+version 0.092500
 
 =head1 ATTRIBUTES
 
@@ -85,12 +79,6 @@ Pod::Eventual::Simple.
 The objectifier (by default a new Pod::Elemental::Objectifier) must provide an
 C<objectify_events> method that converts POD events into
 Pod::Elemental::Element objects.
-
-=head2 nester
-
-The nester (by default a new Pod::Elemental::Nester) provides a
-C<nest_elements> method that, given an array of elements, structures them into
-a tree.
 
 =head2 document_class
 
@@ -115,7 +103,7 @@ These methods read the given input and return a Pod::Elemental::Document.
 This software is copyright (c) 2009 by Ricardo SIGNES.
 
 This is free software; you can redistribute it and/or modify it under
-the same terms as perl itself.
+the same terms as the Perl 5 programming language system itself.
 
 =cut 
 

@@ -1,29 +1,19 @@
-package Pod::Elemental::Element;
-our $VERSION = '0.091470';
+package Pod::Elemental::Paragraph;
+our $VERSION = '0.092500';
 
-use Moose;
+use namespace::autoclean;
+use Moose::Role;
 use Moose::Autobox;
-# ABSTRACT: a POD element
+# ABSTRACT: a paragraph in a Pod document
 
 
-has type       => (is => 'ro', isa => 'Str', required => 1);
-has content    => (is => 'ro', isa => 'Str', required => 1);
+has content    => (is => 'rw', isa => 'Str', required => 1);
 has start_line => (is => 'ro', isa => 'Int', required => 0);
 
 
-sub as_hash {
+sub as_pod_string {
   my ($self) = @_;
-
-  return {
-    type    => $self->type,
-    content => $self->content,
-  };
-}
-
-
-sub as_string {
-  my ($self) = @_;
-  return $self->content . "\n";
+  return $self->content;
 }
 
 
@@ -32,8 +22,6 @@ sub as_debug_string {
   return $self->as_string;
 }
 
-__PACKAGE__->meta->make_immutable;
-no Moose;
 1;
 
 __END__
@@ -42,26 +30,20 @@ __END__
 
 =head1 NAME
 
-Pod::Elemental::Element - a POD element
+Pod::Elemental::Paragraph - a paragraph in a Pod document
 
 =head1 VERSION
 
-version 0.091470
+version 0.092500
 
 =head1 ATTRIBUTES
-
-=head2 type
-
-The type is a string giving a type for the element, like F<text> or F<nonpod>
-or F<command>.  These are generally the same as the event types from the event
-reader.
 
 =head2 content
 
 This is the textual content of the element, as in a Pod::Eventual event, but
 has its trailing newline chomped.  In other words, this POD:
 
-    =head2 content
+  =head2 content
 
 has a content of "content"
 
@@ -72,11 +54,7 @@ document where the element began.
 
 =head1 METHODS
 
-=head2 as_hash
-
-This returns a hashref describing the object.
-
-=head2 as_string
+=head2 as_pod_string
 
 This returns the element  as a string, suitable for turning elements back into
 a document.  Some elements, like a C<=over> command, will stringify to include
@@ -98,7 +76,7 @@ document.  Its exact output is likely to change over time.
 This software is copyright (c) 2009 by Ricardo SIGNES.
 
 This is free software; you can redistribute it and/or modify it under
-the same terms as perl itself.
+the same terms as the Perl 5 programming language system itself.
 
 =cut 
 
