@@ -1,8 +1,10 @@
 use strict;
 use warnings;
 package Pod::Elemental::Types;
-our $VERSION = '0.092500';
+our $VERSION = '0.092900';
 
+
+# ABSTRACT: data types for Pod::Elemental
 use MooseX::Types -declare => [ qw(FormatName) ];
 use MooseX::Types::Moose qw(Str);
 
@@ -17,11 +19,11 @@ __END__
 
 =head1 NAME
 
-Pod::Elemental::Types
+Pod::Elemental::Types - data types for Pod::Elemental
 
 =head1 VERSION
 
-version 0.092500
+version 0.092900
 
 =head1 AUTHOR
 

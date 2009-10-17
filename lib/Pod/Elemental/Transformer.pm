@@ -1,14 +1,12 @@
 package Pod::Elemental::Transformer;
-our $VERSION = '0.092500';
+our $VERSION = '0.092900';
+
 
 use Moose::Role;
 use Moose::Autobox;
 # ABSTRACT: something that transforms a document tree into a new tree
 
 use namespace::autoclean;
-
-use Pod::Elemental::Element;
-use Pod::Elemental::Element::Command;
 
 requires 'transform_document';
 
@@ -25,7 +23,7 @@ Pod::Elemental::Transformer - something that transforms a document tree into a n
 
 =head1 VERSION
 
-version 0.092500
+version 0.092900
 
 =head1 METHODS
 

@@ -1,5 +1,6 @@
 package Pod::Elemental::Element::Pod5::Verbatim;
-our $VERSION = '0.092500';
+our $VERSION = '0.092900';
+
 
 use Moose;
 with 'Pod::Elemental::Paragraph';
@@ -19,7 +20,7 @@ Pod::Elemental::Element::Pod5::Verbatim - a POD verbatim element
 
 =head1 VERSION
 
-version 0.092500
+version 0.092900
 
 =head1 AUTHOR
 

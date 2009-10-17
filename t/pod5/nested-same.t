@@ -1,5 +1,10 @@
+#!perl
 use strict;
 use warnings;
+
+# PURPOSE:
+# show that we can have a "foo" region inside another "foo" region
+
 use Test::More tests => 1;
 use Test::Deep;
 use Test::Differences;

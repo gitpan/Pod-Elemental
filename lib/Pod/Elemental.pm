@@ -1,5 +1,6 @@
 package Pod::Elemental;
-our $VERSION = '0.092500';
+our $VERSION = '0.092900';
+
 
 use Moose;
 use Moose::Autobox;
@@ -8,7 +9,6 @@ use Moose::Autobox;
 use Mixin::Linewise::Readers -readers;
 
 use Pod::Elemental::Document;
-use Pod::Elemental::Element;
 use Pod::Elemental::Transformer::Pod5;
 use Pod::Elemental::Objectifier;
 use Pod::Eventual::Simple;
@@ -63,7 +63,7 @@ Pod::Elemental - work with nestable POD elements
 
 =head1 VERSION
 
-version 0.092500
+version 0.092900
 
 =head1 ATTRIBUTES
 
