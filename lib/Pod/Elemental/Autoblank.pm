@@ -1,13 +1,14 @@
-package Pod::Elemental::Element::Pod5;
-our $VERSION = '0.092901';
+package Pod::Elemental::Autoblank;
+our $VERSION = '0.092910';
 
 
 use namespace::autoclean;
 use Moose::Role;
-# ABSTRACT: a paragraph in a Pod document
+# ABSTRACT: a paragraph that always displays an extra blank line in Pod form
 
-override as_pod_string => sub {
-  my $str = super;
+around as_pod_string => sub {
+  my ($orig, $self, @arg) = @_;
+  my $str = $self->$orig(@arg);
   "$str\n";
 };
 
@@ -19,11 +20,11 @@ __END__
 
 =head1 NAME
 
-Pod::Elemental::Element::Pod5 - a paragraph in a Pod document
+Pod::Elemental::Autoblank - a paragraph that always displays an extra blank line in Pod form
 
 =head1 VERSION
 
-version 0.092901
+version 0.092910
 
 =head1 AUTHOR
 

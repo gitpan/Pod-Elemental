@@ -1,10 +1,10 @@
 package Pod::Elemental::Element::Pod5::Data;
-our $VERSION = '0.092901';
+our $VERSION = '0.092910';
 
 
 use Moose;
 extends 'Pod::Elemental::Element::Generic::Text';
-with    'Pod::Elemental::Element::Pod5';
+with    'Pod::Elemental::Autoblank';
 # ABSTRACT: a POD data paragraph
 
 use namespace::autoclean;
@@ -25,7 +25,7 @@ Pod::Elemental::Element::Pod5::Data - a POD data paragraph
 
 =head1 VERSION
 
-version 0.092901
+version 0.092910
 
 =head1 AUTHOR
 

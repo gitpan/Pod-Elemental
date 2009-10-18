@@ -1,9 +1,9 @@
 package Pod::Elemental::Element::Generic::Text;
-our $VERSION = '0.092901';
+our $VERSION = '0.092910';
 
 
 use Moose;
-with 'Pod::Elemental::Paragraph';
+with 'Pod::Elemental::Flat';
 # ABSTRACT: a POD text or verbatim element
 
 use namespace::autoclean;
@@ -24,7 +24,7 @@ Pod::Elemental::Element::Generic::Text - a POD text or verbatim element
 
 =head1 VERSION
 
-version 0.092901
+version 0.092910
 
 =head1 AUTHOR
 

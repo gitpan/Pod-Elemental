@@ -1,12 +1,12 @@
 package Pod::Elemental::Element::Pod5::Command;
-our $VERSION = '0.092901';
+our $VERSION = '0.092910';
 
 
 use Moose;
 # ABSTRACT: a Pod5 =command element
 
 extends 'Pod::Elemental::Element::Generic::Command';
-with    'Pod::Elemental::Element::Pod5';
+with    'Pod::Elemental::Autoblank';
 
 use namespace::autoclean;
 
@@ -22,7 +22,7 @@ Pod::Elemental::Element::Pod5::Command - a Pod5 =command element
 
 =head1 VERSION
 
-version 0.092901
+version 0.092910
 
 =head1 AUTHOR
 

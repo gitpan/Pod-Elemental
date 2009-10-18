@@ -1,14 +1,24 @@
-package Pod::Elemental::Element::Generic::Nonpod;
+package Pod::Elemental::Element::Nested;
 our $VERSION = '0.092910';
 
 
 use Moose;
-with 'Pod::Elemental::Flat';
-# ABSTRACT: a non-pod element in a POD document
+extends 'Pod::Elemental::Element::Generic::Command';
+with 'Pod::Elemental::Node';
+
+use Moose::Autobox 0.10;
+
+override as_pod_string => sub {
+  my ($self) = @_;
+
+  my $string = super;
+
+  join q{},
+    "$string\n",
+    $self->children->map(sub { $_->as_pod_string })->flatten;
+};
 
 use namespace::autoclean;
-
-sub as_debug_string { '??' }
 
 1;
 
@@ -18,7 +28,7 @@ __END__
 
 =head1 NAME
 
-Pod::Elemental::Element::Generic::Nonpod - a non-pod element in a POD document
+Pod::Elemental::Element::Nested
 
 =head1 VERSION
 

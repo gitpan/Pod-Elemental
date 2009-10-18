@@ -1,5 +1,5 @@
 package Pod::Elemental::Transformer::Pod5;
-our $VERSION = '0.092901';
+our $VERSION = '0.092910';
 
 
 use Moose;
@@ -16,6 +16,8 @@ use Pod::Elemental::Element::Pod5::Data;
 use Pod::Elemental::Element::Pod5::Ordinary;
 use Pod::Elemental::Element::Pod5::Verbatim;
 use Pod::Elemental::Element::Pod5::Region;
+
+use Pod::Elemental::Selectors -all;
 
 # TODO: handle the stupid verbatim-correction when inside non-colon-begin
 
@@ -41,18 +43,6 @@ sub _region_para_parts {
   return ($colon, $target, "$content$nl");
 }
 
-sub __is_cmd {
-  my ($self, $para, @cmds) = @_;
-
-  return unless $para->does('Pod::Elemental::Command');
-  
-  for my $cmd (@cmds) {
-    return 1 if $para->command eq $cmd;
-  }
-
-  return;
-}
-
 sub __extract_region {
   my ($self, $name, $in_paras) = @_;
 
@@ -60,7 +50,7 @@ sub __extract_region {
   my @region_paras;
 
   REGION_PARA: while (my $region_para = shift @$in_paras) {
-    if ($self->__is_cmd($region_para, qw(begin end))) {
+    if (s_command([ qw(begin end) ], $region_para)) {
       my ($r_colon, $r_target) = $self->_region_para_parts($region_para);
 
       for ($nest{ "$r_colon$r_target" }) {
@@ -85,17 +75,14 @@ sub _collect_regions {
   my @out_paras;
 
   PARA: while (my $para = shift @in_paras) {
-    @out_paras->push($para), next PARA unless $self->__is_cmd($para, 'begin');
+    @out_paras->push($para), next PARA unless s_command(begin => $para);
 
     my ($colon, $target, $content) = $self->_region_para_parts($para);
 
     my $region_paras = $self->__extract_region("$colon$target", \@in_paras);
 
-    $region_paras->shift
-      while $region_paras->[0]->isa('Pod::Elemental::Element::Generic::Blank');
-
-    $region_paras->pop
-      while $region_paras->[-1]->isa('Pod::Elemental::Element::Generic::Blank');
+    $region_paras->shift while s_blank($region_paras->[0]);
+    $region_paras->pop   while s_blank($region_paras->[-1]);
 
     my $region = $self->_class('Region')->new({
       children    => $self->_collect_regions($region_paras),
@@ -115,16 +102,10 @@ sub _strip_ends {
 
   my @in_paras  = @$in_paras; # copy so we do not muck with input doc
 
-  @in_paras->shift
-    while $in_paras[0]->does('Pod::Elemental::Command')
-    and   $in_paras[0]->command eq 'pod';
+  @in_paras->shift while s_command('pod', $in_paras[0]);
+  @in_paras->shift while s_blank($in_paras[0]);
 
-  @in_paras->shift
-    while $in_paras[0]->isa('Pod::Elemental::Element::Generic::Blank');
-
-  @in_paras->pop
-    while $in_paras[-1]->does('Pod::Elemental::Command')
-    and   $in_paras[-1]->command eq 'cut';
+  @in_paras->pop   while s_command('cut', $in_paras[-1]);
 
   return \@in_paras;
 }
@@ -192,7 +173,7 @@ sub _collect_runs {
       if (
         $paras->[ $next ]->isa($class)
         or
-        $paras->[ $next ]->isa( $self->_gen_class('Blank') )
+        s_blank($paras->[ $next ])
       ) {
         push @to_collect, $next;
         next NEXT;
@@ -201,8 +182,8 @@ sub _collect_runs {
       last NEXT;
     }
 
-    pop @to_collect
-      while $paras->[ $to_collect[-1] ]->isa( $self->_gen_class('Blank') );
+    pop @to_collect while s_blank($paras->[ $to_collect[ -1 ] ]);
+
     next PASS unless @to_collect >= 3;
 
     my $new_content = $paras
@@ -217,7 +198,7 @@ sub _collect_runs {
     redo PASS;
   }
 
-  @$paras = grep { not $_->isa( $self->_gen_class('Blank') ) } @$paras;
+  @$paras = grep { not s_blank($_) } @$paras;
 
   # I really don't feel bad about rewriting in place by the time we get here.
   # These are private methods, and I know the consequence of calling them.
@@ -225,19 +206,17 @@ sub _collect_runs {
   return $paras;
 }
 
-sub transform_document {
-  my ($self, $document) = @_;
+sub transform_node {
+  my ($self, $node) = @_;
 
-  my $end_stripped     = $self->_strip_ends($document->children);
+  my $end_stripped     = $self->_strip_ends($node->children);
   my $region_collected = $self->_collect_regions($end_stripped);
   my $text_typed       = $self->_autotype_paras($region_collected, 1);
   my $text_collected   = $self->_collect_runs($text_typed);
 
-  my $new_doc = Pod::Elemental::Document->new({
-    children => $region_collected,
-  });
+  $node->children( $text_collected );
 
-  return $new_doc;
+  return $node;
 }
 
 1;
@@ -252,7 +231,7 @@ Pod::Elemental::Transformer::Pod5 - the default, minimal semantics of Perl5's po
 
 =head1 VERSION
 
-version 0.092901
+version 0.092910
 
 =head1 AUTHOR
 

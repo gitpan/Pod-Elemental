@@ -1,9 +1,9 @@
 package Pod::Elemental::Element::Generic::Blank;
-our $VERSION = '0.092901';
+our $VERSION = '0.092910';
 
 
 use Moose;
-with 'Pod::Elemental::Paragraph';
+with 'Pod::Elemental::Flat';
 # ABSTRACT: a series of blank lines
 
 use namespace::autoclean;
@@ -22,7 +22,7 @@ Pod::Elemental::Element::Generic::Blank - a series of blank lines
 
 =head1 VERSION
 
-version 0.092901
+version 0.092910
 
 =head1 AUTHOR
 

@@ -1,14 +1,14 @@
-package Pod::Elemental::Element::Generic::Nonpod;
+package Pod::Elemental::Flat;
 our $VERSION = '0.092910';
 
 
-use Moose;
-with 'Pod::Elemental::Flat';
-# ABSTRACT: a non-pod element in a POD document
+use Moose::Role;
+# ABSTRACT: a content-only pod paragraph
 
 use namespace::autoclean;
 
-sub as_debug_string { '??' }
+with 'Pod::Elemental::Paragraph';
+excludes 'Pod::Elemental::Node';
 
 1;
 
@@ -18,7 +18,7 @@ __END__
 
 =head1 NAME
 
-Pod::Elemental::Element::Generic::Nonpod - a non-pod element in a POD document
+Pod::Elemental::Flat - a content-only pod paragraph
 
 =head1 VERSION
 
