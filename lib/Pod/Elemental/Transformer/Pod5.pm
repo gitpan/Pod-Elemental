@@ -1,5 +1,5 @@
 package Pod::Elemental::Transformer::Pod5;
-our $VERSION = '0.092900';
+our $VERSION = '0.092901';
 
 
 use Moose;
@@ -11,6 +11,7 @@ use Moose::Autobox 0.10;
 use namespace::autoclean;
 
 use Pod::Elemental::Document;
+use Pod::Elemental::Element::Pod5::Command;
 use Pod::Elemental::Element::Pod5::Data;
 use Pod::Elemental::Element::Pod5::Ordinary;
 use Pod::Elemental::Element::Pod5::Verbatim;
@@ -128,7 +129,7 @@ sub _strip_ends {
   return \@in_paras;
 }
 
-sub _autotype_text {
+sub _autotype_paras {
   my ($self, $paras, $is_pod) = @_;
 
   $paras->each(sub {
@@ -145,7 +146,14 @@ sub _autotype_text {
     }
 
     if ($elem->isa( $self->_class('Region') )) {
-      $self->_autotype_text( $elem->children, $elem->is_pod );
+      $self->_autotype_paras( $elem->children, $elem->is_pod );
+    }
+
+    if ($elem->isa( $self->_gen_class('Command') )) {
+      $paras->[ $i ] = $self->_class('Command')->new({
+        command => $elem->command,
+        content => $elem->content,
+      });
     }
   });
 
@@ -193,7 +201,8 @@ sub _collect_runs {
       last NEXT;
     }
 
-    pop @to_collect while $to_collect[-1]->isa( $self->_gen_class('Blank') );
+    pop @to_collect
+      while $paras->[ $to_collect[-1] ]->isa( $self->_gen_class('Blank') );
     next PASS unless @to_collect >= 3;
 
     my $new_content = $paras
@@ -208,6 +217,8 @@ sub _collect_runs {
     redo PASS;
   }
 
+  @$paras = grep { not $_->isa( $self->_gen_class('Blank') ) } @$paras;
+
   # I really don't feel bad about rewriting in place by the time we get here.
   # These are private methods, and I know the consequence of calling them.
   # Nobody else should be.  So there.  -- rjbs, 2009-10-17
@@ -219,7 +230,7 @@ sub transform_document {
 
   my $end_stripped     = $self->_strip_ends($document->children);
   my $region_collected = $self->_collect_regions($end_stripped);
-  my $text_typed       = $self->_autotype_text($region_collected, 1);
+  my $text_typed       = $self->_autotype_paras($region_collected, 1);
   my $text_collected   = $self->_collect_runs($text_typed);
 
   my $new_doc = Pod::Elemental::Document->new({
@@ -227,22 +238,6 @@ sub transform_document {
   });
 
   return $new_doc;
-}
-
-sub _xform_text {
-  my ($self, $para, $stack) = @_;
-
-  my $in_data = $stack->[0]->does('Pod::Elemental::FormatRegion')
-             && ! $stack->[0]->is_pod;
-
-  my $new_class = $in_data                   ? $self->_class('Data')
-                : ($para->content =~ /\A\s/) ? $self->_class('Verbatim')
-                :                              $self->_class('Ordinary');
-  
-  return $new_class->new({
-    content    => $para->content,
-    start_line => $para->start_line,
-  });
 }
 
 1;
@@ -257,7 +252,7 @@ Pod::Elemental::Transformer::Pod5 - the default, minimal semantics of Perl5's po
 
 =head1 VERSION
 
-version 0.092900
+version 0.092901
 
 =head1 AUTHOR
 

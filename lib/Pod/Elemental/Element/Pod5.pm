@@ -1,14 +1,15 @@
-package Pod::Elemental::Element::Generic::Blank;
+package Pod::Elemental::Element::Pod5;
 our $VERSION = '0.092901';
 
 
-use Moose;
-with 'Pod::Elemental::Paragraph';
-# ABSTRACT: a series of blank lines
-
 use namespace::autoclean;
+use Moose::Role;
+# ABSTRACT: a paragraph in a Pod document
 
-sub as_debug_string { '|' }
+override as_pod_string => sub {
+  my $str = super;
+  "$str\n";
+};
 
 1;
 
@@ -18,7 +19,7 @@ __END__
 
 =head1 NAME
 
-Pod::Elemental::Element::Generic::Blank - a series of blank lines
+Pod::Elemental::Element::Pod5 - a paragraph in a Pod document
 
 =head1 VERSION
 

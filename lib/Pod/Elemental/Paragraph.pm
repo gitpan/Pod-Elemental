@@ -1,5 +1,5 @@
 package Pod::Elemental::Paragraph;
-our $VERSION = '0.092900';
+our $VERSION = '0.092901';
 
 
 use namespace::autoclean;
@@ -18,10 +18,12 @@ sub as_pod_string {
 }
 
 
-sub as_debug_string {
-  my ($self) = @_;
-  return $self->as_string;
+sub _nl_replace {
+  use utf8;
+  $_[1] =~ s/\n/␤/g;
 }
+
+requires 'as_debug_string';
 
 1;
 
@@ -35,7 +37,7 @@ Pod::Elemental::Paragraph - a paragraph in a Pod document
 
 =head1 VERSION
 
-version 0.092900
+version 0.092901
 
 =head1 ATTRIBUTES
 

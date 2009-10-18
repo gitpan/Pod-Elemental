@@ -1,5 +1,5 @@
 package Pod::Elemental::FormatRegion;
-our $VERSION = '0.092900';
+our $VERSION = '0.092901';
 
 
 use Moose::Role;
@@ -29,7 +29,7 @@ Pod::Elemental::FormatRegion - a region of Pod (this role likely to be removed)
 
 =head1 VERSION
 
-version 0.092900
+version 0.092901
 
 =head1 ATTRIBUTES
 

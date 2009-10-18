@@ -1,5 +1,5 @@
 package Pod::Elemental::Element::Pod5::Region;
-our $VERSION = '0.092900';
+our $VERSION = '0.092901';
 
 
 # ABSTRACT: a region of Pod (this role likely to be removed)
@@ -31,19 +31,31 @@ sub as_pod_string {
 
     $string .= $self->children->map(sub { $_->as_pod_string })->join(q{});
 
-    $string .= sprintf "\n=%s %s\n",
+    $string .= sprintf "=%s %s\n\n",
       $self->closing_command,
       $colon . $self->format_name;
 
     return $string;
   }
 
-  return sprintf "=for %s%s",
+  return sprintf "=for %s%s\n",
     $colon . $self->format_name,
     ($content =~ /\S/ ? " $content" : "\n");
 }
 
-sub as_debug_string { $_[0]->as_pod_string }
+sub as_debug_string {
+  my ($self) = @_;
+
+  my $colon = $self->is_pod ? ':' : '';
+
+  my $string = sprintf "=%s %s",
+    $self->command,
+    $colon . $self->format_name;
+
+  return $string;
+}
+
+with 'Pod::Elemental::Element::Pod5';
 
 no Moose;
 1;
@@ -58,7 +70,7 @@ Pod::Elemental::Element::Pod5::Region - a region of Pod (this role likely to be 
 
 =head1 VERSION
 
-version 0.092900
+version 0.092901
 
 =head1 AUTHOR
 

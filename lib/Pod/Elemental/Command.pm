@@ -1,5 +1,5 @@
 package Pod::Elemental::Command;
-our $VERSION = '0.092900';
+our $VERSION = '0.092901';
 
 
 use Moose::Role;
@@ -18,6 +18,11 @@ sub as_pod_string {
   sprintf "=%s%s", $self->command, ($content =~ /\S/ ? " $content" : "\n");
 }
 
+sub as_debug_string {
+  my ($self) = @_;
+  return sprintf '=%s', $self->command;
+}
+
 1;
 
 __END__
@@ -30,7 +35,7 @@ Pod::Elemental::Command - a =command paragraph
 
 =head1 VERSION
 
-version 0.092900
+version 0.092901
 
 =head1 AUTHOR
 

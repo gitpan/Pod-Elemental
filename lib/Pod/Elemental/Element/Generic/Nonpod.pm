@@ -1,5 +1,5 @@
 package Pod::Elemental::Element::Generic::Nonpod;
-our $VERSION = '0.092900';
+our $VERSION = '0.092901';
 
 
 use Moose;
@@ -7,6 +7,8 @@ with 'Pod::Elemental::Paragraph';
 # ABSTRACT: a non-pod element in a POD document
 
 use namespace::autoclean;
+
+sub as_debug_string { '??' }
 
 1;
 
@@ -20,7 +22,7 @@ Pod::Elemental::Element::Generic::Nonpod - a non-pod element in a POD document
 
 =head1 VERSION
 
-version 0.092900
+version 0.092901
 
 =head1 AUTHOR
 

@@ -1,14 +1,14 @@
-package Pod::Elemental::Element::Generic::Blank;
+package Pod::Elemental::Element::Pod5::Command;
 our $VERSION = '0.092901';
 
 
 use Moose;
-with 'Pod::Elemental::Paragraph';
-# ABSTRACT: a series of blank lines
+# ABSTRACT: a Pod5 =command element
+
+extends 'Pod::Elemental::Element::Generic::Command';
+with    'Pod::Elemental::Element::Pod5';
 
 use namespace::autoclean;
-
-sub as_debug_string { '|' }
 
 1;
 
@@ -18,7 +18,7 @@ __END__
 
 =head1 NAME
 
-Pod::Elemental::Element::Generic::Blank - a series of blank lines
+Pod::Elemental::Element::Pod5::Command - a Pod5 =command element
 
 =head1 VERSION
 

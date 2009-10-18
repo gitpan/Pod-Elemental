@@ -1,5 +1,5 @@
 package Pod::Elemental::Region;
-our $VERSION = '0.092900';
+our $VERSION = '0.092901';
 
 
 use Moose::Role;
@@ -26,7 +26,7 @@ Pod::Elemental::Region - a command that establishes a region
 
 =head1 VERSION
 
-version 0.092900
+version 0.092901
 
 =head1 AUTHOR
 

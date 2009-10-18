@@ -12,6 +12,8 @@ lib/Pod/Elemental/Element/Generic/Blank.pm
 lib/Pod/Elemental/Element/Generic/Command.pm
 lib/Pod/Elemental/Element/Generic/Nonpod.pm
 lib/Pod/Elemental/Element/Generic/Text.pm
+lib/Pod/Elemental/Element/Pod5.pm
+lib/Pod/Elemental/Element/Pod5/Command.pm
 lib/Pod/Elemental/Element/Pod5/Data.pm
 lib/Pod/Elemental/Element/Pod5/Ordinary.pm
 lib/Pod/Elemental/Element/Pod5/Region.pm

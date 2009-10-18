@@ -1,5 +1,5 @@
 package Pod::Elemental::Document;
-our $VERSION = '0.092900';
+our $VERSION = '0.092901';
 
 
 use Moose;
@@ -33,7 +33,9 @@ sub as_pod_string {
     "=cut\n";
 }
 
-sub as_debug_string { die }
+sub as_debug_string {
+  return 'Document'
+}
 
 sub _elem_from_lol_entry {
   my ($self, $entry) = @_;
@@ -110,7 +112,7 @@ Pod::Elemental::Document - a pod document
 
 =head1 VERSION
 
-version 0.092900
+version 0.092901
 
 =head1 AUTHOR
 
