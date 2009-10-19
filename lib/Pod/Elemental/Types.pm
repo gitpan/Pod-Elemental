@@ -1,7 +1,7 @@
 use strict;
 use warnings;
 package Pod::Elemental::Types;
-our $VERSION = '0.092910';
+our $VERSION = '0.092920';
 
 
 # ABSTRACT: data types for Pod::Elemental
@@ -23,7 +23,7 @@ Pod::Elemental::Types - data types for Pod::Elemental
 
 =head1 VERSION
 
-version 0.092910
+version 0.092920
 
 =head1 AUTHOR
 

@@ -7,7 +7,7 @@
       "url" : "http://module-build.sourceforge.net/META-spec-v1.4.html"
    },
    "generated_by" : "Dist::Zilla version 1.092850",
-   "version" : "0.092910",
+   "version" : "0.092920",
    "name" : "Pod-Elemental",
    "author" : [
       "Ricardo SIGNES <rjbs@cpan.org>"

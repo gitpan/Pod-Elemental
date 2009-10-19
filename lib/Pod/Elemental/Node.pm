@@ -1,5 +1,5 @@
 package Pod::Elemental::Node;
-our $VERSION = '0.092910';
+our $VERSION = '0.092920';
 
 
 use Moose::Role;
@@ -48,7 +48,7 @@ Pod::Elemental::Node - a thing with Pod::Elemental::Nodes as children
 
 =head1 VERSION
 
-version 0.092910
+version 0.092920
 
 =head1 ATTRIBUTES
 

@@ -5,6 +5,7 @@ META.json
 Makefile.PL
 README
 dist.ini
+eg/demo-pod
 eg/pod-debug
 lib/Pod/Elemental.pm
 lib/Pod/Elemental/Autoblank.pm
@@ -38,6 +39,7 @@ t/eg/one-with-everything.pod
 t/elem/nested.t
 t/elemental.t
 t/from-lol.t
+t/gather.t
 t/nester.t
 t/objectifier.t
 t/pod5/combine.t

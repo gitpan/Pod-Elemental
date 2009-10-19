@@ -1,5 +1,5 @@
 package Pod::Elemental::Element::Generic::Nonpod;
-our $VERSION = '0.092910';
+our $VERSION = '0.092920';
 
 
 use Moose;
@@ -22,7 +22,7 @@ Pod::Elemental::Element::Generic::Nonpod - a non-pod element in a POD document
 
 =head1 VERSION
 
-version 0.092910
+version 0.092920
 
 =head1 AUTHOR
 

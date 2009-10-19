@@ -1,5 +1,5 @@
 package Pod::Elemental::Element::Generic::Command;
-our $VERSION = '0.092910';
+our $VERSION = '0.092920';
 
 
 use Moose;
@@ -13,7 +13,7 @@ sub type { 'command' }
 
 
 has command => (
-  is  => 'ro',
+  is  => 'rw',
   isa => 'Str',
   required => 1,
 );
@@ -32,7 +32,7 @@ Pod::Elemental::Element::Generic::Command - a POD =command element
 
 =head1 VERSION
 
-version 0.092910
+version 0.092920
 
 =head1 ATTRIBUTES
 

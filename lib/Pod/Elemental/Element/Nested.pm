@@ -1,10 +1,11 @@
 package Pod::Elemental::Element::Nested;
-our $VERSION = '0.092910';
+our $VERSION = '0.092920';
 
 
 use Moose;
 extends 'Pod::Elemental::Element::Generic::Command';
 with 'Pod::Elemental::Node';
+# ABSTRACT: an element that is a command and a node
 
 use Moose::Autobox 0.10;
 
@@ -28,11 +29,11 @@ __END__
 
 =head1 NAME
 
-Pod::Elemental::Element::Nested
+Pod::Elemental::Element::Nested - an element that is a command and a node
 
 =head1 VERSION
 
-version 0.092910
+version 0.092920
 
 =head1 AUTHOR
 

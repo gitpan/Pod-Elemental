@@ -1,9 +1,10 @@
 use strict;
 use warnings;
 package Pod::Elemental::Selectors;
-our $VERSION = '0.092910';
+our $VERSION = '0.092920';
 
 
+# ABSTRACT: predicates for selecting elements
 
 use Moose::Autobox 0.10;
 
@@ -61,11 +62,11 @@ __END__
 
 =head1 NAME
 
-Pod::Elemental::Selectors
+Pod::Elemental::Selectors - predicates for selecting elements
 
 =head1 VERSION
 
-version 0.092910
+version 0.092920
 
 =head1 AUTHOR
 
