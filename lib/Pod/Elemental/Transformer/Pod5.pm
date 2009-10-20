@@ -1,5 +1,5 @@
 package Pod::Elemental::Transformer::Pod5;
-our $VERSION = '0.092920';
+our $VERSION = '0.092930';
 
 
 use Moose;
@@ -13,6 +13,7 @@ use namespace::autoclean;
 use Pod::Elemental::Document;
 use Pod::Elemental::Element::Pod5::Command;
 use Pod::Elemental::Element::Pod5::Data;
+use Pod::Elemental::Element::Pod5::Nonpod;
 use Pod::Elemental::Element::Pod5::Ordinary;
 use Pod::Elemental::Element::Pod5::Verbatim;
 use Pod::Elemental::Element::Pod5::Region;
@@ -68,19 +69,31 @@ sub __extract_region {
   return \@region_paras;
 }
 
+sub _upgrade_nonpod {
+  my ($self, $in_paras) = @_;
+
+  $in_paras->each(sub {
+    my ($i, $para) = @_;
+    return unless $para->isa( $self->_gen_class('Nonpod') );
+    $in_paras->[ $i ] = $self->_class('Nonpod')->new({
+      content => $para->content,
+    });
+  });
+}
+
 sub _collect_regions {
   my ($self, $in_paras) = @_;
 
-  my @in_paras  = @$in_paras; # copy so we do not muck with input doc
   my @out_paras;
 
   my $s_region = s_command([ qw(begin for) ]);
   my $region_class = $self->_class('Region');
 
-  PARA: while (my $para = shift @in_paras) {
+  PARA: while (my $para = $in_paras->shift) {
     @out_paras->push($para), next PARA unless $s_region->($para);
 
     if ($para->command eq 'for') {
+      # factor out (for vertical space if nothing else) -- rjbs, 2009-10-20
       my ($colon, $target, $content) = $self->_region_para_parts($para);
 
       my $region = $region_class->new({
@@ -98,7 +111,7 @@ sub _collect_regions {
 
     my ($colon, $target, $content) = $self->_region_para_parts($para);
 
-    my $region_paras = $self->__extract_region("$colon$target", \@in_paras);
+    my $region_paras = $self->__extract_region("$colon$target", $in_paras);
 
     $region_paras->shift while s_blank($region_paras->[0]);
     $region_paras->pop   while s_blank($region_paras->[-1]);
@@ -113,20 +126,16 @@ sub _collect_regions {
     @out_paras->push($region);
   }
 
-  return \@out_paras;
+  @$in_paras = @out_paras;
+
+  return $in_paras;
 }
 
-sub _strip_ends {
+sub _strip_markers {
   my ($self, $in_paras) = @_;
 
-  my @in_paras  = @$in_paras; # copy so we do not muck with input doc
-
-  @in_paras->shift while s_command('pod', $in_paras[0]);
-  @in_paras->shift while s_blank($in_paras[0]);
-
-  @in_paras->pop   while s_command('cut', $in_paras[-1]);
-
-  return \@in_paras;
+  @$in_paras = grep { ! s_command([ qw(cut pod) ], $_) } @$in_paras;
+  $in_paras->shift while @$in_paras and s_blank($in_paras->[0]);
 }
 
 sub _autotype_paras {
@@ -156,11 +165,6 @@ sub _autotype_paras {
       });
     }
   });
-
-  # I really don't feel bad about rewriting in place by the time we get here.
-  # These are private methods, and I know the consequence of calling them.
-  # Nobody else should be.  So there.  -- rjbs, 2009-10-17
-  return $paras;
 }
 
 sub __text_class {
@@ -228,12 +232,11 @@ sub _collect_runs {
 sub transform_node {
   my ($self, $node) = @_;
 
-  my $end_stripped     = $self->_strip_ends($node->children);
-  my $region_collected = $self->_collect_regions($end_stripped);
-  my $text_typed       = $self->_autotype_paras($region_collected, 1);
-  my $text_collected   = $self->_collect_runs($text_typed);
-
-  $node->children( $text_collected );
+  $self->_strip_markers($node->children);
+  $self->_upgrade_nonpod($node->children);
+  $self->_collect_regions($node->children);
+  $self->_autotype_paras($node->children, 1);
+  $self->_collect_runs($node->children);
 
   return $node;
 }
@@ -241,7 +244,6 @@ sub transform_node {
 1;
 
 __END__
-
 =pod
 
 =head1 NAME
@@ -250,11 +252,11 @@ Pod::Elemental::Transformer::Pod5 - the default, minimal semantics of Perl5's po
 
 =head1 VERSION
 
-version 0.092920
+version 0.092930
 
 =head1 AUTHOR
 
-  Ricardo SIGNES <rjbs@cpan.org>
+Ricardo SIGNES <rjbs@cpan.org>
 
 =head1 COPYRIGHT AND LICENSE
 
@@ -263,6 +265,5 @@ This software is copyright (c) 2009 by Ricardo SIGNES.
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
 
-=cut 
-
+=cut
 

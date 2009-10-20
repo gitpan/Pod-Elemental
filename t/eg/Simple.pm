@@ -1,6 +1,6 @@
 use strict;
 package Simple;
-our $VERSION = '0.092920';
+our $VERSION = '0.092930';
 
 
 # ABSTRACT: this is just a test

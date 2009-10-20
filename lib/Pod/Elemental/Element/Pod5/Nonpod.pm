@@ -1,12 +1,18 @@
-package Pod::Elemental::Element::Generic::Text;
+package Pod::Elemental::Element::Pod5::Nonpod;
 our $VERSION = '0.092930';
 
 
 use Moose;
 with 'Pod::Elemental::Flat';
-# ABSTRACT: a POD text or verbatim element
+with 'Pod::Elemental::Autoblank';
+# ABSTRACT: a non-pod element in a POD document
 
 use namespace::autoclean;
+
+sub as_pod_string {
+  my ($self) = @_;
+  return sprintf "=cut\n%s=pod\n", $self->content;
+}
 
 1;
 
@@ -15,7 +21,7 @@ __END__
 
 =head1 NAME
 
-Pod::Elemental::Element::Generic::Text - a POD text or verbatim element
+Pod::Elemental::Element::Pod5::Nonpod - a non-pod element in a POD document
 
 =head1 VERSION
 

@@ -18,6 +18,7 @@ lib/Pod/Elemental/Element/Generic/Text.pm
 lib/Pod/Elemental/Element/Nested.pm
 lib/Pod/Elemental/Element/Pod5/Command.pm
 lib/Pod/Elemental/Element/Pod5/Data.pm
+lib/Pod/Elemental/Element/Pod5/Nonpod.pm
 lib/Pod/Elemental/Element/Pod5/Ordinary.pm
 lib/Pod/Elemental/Element/Pod5/Region.pm
 lib/Pod/Elemental/Element/Pod5/Verbatim.pm
@@ -43,6 +44,7 @@ t/gather.t
 t/nester.t
 t/objectifier.t
 t/pod5/combine.t
+t/pod5/cut.t
 t/pod5/for-begin.t
 t/pod5/nested-same.t
 t/pod5/region.t

@@ -1,5 +1,5 @@
 package Pod::Elemental::Element::Pod5::Region;
-our $VERSION = '0.092920';
+our $VERSION = '0.092930';
 
 
 # ABSTRACT: a region of Pod (this role likely to be removed)
@@ -102,7 +102,6 @@ no Moose;
 1;
 
 __END__
-
 =pod
 
 =head1 NAME
@@ -111,7 +110,7 @@ Pod::Elemental::Element::Pod5::Region - a region of Pod (this role likely to be 
 
 =head1 VERSION
 
-version 0.092920
+version 0.092930
 
 =head1 ATTRIBUTES
 
@@ -121,6 +120,10 @@ This is the format to which the document was targeted.  By default, this is
 undefined and the document is vanilla pod.  If this is set, the document may or
 may not be pod, and is intended for some other form of processor.  (See
 L</is_pod>.)
+
+=cut
+
+=pod
 
 =head2 is_pod
 
@@ -136,7 +139,7 @@ with a colon-prefixed target identifier:
 
 =head1 AUTHOR
 
-  Ricardo SIGNES <rjbs@cpan.org>
+Ricardo SIGNES <rjbs@cpan.org>
 
 =head1 COPYRIGHT AND LICENSE
 
@@ -145,6 +148,5 @@ This software is copyright (c) 2009 by Ricardo SIGNES.
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
 
-=cut 
-
+=cut
 

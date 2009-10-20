@@ -1,10 +1,13 @@
 package Pod::Elemental::Paragraph;
-our $VERSION = '0.092920';
+our $VERSION = '0.092930';
 
 
 use namespace::autoclean;
 use Moose::Role;
 use Moose::Autobox;
+
+use Encode qw(encode);
+use String::Truncate qw(elide);
 # ABSTRACT: a paragraph in a Pod document
 
 
@@ -18,9 +21,16 @@ sub as_pod_string {
 }
 
 
-sub _nl_replace {
+sub _summarize_string {
+  my ($self, $str, $length) = @_;
+  $length ||= 30;
+
   use utf8;
-  $_[1] =~ s/\n/␤/g;
+  chomp $str;
+  my $elided = elide($str, $length, { truncate => 'middle', marker => '…' });
+  $elided =~ tr/\n\t/␤␉/;
+
+  return encode('utf-8', $elided);
 }
 
 requires 'as_debug_string';
@@ -28,7 +38,6 @@ requires 'as_debug_string';
 1;
 
 __END__
-
 =pod
 
 =head1 NAME
@@ -37,7 +46,7 @@ Pod::Elemental::Paragraph - a paragraph in a Pod document
 
 =head1 VERSION
 
-version 0.092920
+version 0.092930
 
 =head1 ATTRIBUTES
 
@@ -55,6 +64,10 @@ has a content of "content"
 This attribute, which may or may not be set, indicates the line in the source
 document where the element began.
 
+=cut
+
+=pod
+
 =head1 METHODS
 
 =head2 as_pod_string
@@ -64,6 +77,10 @@ a document.  Some elements, like a C<=over> command, will stringify to include
 extra content like a C<=back> command.  In the case of elements with children,
 this method will include the stringified children as well.
 
+=cut
+
+=pod
+
 =head2 as_debug_string
 
 This method returns a string, like C<as_string>, but is meant for getting an
@@ -72,7 +89,7 @@ document.  Its exact output is likely to change over time.
 
 =head1 AUTHOR
 
-  Ricardo SIGNES <rjbs@cpan.org>
+Ricardo SIGNES <rjbs@cpan.org>
 
 =head1 COPYRIGHT AND LICENSE
 
@@ -81,6 +98,5 @@ This software is copyright (c) 2009 by Ricardo SIGNES.
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
 
-=cut 
-
+=cut
 
