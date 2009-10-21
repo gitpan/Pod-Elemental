@@ -7,7 +7,7 @@
       "url" : "http://module-build.sourceforge.net/META-spec-v1.4.html"
    },
    "generated_by" : "Dist::Zilla version 1.092850",
-   "version" : "0.092930",
+   "version" : "0.092940",
    "name" : "Pod-Elemental",
    "author" : [
       "Ricardo SIGNES <rjbs@cpan.org>"
@@ -23,8 +23,9 @@
       "Mixin::Linewise::Readers" : "0",
       "Test::Differences" : "0",
       "MooseX::Types" : "0",
+      "Sub::Exporter::ForMethods" : "0",
       "Test::Deep" : "0",
       "Moose" : "0"
    },
-   "abstract" : "work with nestable POD elements"
+   "abstract" : "work with nestable Pod elements"
 }

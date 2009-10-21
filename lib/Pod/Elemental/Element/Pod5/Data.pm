@@ -1,11 +1,12 @@
 package Pod::Elemental::Element::Pod5::Data;
-our $VERSION = '0.092930';
+our $VERSION = '0.092940';
 
 
 use Moose;
 extends 'Pod::Elemental::Element::Generic::Text';
 with    'Pod::Elemental::Autoblank';
 # ABSTRACT: a POD data paragraph
+
 
 use namespace::autoclean;
 
@@ -20,7 +21,14 @@ Pod::Elemental::Element::Pod5::Data - a POD data paragraph
 
 =head1 VERSION
 
-version 0.092930
+version 0.092940
+
+=head1 OVERVIEW
+
+Pod5::Data paragraphs represent the content of
+L<Pod5::Region|Pod::Elemental::Element::Pod5::Region> paragraphs when the
+region is not a Pod-like region.  These regions should generally have a single
+data element contained in them.
 
 =head1 AUTHOR
 

@@ -1,5 +1,5 @@
 package Pod::Elemental::Element::Generic::Command;
-our $VERSION = '0.092930';
+our $VERSION = '0.092940';
 
 
 use Moose;
@@ -8,8 +8,6 @@ use Moose;
 use namespace::autoclean;
 
 use Moose::Autobox;
-
-sub type { 'command' }
 
 
 has command => (
@@ -31,7 +29,13 @@ Pod::Elemental::Element::Generic::Command - a POD =command element
 
 =head1 VERSION
 
-version 0.092930
+version 0.092940
+
+=head1 OVERVIEW
+
+Generic::Command elements are paragraph elements implementing the
+Pod::Elemental::Command role.  They provide the command method by implementing
+a read/write command attribute.
 
 =head1 ATTRIBUTES
 

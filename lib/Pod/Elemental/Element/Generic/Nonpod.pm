@@ -1,5 +1,5 @@
 package Pod::Elemental::Element::Generic::Nonpod;
-our $VERSION = '0.092930';
+our $VERSION = '0.092940';
 
 
 use Moose;
@@ -7,6 +7,7 @@ with 'Pod::Elemental::Flat';
 # ABSTRACT: a non-pod element in a POD document
 
 use namespace::autoclean;
+
 
 1;
 
@@ -19,7 +20,12 @@ Pod::Elemental::Element::Generic::Nonpod - a non-pod element in a POD document
 
 =head1 VERSION
 
-version 0.092930
+version 0.092940
+
+=head1 OVERVIEW
+
+Generic::Nonpod elements are just like Generic::Text elements, but represent
+non-pod content found in the Pod stream.
 
 =head1 AUTHOR
 

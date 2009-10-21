@@ -1,5 +1,5 @@
 package Pod::Elemental::Element::Nested;
-our $VERSION = '0.092930';
+our $VERSION = '0.092940';
 
 
 use Moose;
@@ -7,7 +7,10 @@ extends 'Pod::Elemental::Element::Generic::Command';
 with 'Pod::Elemental::Node';
 # ABSTRACT: an element that is a command and a node
 
+use namespace::autoclean;
+
 use Moose::Autobox 0.10;
+
 
 override as_pod_string => sub {
   my ($self) = @_;
@@ -18,8 +21,6 @@ override as_pod_string => sub {
     "$string\n",
     $self->children->map(sub { $_->as_pod_string })->flatten;
 };
-
-use namespace::autoclean;
 
 1;
 
@@ -32,7 +33,20 @@ Pod::Elemental::Element::Nested - an element that is a command and a node
 
 =head1 VERSION
 
-version 0.092930
+version 0.092940
+
+=head1 WARNING
+
+This class is somewhat sketchy and may be refactored somewhat in the future,
+specifically to refactor its similarities to
+L<Pod::Elemental::Element::Pod5::Region>.
+
+=head1 OVERVIEW
+
+A Nested element is a Generic::Command element that is also a node.
+
+It's used by the nester transformer to produce commands with children, to make
+documents seem more structured for easy manipulation.
 
 =head1 AUTHOR
 

@@ -1,5 +1,5 @@
 package Pod::Elemental::Paragraph;
-our $VERSION = '0.092930';
+our $VERSION = '0.092940';
 
 
 use namespace::autoclean;
@@ -46,18 +46,25 @@ Pod::Elemental::Paragraph - a paragraph in a Pod document
 
 =head1 VERSION
 
-version 0.092930
+version 0.092940
+
+=head1 OVERVIEW
+
+This is probably the most important role in the Pod-Elemental distribution.
+Classes including this role represent paragraphs in a Pod document.  The
+paragraph is the fundamental unit of dividing up Pod documents, so this is a
+often-included role.
 
 =head1 ATTRIBUTES
 
 =head2 content
 
-This is the textual content of the element, as in a Pod::Eventual event, but
-has its trailing newline chomped.  In other words, this POD:
+This is the textual content of the element, as in a Pod::Eventual event.  In
+other words, this Pod:
 
   =head2 content
 
-has a content of "content"
+has a content of "content\n"
 
 =head2 start_line
 

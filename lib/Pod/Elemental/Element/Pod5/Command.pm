@@ -1,5 +1,5 @@
 package Pod::Elemental::Element::Pod5::Command;
-our $VERSION = '0.092930';
+our $VERSION = '0.092940';
 
 
 use Moose;
@@ -7,6 +7,7 @@ use Moose;
 
 extends 'Pod::Elemental::Element::Generic::Command';
 with    'Pod::Elemental::Autoblank';
+
 
 use namespace::autoclean;
 
@@ -21,7 +22,14 @@ Pod::Elemental::Element::Pod5::Command - a Pod5 =command element
 
 =head1 VERSION
 
-version 0.092930
+version 0.092940
+
+=head1 OVERVIEW
+
+Pod5::Command elements are identical to
+L<Generic::Command|Pod::Elemental::Element::Generic::Command> elements, except
+that they incorporate L<Pod::Elemental::Autoblank>.  They represent command
+paragraphs in a Pod5 document.
 
 =head1 AUTHOR
 

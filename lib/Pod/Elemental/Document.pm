@@ -1,5 +1,5 @@
 package Pod::Elemental::Document;
-our $VERSION = '0.092930';
+our $VERSION = '0.092940';
 
 
 use Moose;
@@ -11,6 +11,7 @@ use namespace::autoclean;
 
 use Pod::Elemental::Element::Generic::Blank;
 use String::RewritePrefix;
+
 
 sub _expand_name {
   my ($self, $name) = @_;
@@ -111,7 +112,15 @@ Pod::Elemental::Document - a pod document
 
 =head1 VERSION
 
-version 0.092930
+version 0.092940
+
+=head1 OVERVIEW
+
+Pod::Elemental::Document is a container for Pod documents.  It performs
+L<Pod::Elemental::Node> but I<not> L<Pod::Elemental::Paragraph>.
+
+Documents are used almost exclusively to give a small amount of behavior to
+arrayrefs of paragraphs, and have few methods of their own.
 
 =head1 AUTHOR
 

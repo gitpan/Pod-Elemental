@@ -8,8 +8,8 @@ WriteMakefile(
   DISTNAME  => 'Pod-Elemental',
   NAME      => 'Pod::Elemental',
   AUTHOR    => "Ricardo\ SIGNES\ \<rjbs\@cpan\.org\>",
-  ABSTRACT  => "work\ with\ nestable\ POD\ elements",
-  VERSION   => '0.092930',
+  ABSTRACT  => "work\ with\ nestable\ Pod\ elements",
+  VERSION   => '0.092940',
   EXE_FILES => [ qw() ],
   (eval { ExtUtils::MakeMaker->VERSION(6.31) } ? (LICENSE => 'perl') : ()),
   PREREQ_PM    => {
@@ -22,6 +22,7 @@ WriteMakefile(
     "Mixin::Linewise::Readers" => '0',
     "Test::Differences" => '0',
     "MooseX::Types" => '0',
+    "Sub::Exporter::ForMethods" => '0',
     "Test::Deep" => '0',
     "Moose" => '0',
   },

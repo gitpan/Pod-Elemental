@@ -1,38 +1,24 @@
 package Pod::Elemental;
-our $VERSION = '0.092930';
+our $VERSION = '0.092940';
 
 
 use Moose;
+# ABSTRACT: work with nestable Pod elements
+
+use namespace::autoclean;
+
+use Sub::Exporter::ForMethods ();
+use Mixin::Linewise::Readers
+  { installer => Sub::Exporter::ForMethods::method_installer },
+  -readers;
+
 use Moose::Autobox;
-# ABSTRACT: work with nestable POD elements
+use MooseX::Types;
 
-use Mixin::Linewise::Readers -readers;
-
+use Pod::Eventual::Simple;
 use Pod::Elemental::Document;
 use Pod::Elemental::Transformer::Pod5;
 use Pod::Elemental::Objectifier;
-use Pod::Eventual::Simple;
-
-
-has event_reader => (
-  is => 'ro',
-  required => 1,
-  default  => sub { return Pod::Eventual::Simple->new },
-);
-
-
-has objectifier => (
-  is => 'ro',
-  required => 1,
-  default  => sub { return Pod::Elemental::Objectifier->new },
-);
-
-
-has document_class => (
-  is       => 'ro',
-  required => 1,
-  default  => 'Pod::Elemental::Document',
-);
 
 
 sub read_handle {
@@ -49,6 +35,28 @@ sub read_handle {
   return $document;
 }
 
+
+has event_reader => (
+  is => 'ro',
+  required => 1,
+  default  => sub { return Pod::Eventual::Simple->new },
+);
+
+
+has objectifier => (
+  is  => 'ro',
+  isa => duck_type( [qw(objectify_events) ]),
+  required => 1,
+  default  => sub { return Pod::Elemental::Objectifier->new },
+);
+
+
+has document_class => (
+  is       => 'ro',
+  required => 1,
+  default  => 'Pod::Elemental::Document',
+);
+
 __PACKAGE__->meta->make_immutable;
 no Moose;
 1;
@@ -58,11 +66,54 @@ __END__
 
 =head1 NAME
 
-Pod::Elemental - work with nestable POD elements
+Pod::Elemental - work with nestable Pod elements
 
 =head1 VERSION
 
-version 0.092930
+version 0.092940
+
+=head1 DESCRIPTION
+
+Pod::Elemental is a system for treating a Pod (L<plain old
+documentation|perlpod>) documents as trees of elements.  This model may be
+familiar from many other document systems, especially the HTML DOM.
+Pod::Elemental's document object model is much less sophisticated than the HTML
+DOM, but still makes a lot of document transformations easy.
+
+In general, you'll want to read in a Pod document and then perform a number of
+prepackaged transformations on it.  The most common of these will be the L<Pod5
+transformation|Pod::Elemental::Transformer::Pod5>, which assumes that the basic
+meaning of Pod commands described in the Perl 5 documentation hold: C<=begin>,
+C<=end>, and C<=for> commands mark regions of the document, leading whitespace
+marks a verbatim paragraph, and so on.  The Pod5 transformer also eliminates
+the need to track elements representing vertical whitespace.
+
+=head1 SYNOPSIS
+
+  use Pod::Elemental;
+  use Pod::Elemental::Transformer::Pod5;
+
+  my $document = Pod::Elemental->read_file('lib/Pod/Elemental.pm');
+
+  Pod::Elemental::Transformer::Pod5->new->transform_node($document);
+
+  print $document->as_debug_string, "\n"; # quick overview of doc structure
+
+  print $document->as_pod_string, "\n";   # reproduce the document in Pod
+
+=head1 METHODS
+
+=head2 read_handle
+
+=head2 read_file
+
+=head2 read_string
+
+These methods read the given input and return a Pod::Elemental::Document.
+
+=cut
+
+=pod
 
 =head1 ATTRIBUTES
 
@@ -80,7 +131,7 @@ Pod::Eventual::Simple.
 =head2 objectifier
 
 The objectifier (by default a new Pod::Elemental::Objectifier) must provide an
-C<objectify_events> method that converts POD events into
+C<objectify_events> method that converts Pod events into
 Pod::Elemental::Element objects.
 
 =cut
@@ -90,20 +141,6 @@ Pod::Elemental::Element objects.
 =head2 document_class
 
 This is the class for documents created by reading pod.
-
-=cut
-
-=pod
-
-=head1 METHODS
-
-=head2 read_handle
-
-=head2 read_file
-
-=head2 read_string
-
-These methods read the given input and return a Pod::Elemental::Document.
 
 =head1 AUTHOR
 

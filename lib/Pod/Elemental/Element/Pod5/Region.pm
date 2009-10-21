@@ -1,5 +1,5 @@
 package Pod::Elemental::Element::Pod5::Region;
-our $VERSION = '0.092930';
+our $VERSION = '0.092940';
 
 
 # ABSTRACT: a region of Pod (this role likely to be removed)
@@ -9,6 +9,7 @@ with qw(
   Pod::Elemental::Node
   Pod::Elemental::Command
 );
+
 
 use Moose::Autobox;
 
@@ -32,9 +33,11 @@ sub _display_as_for {
 
   my $child = $self->children->[0];
 
+  return if $child->content =~ /\n\S/;
+
   my $base = 'Pod::Elemental::Element::Pod5::';
-  return 1 if   $self->is_pod and $child->isa("${base}Data");
-  return 1 if ! $self->is_pod and $child->isa("${base}Ordinary");
+  return 1 if   $self->is_pod and $child->isa("${base}Ordinary");
+  return 1 if ! $self->is_pod and $child->isa("${base}Data");
 
   return;
 }
@@ -110,16 +113,35 @@ Pod::Elemental::Element::Pod5::Region - a region of Pod (this role likely to be 
 
 =head1 VERSION
 
-version 0.092930
+version 0.092940
+
+=head1 WARNING
+
+This class is somewhat sketchy and may be refactored somewhat in the future,
+specifically to refactor its similarities to
+L<Pod::Elemental::Element::Nested>.
+
+=head1 OVERVIEW
+
+A Pod5::Region element represents a region marked by a C<=for> command or a
+pair of C<=begin> and C<=end> commands.  It may have content of its own as well
+as child paragraphs.
+
+Its C<as_pod_string> method will emit either a C<=begin/=end>-enclosed string
+or a C<=for> command, based on whichever is permissible.
+
+=cut
+
+=pod
 
 =head1 ATTRIBUTES
 
 =head2 format_name
 
-This is the format to which the document was targeted.  By default, this is
-undefined and the document is vanilla pod.  If this is set, the document may or
-may not be pod, and is intended for some other form of processor.  (See
-L</is_pod>.)
+This is the format to which the region was targeted.  
+
+B<Note!>  The format name should I<not> include the leading colon to indicate a
+pod paragraph.  For that, see C<L</is_pod>>.
 
 =cut
 
@@ -127,9 +149,9 @@ L</is_pod>.)
 
 =head2 is_pod
 
-If true, this document contains pod paragraphs, as opposed to data paragraphs.
-This will generally result from the document originating in a C<=begin> block
-with a colon-prefixed target identifier:
+If true, this region contains pod (ordinary or verbatim) paragraphs, as opposed
+to data paragraphs.  This will generally result from the document originating
+in a C<=begin> block with a colon-prefixed target identifier:
 
   =begin :html
 

@@ -1,10 +1,11 @@
 package Pod::Elemental::Element::Generic::Blank;
-our $VERSION = '0.092930';
+our $VERSION = '0.092940';
 
 
 use Moose;
 with 'Pod::Elemental::Flat';
 # ABSTRACT: a series of blank lines
+
 
 use namespace::autoclean;
 
@@ -21,7 +22,14 @@ Pod::Elemental::Element::Generic::Blank - a series of blank lines
 
 =head1 VERSION
 
-version 0.092930
+version 0.092940
+
+=head1 OVERVIEW
+
+Generic::Blank elements represent vertical whitespace in a Pod document.  For
+the most part, these are meant to be placeholders until made unnecessary by the
+Pod5 transformer.  Most end-users will never need to worry about these
+elements.
 
 =head1 AUTHOR
 

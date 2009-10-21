@@ -1,10 +1,11 @@
 package Pod::Elemental::Command;
-our $VERSION = '0.092930';
+our $VERSION = '0.092940';
 
 
 use Moose::Role;
 with 'Pod::Elemental::Paragraph' => { excludes => [ 'as_pod_string' ] };
 # ABSTRACT: a =command paragraph
+
 
 use Moose::Autobox;
 
@@ -35,7 +36,16 @@ Pod::Elemental::Command - a =command paragraph
 
 =head1 VERSION
 
-version 0.092930
+version 0.092940
+
+=head1 OVERVIEW
+
+This is a role to be included by paragraph classes that represent Pod commands.
+It defines C<as_pod_string> and C<as_debug_string> methods.  Most code looking
+for commands will check for the inclusion of this role, so be sure to use it
+even if you override the provided methods.  Classes implementing this role must
+also provide a C<command> method.  Generally this method will implemented by
+an attribute, but this is not necessary.
 
 =head1 AUTHOR
 
