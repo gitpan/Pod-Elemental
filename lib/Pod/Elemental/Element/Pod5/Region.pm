@@ -1,5 +1,5 @@
 package Pod::Elemental::Element::Pod5::Region;
-our $VERSION = '0.092940';
+our $VERSION = '0.092941';
 
 
 # ABSTRACT: a region of Pod (this role likely to be removed)
@@ -45,27 +45,38 @@ sub _display_as_for {
 sub as_pod_string {
   my ($self) = @_;
 
+  my $string;
+
   if ($self->_display_as_for) {
-    return $self->__as_pod_string_for($self);
+    $string = $self->__as_pod_string_for($self);
   } else {
-    return $self->__as_pod_string_begin($self);
+    $string = $self->__as_pod_string_begin($self);
   }
+
+  $string =~ s/\n*\z//g;
+
+  return $string;
 }
 
 sub __as_pod_string_begin {
   my ($self) = @_;
 
   my $content = $self->content;
-  my $colon = $self->is_pod ? ':' : '';
+  my $colon   = $self->is_pod ? ':' : '';
 
   my $string = sprintf "=%s %s%s\n",
     $self->command,
     $colon . $self->format_name,
-    ($content =~ /\S/ ? " $content" : "\n");
+    ($content =~ /\S/ ? " $content\n" : "\n");
 
   $string .= $self->children->map(sub { $_->as_pod_string })->join(q{});
 
-  $string .= sprintf "=%s %s\n",
+  $string .= "\n"
+    if  $self->children->length
+    and $self->children->[-1]->isa( 'Pod::Elemental::Element::Pod5::Data');
+    # Pod5::$self->is_pod; # XXX: HACK!! -- rjbs, 2009-10-21
+
+  $string .= sprintf "=%s %s",
     $self->closing_command,
     $colon . $self->format_name;
 
@@ -80,9 +91,7 @@ sub __as_pod_string_for {
 
   my $string = sprintf "=for %s %s",
     $colon . $self->format_name,
-    $self->children->map(sub { $_->as_pod_string })->join(q{});
-
-  chomp $string;
+    $self->children->[0]->as_pod_string;
 
   return $string;
 }
@@ -100,6 +109,7 @@ sub as_debug_string {
 }
 
 with 'Pod::Elemental::Autoblank';
+with 'Pod::Elemental::Autochomp';
 
 no Moose;
 1;
@@ -113,7 +123,7 @@ Pod::Elemental::Element::Pod5::Region - a region of Pod (this role likely to be 
 
 =head1 VERSION
 
-version 0.092940
+version 0.092941
 
 =head1 WARNING
 
@@ -154,9 +164,7 @@ to data paragraphs.  This will generally result from the document originating
 in a C<=begin> block with a colon-prefixed target identifier:
 
   =begin :html
-
     This is still a verbatim paragraph.
-
   =end :html
 
 =head1 AUTHOR

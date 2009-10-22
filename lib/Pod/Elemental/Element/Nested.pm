@@ -1,10 +1,11 @@
 package Pod::Elemental::Element::Nested;
-our $VERSION = '0.092940';
+our $VERSION = '0.092941';
 
 
 use Moose;
 extends 'Pod::Elemental::Element::Generic::Command';
 with 'Pod::Elemental::Node';
+with 'Pod::Elemental::Autochomp';
 # ABSTRACT: an element that is a command and a node
 
 use namespace::autoclean;
@@ -17,9 +18,13 @@ override as_pod_string => sub {
 
   my $string = super;
 
-  join q{},
-    "$string\n",
+  $string = join q{},
+    "$string\n\n",
     $self->children->map(sub { $_->as_pod_string })->flatten;
+
+  $string =~ s/\n{3,}\z/\n\n/g;
+
+  return $string;
 };
 
 1;
@@ -33,7 +38,7 @@ Pod::Elemental::Element::Nested - an element that is a command and a node
 
 =head1 VERSION
 
-version 0.092940
+version 0.092941
 
 =head1 WARNING
 

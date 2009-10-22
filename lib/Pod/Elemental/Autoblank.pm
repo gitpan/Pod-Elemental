@@ -1,5 +1,5 @@
 package Pod::Elemental::Autoblank;
-our $VERSION = '0.092940';
+our $VERSION = '0.092941';
 
 
 use namespace::autoclean;
@@ -10,7 +10,7 @@ use Moose::Role;
 around as_pod_string => sub {
   my ($orig, $self, @arg) = @_;
   my $str = $self->$orig(@arg);
-  "$str\n";
+  "$str\n\n";
 };
 
 1;
@@ -24,7 +24,7 @@ Pod::Elemental::Autoblank - a paragraph that always displays an extra blank line
 
 =head1 VERSION
 
-version 0.092940
+version 0.092941
 
 =head1 OVERVIEW
 

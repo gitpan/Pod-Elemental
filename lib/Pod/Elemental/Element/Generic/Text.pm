@@ -1,10 +1,10 @@
 package Pod::Elemental::Element::Generic::Text;
-our $VERSION = '0.092940';
+our $VERSION = '0.092941';
 
 
 use Moose;
 with 'Pod::Elemental::Flat';
-# ABSTRACT: a POD text or verbatim element
+# ABSTRACT: a Pod text or verbatim element
 
 use namespace::autoclean;
 
@@ -16,11 +16,11 @@ __END__
 
 =head1 NAME
 
-Pod::Elemental::Element::Generic::Text - a POD text or verbatim element
+Pod::Elemental::Element::Generic::Text - a Pod text or verbatim element
 
 =head1 VERSION
 
-version 0.092940
+version 0.092941
 
 =head1 OVERVIEW
 

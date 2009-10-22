@@ -1,10 +1,11 @@
 package Pod::Elemental::Element::Pod5::Ordinary;
-our $VERSION = '0.092940';
+our $VERSION = '0.092941';
 
 
 use Moose;
 extends 'Pod::Elemental::Element::Generic::Text';
 with    'Pod::Elemental::Autoblank';
+with    'Pod::Elemental::Autochomp';
 # ABSTRACT: a Pod5 ordinary text paragraph
 
 
@@ -21,7 +22,7 @@ Pod::Elemental::Element::Pod5::Ordinary - a Pod5 ordinary text paragraph
 
 =head1 VERSION
 
-version 0.092940
+version 0.092941
 
 =head1 OVERVIEW
 

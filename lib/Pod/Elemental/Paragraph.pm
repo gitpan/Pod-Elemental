@@ -1,5 +1,5 @@
 package Pod::Elemental::Paragraph;
-our $VERSION = '0.092940';
+our $VERSION = '0.092941';
 
 
 use namespace::autoclean;
@@ -46,7 +46,7 @@ Pod::Elemental::Paragraph - a paragraph in a Pod document
 
 =head1 VERSION
 
-version 0.092940
+version 0.092941
 
 =head1 OVERVIEW
 

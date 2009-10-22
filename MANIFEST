@@ -9,6 +9,7 @@ eg/demo-pod
 eg/pod-debug
 lib/Pod/Elemental.pm
 lib/Pod/Elemental/Autoblank.pm
+lib/Pod/Elemental/Autochomp.pm
 lib/Pod/Elemental/Command.pm
 lib/Pod/Elemental/Document.pm
 lib/Pod/Elemental/Element/Generic/Blank.pm
@@ -52,3 +53,4 @@ t/pod5/text-type.t
 t/release-pod-coverage.t
 t/release-pod-syntax.t
 t/selectors.t
+t/types.t

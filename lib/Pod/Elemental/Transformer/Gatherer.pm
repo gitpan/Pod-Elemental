@@ -1,5 +1,5 @@
 package Pod::Elemental::Transformer::Gatherer;
-our $VERSION = '0.092940';
+our $VERSION = '0.092941';
 
 
 use Moose;
@@ -57,7 +57,7 @@ Pod::Elemental::Transformer::Gatherer - gather related paragraphs under a shared
 
 =head1 VERSION
 
-version 0.092940
+version 0.092941
 
 =head1 OVERVIEW
 

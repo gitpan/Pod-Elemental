@@ -1,5 +1,5 @@
 package Pod::Elemental;
-our $VERSION = '0.092940';
+our $VERSION = '0.092941';
 
 
 use Moose;
@@ -70,7 +70,7 @@ Pod::Elemental - work with nestable Pod elements
 
 =head1 VERSION
 
-version 0.092940
+version 0.092941
 
 =head1 DESCRIPTION
 
@@ -92,13 +92,9 @@ the need to track elements representing vertical whitespace.
 
   use Pod::Elemental;
   use Pod::Elemental::Transformer::Pod5;
-
   my $document = Pod::Elemental->read_file('lib/Pod/Elemental.pm');
-
   Pod::Elemental::Transformer::Pod5->new->transform_node($document);
-
   print $document->as_debug_string, "\n"; # quick overview of doc structure
-
   print $document->as_pod_string, "\n";   # reproduce the document in Pod
 
 =head1 METHODS

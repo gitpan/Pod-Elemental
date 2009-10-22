@@ -1,13 +1,18 @@
-package Pod::Elemental::Element::Generic::Nonpod;
+package Pod::Elemental::Autochomp;
 our $VERSION = '0.092941';
 
 
-use Moose;
-with 'Pod::Elemental::Flat';
-# ABSTRACT: a non-pod element in a Pod document
-
 use namespace::autoclean;
+use Moose::Role;
+# ABSTRACT: a paragraph that chomps set content
 
+use Pod::Elemental::Types qw(ChompedString);
+
+
+has '+content' => (
+  coerce => 1,
+  isa    => ChompedString,
+);
 
 1;
 
@@ -16,7 +21,7 @@ __END__
 
 =head1 NAME
 
-Pod::Elemental::Element::Generic::Nonpod - a non-pod element in a Pod document
+Pod::Elemental::Autochomp - a paragraph that chomps set content
 
 =head1 VERSION
 
@@ -24,8 +29,8 @@ version 0.092941
 
 =head1 OVERVIEW
 
-Generic::Nonpod elements are just like Generic::Text elements, but represent
-non-pod content found in the Pod stream.
+This role exists primarily to simplify elements produced by the Pod5
+transformer.
 
 =head1 AUTHOR
 

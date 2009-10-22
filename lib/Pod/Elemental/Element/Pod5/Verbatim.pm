@@ -1,11 +1,12 @@
 package Pod::Elemental::Element::Pod5::Verbatim;
-our $VERSION = '0.092940';
+our $VERSION = '0.092941';
 
 
 use Moose;
 extends 'Pod::Elemental::Element::Generic::Text';
 with    'Pod::Elemental::Autoblank';
-# ABSTRACT: a POD verbatim element
+with    'Pod::Elemental::Autochomp';
+# ABSTRACT: a Pod verbatim paragraph
 
 
 use namespace::autoclean;
@@ -17,11 +18,11 @@ __END__
 
 =head1 NAME
 
-Pod::Elemental::Element::Pod5::Verbatim - a POD verbatim element
+Pod::Elemental::Element::Pod5::Verbatim - a Pod verbatim paragraph
 
 =head1 VERSION
 
-version 0.092940
+version 0.092941
 
 =head1 OVERVIEW
 
