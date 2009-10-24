@@ -1,5 +1,5 @@
 package Pod::Elemental::Transformer::Gatherer;
-our $VERSION = '0.092941';
+our $VERSION = '0.092970';
 
 
 use Moose;
@@ -57,7 +57,7 @@ Pod::Elemental::Transformer::Gatherer - gather related paragraphs under a shared
 
 =head1 VERSION
 
-version 0.092941
+version 0.092970
 
 =head1 OVERVIEW
 
@@ -86,7 +86,7 @@ So, given this document:
 
 ...and this nester...
 
-  my $nester = Pod::Elemental::Transformer::Gatherer->new({
+  my $gatherer = Pod::Elemental::Transformer::Gatherer->new({
     gather_selector => s_command( [ qw(over item back) ] ),
     container       => Pod::Elemental::Element::Pod5::Command->new({
       command => 'head1',

@@ -1,5 +1,5 @@
 package Pod::Elemental::Autoblank;
-our $VERSION = '0.092941';
+our $VERSION = '0.092970';
 
 
 use namespace::autoclean;
@@ -24,7 +24,7 @@ Pod::Elemental::Autoblank - a paragraph that always displays an extra blank line
 
 =head1 VERSION
 
-version 0.092941
+version 0.092970
 
 =head1 OVERVIEW
 

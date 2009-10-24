@@ -1,5 +1,5 @@
 package Pod::Elemental;
-our $VERSION = '0.092941';
+our $VERSION = '0.092970';
 
 
 use Moose;
@@ -70,7 +70,7 @@ Pod::Elemental - work with nestable Pod elements
 
 =head1 VERSION
 
-version 0.092941
+version 0.092970
 
 =head1 DESCRIPTION
 

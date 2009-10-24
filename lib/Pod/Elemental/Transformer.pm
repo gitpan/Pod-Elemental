@@ -1,5 +1,5 @@
 package Pod::Elemental::Transformer;
-our $VERSION = '0.092941';
+our $VERSION = '0.092970';
 
 
 use Moose::Role;
@@ -22,7 +22,7 @@ Pod::Elemental::Transformer - something that transforms a node tree into a new t
 
 =head1 VERSION
 
-version 0.092941
+version 0.092970
 
 =head1 OVERVIEW
 
