@@ -1,5 +1,5 @@
 package Pod::Elemental::Element::Nested;
-our $VERSION = '0.092970';
+our $VERSION = '0.093000';
 
 
 use Moose;
@@ -38,13 +38,7 @@ Pod::Elemental::Element::Nested - an element that is a command and a node
 
 =head1 VERSION
 
-version 0.092970
-
-=head1 WARNING
-
-This class is somewhat sketchy and may be refactored somewhat in the future,
-specifically to refactor its similarities to
-L<Pod::Elemental::Element::Pod5::Region>.
+version 0.093000
 
 =head1 OVERVIEW
 
@@ -53,9 +47,15 @@ A Nested element is a Generic::Command element that is also a node.
 It's used by the nester transformer to produce commands with children, to make
 documents seem more structured for easy manipulation.
 
+=head1 WARNING
+
+This class is somewhat sketchy and may be refactored somewhat in the future,
+specifically to refactor its similarities to
+L<Pod::Elemental::Element::Pod5::Region>.
+
 =head1 AUTHOR
 
-Ricardo SIGNES <rjbs@cpan.org>
+  Ricardo SIGNES <rjbs@cpan.org>
 
 =head1 COPYRIGHT AND LICENSE
 

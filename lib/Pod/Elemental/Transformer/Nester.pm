@@ -1,5 +1,5 @@
 package Pod::Elemental::Transformer::Nester;
-our $VERSION = '0.092970';
+our $VERSION = '0.093000';
 
 
 use Moose;
@@ -91,7 +91,7 @@ Pod::Elemental::Transformer::Nester - group the document into sections
 
 =head1 VERSION
 
-version 0.092970
+version 0.093000
 
 =head1 OVERVIEW
 
@@ -103,6 +103,7 @@ into them.
 For example, given the following nester:
 
   use Pod::Elemental::Selectors qw(s_command s_flat);
+
   my $nester = Pod::Elemental::Transformer::Nester->new({
     top_selector      => s_command('head1'),
     content_selectors => [
@@ -137,10 +138,6 @@ The nester will convert its structure to look like this:
 Once an element is reached that does not pass the content selectors, the
 nesting ceases until the next potential container.
 
-=cut
-
-=pod
-
 =head1 ATTRIBUTES
 
 =head2 top_selector
@@ -148,10 +145,6 @@ nesting ceases until the next potential container.
 This attribute must be a coderef (presumably made from
 Pod::Elemental::Selectors) that will test elements in the transformed node and
 return true if the element is a potential new container.
-
-=cut
-
-=pod
 
 =head2 content_selectors
 
@@ -161,7 +154,7 @@ top-level container may be moved under the container.
 
 =head1 AUTHOR
 
-Ricardo SIGNES <rjbs@cpan.org>
+  Ricardo SIGNES <rjbs@cpan.org>
 
 =head1 COPYRIGHT AND LICENSE
 

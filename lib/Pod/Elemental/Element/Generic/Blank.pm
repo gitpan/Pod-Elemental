@@ -1,5 +1,5 @@
 package Pod::Elemental::Element::Generic::Blank;
-our $VERSION = '0.092970';
+our $VERSION = '0.093000';
 
 
 use Moose;
@@ -22,7 +22,7 @@ Pod::Elemental::Element::Generic::Blank - a series of blank lines
 
 =head1 VERSION
 
-version 0.092970
+version 0.093000
 
 =head1 OVERVIEW
 
@@ -33,7 +33,7 @@ elements.
 
 =head1 AUTHOR
 
-Ricardo SIGNES <rjbs@cpan.org>
+  Ricardo SIGNES <rjbs@cpan.org>
 
 =head1 COPYRIGHT AND LICENSE
 

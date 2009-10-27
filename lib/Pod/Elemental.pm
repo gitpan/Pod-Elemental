@@ -1,5 +1,5 @@
 package Pod::Elemental;
-our $VERSION = '0.092970';
+our $VERSION = '0.093000';
 
 
 use Moose;
@@ -70,7 +70,20 @@ Pod::Elemental - work with nestable Pod elements
 
 =head1 VERSION
 
-version 0.092970
+version 0.093000
+
+=head1 SYNOPSIS
+
+  use Pod::Elemental;
+  use Pod::Elemental::Transformer::Pod5;
+
+  my $document = Pod::Elemental->read_file('lib/Pod/Elemental.pm');
+
+  Pod::Elemental::Transformer::Pod5->new->transform_node($document);
+
+  print $document->as_debug_string, "\n"; # quick overview of doc structure
+
+  print $document->as_pod_string, "\n";   # reproduce the document in Pod
 
 =head1 DESCRIPTION
 
@@ -88,14 +101,24 @@ C<=end>, and C<=for> commands mark regions of the document, leading whitespace
 marks a verbatim paragraph, and so on.  The Pod5 transformer also eliminates
 the need to track elements representing vertical whitespace.
 
-=head1 SYNOPSIS
+=head1 ATTRIBUTES
 
-  use Pod::Elemental;
-  use Pod::Elemental::Transformer::Pod5;
-  my $document = Pod::Elemental->read_file('lib/Pod/Elemental.pm');
-  Pod::Elemental::Transformer::Pod5->new->transform_node($document);
-  print $document->as_debug_string, "\n"; # quick overview of doc structure
-  print $document->as_pod_string, "\n";   # reproduce the document in Pod
+=head2 event_reader
+
+The event reader (by default a new instance of
+L<Pod::Eventual::Simple|Pod::Eventual::Simple> is used to convert input into an
+event stream.  In general, it should provide C<read_*> methods that behave like
+Pod::Eventual::Simple.
+
+=head2 objectifier
+
+The objectifier (by default a new Pod::Elemental::Objectifier) must provide an
+C<objectify_events> method that converts Pod events into
+Pod::Elemental::Element objects.
+
+=head2 document_class
+
+This is the class for documents created by reading pod.
 
 =head1 METHODS
 
@@ -107,40 +130,9 @@ the need to track elements representing vertical whitespace.
 
 These methods read the given input and return a Pod::Elemental::Document.
 
-=cut
-
-=pod
-
-=head1 ATTRIBUTES
-
-=head2 event_reader
-
-The event reader (by default a new instance of
-L<Pod::Eventual::Simple|Pod::Eventual::Simple> is used to convert input into an
-event stream.  In general, it should provide C<read_*> methods that behave like
-Pod::Eventual::Simple.
-
-=cut
-
-=pod
-
-=head2 objectifier
-
-The objectifier (by default a new Pod::Elemental::Objectifier) must provide an
-C<objectify_events> method that converts Pod events into
-Pod::Elemental::Element objects.
-
-=cut
-
-=pod
-
-=head2 document_class
-
-This is the class for documents created by reading pod.
-
 =head1 AUTHOR
 
-Ricardo SIGNES <rjbs@cpan.org>
+  Ricardo SIGNES <rjbs@cpan.org>
 
 =head1 COPYRIGHT AND LICENSE
 

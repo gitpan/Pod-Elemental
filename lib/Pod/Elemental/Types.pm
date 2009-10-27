@@ -1,7 +1,7 @@
 use strict;
 use warnings;
 package Pod::Elemental::Types;
-our $VERSION = '0.092970';
+our $VERSION = '0.093000';
 
 
 # ABSTRACT: data types for Pod::Elemental
@@ -27,7 +27,7 @@ Pod::Elemental::Types - data types for Pod::Elemental
 
 =head1 VERSION
 
-version 0.092970
+version 0.093000
 
 =head1 OVERVIEW
 
@@ -40,11 +40,6 @@ This is a library of MooseX::Types types used by Pod::Elemental.
 This is a valid name for a format (a Pod5::Region).  It does not expect the
 leading colon for pod-like regions.
 
-=cut
-
-=pod
-
-
 =head2 ChompedString
 
 This is a string that does not end with newlines.  It can be coerced from a
@@ -52,7 +47,7 @@ Str ending in a single newline -- the newline is dropped.
 
 =head1 AUTHOR
 
-Ricardo SIGNES <rjbs@cpan.org>
+  Ricardo SIGNES <rjbs@cpan.org>
 
 =head1 COPYRIGHT AND LICENSE
 

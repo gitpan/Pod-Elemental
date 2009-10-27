@@ -1,5 +1,5 @@
 package Pod::Elemental::Flat;
-our $VERSION = '0.092970';
+our $VERSION = '0.093000';
 
 
 use Moose::Role;
@@ -33,7 +33,7 @@ Pod::Elemental::Flat - a content-only pod paragraph
 
 =head1 VERSION
 
-version 0.092970
+version 0.093000
 
 =head1 OVERVIEW
 
@@ -43,7 +43,7 @@ own content.  Generally it is used for text paragraphs.
 
 =head1 AUTHOR
 
-Ricardo SIGNES <rjbs@cpan.org>
+  Ricardo SIGNES <rjbs@cpan.org>
 
 =head1 COPYRIGHT AND LICENSE
 

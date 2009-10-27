@@ -1,5 +1,5 @@
 package Pod::Elemental::Element::Pod5::Verbatim;
-our $VERSION = '0.092970';
+our $VERSION = '0.093000';
 
 
 use Moose;
@@ -22,7 +22,7 @@ Pod::Elemental::Element::Pod5::Verbatim - a Pod verbatim paragraph
 
 =head1 VERSION
 
-version 0.092970
+version 0.093000
 
 =head1 OVERVIEW
 
@@ -37,7 +37,7 @@ following paragraph is a verbatim paragraph:
 
 =head1 AUTHOR
 
-Ricardo SIGNES <rjbs@cpan.org>
+  Ricardo SIGNES <rjbs@cpan.org>
 
 =head1 COPYRIGHT AND LICENSE
 

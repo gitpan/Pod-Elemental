@@ -1,5 +1,5 @@
 package Pod::Elemental::Objectifier;
-our $VERSION = '0.092970';
+our $VERSION = '0.093000';
 
 
 use Moose;
@@ -65,7 +65,7 @@ Pod::Elemental::Objectifier - it turns a Pod::Eventual event stream into objects
 
 =head1 VERSION
 
-version 0.092970
+version 0.093000
 
 =head1 OVERVIEW
 
@@ -76,10 +76,6 @@ the Pod::Elemental::Paragraph role.
 In general, it does this by producing a sequence of element objects in the
 Pod::Elemental::Element::Generic namespace.
 
-=cut
-
-=pod
-
 =head1 METHODS
 
 =head2 objectify_events
@@ -89,17 +85,13 @@ Pod::Elemental::Element::Generic namespace.
 Given an arrayref of Pod events, this method returns an arrayref of objects
 formed from the event stream.
 
-=cut
-
-=pod
-
 =head2 element_class_for_event
 
 This method returns the name of the class to be used for the given event.
 
 =head1 AUTHOR
 
-Ricardo SIGNES <rjbs@cpan.org>
+  Ricardo SIGNES <rjbs@cpan.org>
 
 =head1 COPYRIGHT AND LICENSE
 

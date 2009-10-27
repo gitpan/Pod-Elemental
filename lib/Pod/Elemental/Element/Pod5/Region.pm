@@ -1,5 +1,5 @@
 package Pod::Elemental::Element::Pod5::Region;
-our $VERSION = '0.092970';
+our $VERSION = '0.093000';
 
 
 # ABSTRACT: a region of Pod (this role likely to be removed)
@@ -123,13 +123,7 @@ Pod::Elemental::Element::Pod5::Region - a region of Pod (this role likely to be 
 
 =head1 VERSION
 
-version 0.092970
-
-=head1 WARNING
-
-This class is somewhat sketchy and may be refactored somewhat in the future,
-specifically to refactor its similarities to
-L<Pod::Elemental::Element::Nested>.
+version 0.093000
 
 =head1 OVERVIEW
 
@@ -140,10 +134,6 @@ as child paragraphs.
 Its C<as_pod_string> method will emit either a C<=begin/=end>-enclosed string
 or a C<=for> command, based on whichever is permissible.
 
-=cut
-
-=pod
-
 =head1 ATTRIBUTES
 
 =head2 format_name
@@ -153,10 +143,6 @@ This is the format to which the region was targeted.
 B<Note!>  The format name should I<not> include the leading colon to indicate a
 pod paragraph.  For that, see C<L</is_pod>>.
 
-=cut
-
-=pod
-
 =head2 is_pod
 
 If true, this region contains pod (ordinary or verbatim) paragraphs, as opposed
@@ -164,12 +150,20 @@ to data paragraphs.  This will generally result from the document originating
 in a C<=begin> block with a colon-prefixed target identifier:
 
   =begin :html
+
     This is still a verbatim paragraph.
+
   =end :html
+
+=head1 WARNING
+
+This class is somewhat sketchy and may be refactored somewhat in the future,
+specifically to refactor its similarities to
+L<Pod::Elemental::Element::Nested>.
 
 =head1 AUTHOR
 
-Ricardo SIGNES <rjbs@cpan.org>
+  Ricardo SIGNES <rjbs@cpan.org>
 
 =head1 COPYRIGHT AND LICENSE
 

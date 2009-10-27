@@ -9,7 +9,7 @@ WriteMakefile(
   NAME      => 'Pod::Elemental',
   AUTHOR    => "Ricardo\ SIGNES\ \<rjbs\@cpan\.org\>",
   ABSTRACT  => "work\ with\ nestable\ Pod\ elements",
-  VERSION   => '0.092970',
+  VERSION   => '0.093000',
   EXE_FILES => [ qw() ],
   (eval { ExtUtils::MakeMaker->VERSION(6.31) } ? (LICENSE => 'perl') : ()),
   PREREQ_PM    => {

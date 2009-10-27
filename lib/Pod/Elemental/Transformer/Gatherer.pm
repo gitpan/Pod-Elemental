@@ -1,5 +1,5 @@
 package Pod::Elemental::Transformer::Gatherer;
-our $VERSION = '0.092970';
+our $VERSION = '0.093000';
 
 
 use Moose;
@@ -57,7 +57,7 @@ Pod::Elemental::Transformer::Gatherer - gather related paragraphs under a shared
 
 =head1 VERSION
 
-version 0.092970
+version 0.093000
 
 =head1 OVERVIEW
 
@@ -119,10 +119,6 @@ Will result in this document:
 
 This is a coderef (a predicate) used to find the paragraphs to gather up.
 
-=cut
-
-=pod
-
 =head2 container
 
 This is a Pod::Elemental::Node that will be inserted into the node, containing
@@ -130,7 +126,7 @@ all gathered elements.
 
 =head1 AUTHOR
 
-Ricardo SIGNES <rjbs@cpan.org>
+  Ricardo SIGNES <rjbs@cpan.org>
 
 =head1 COPYRIGHT AND LICENSE
 

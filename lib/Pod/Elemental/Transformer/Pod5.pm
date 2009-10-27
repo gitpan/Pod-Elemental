@@ -1,5 +1,5 @@
 package Pod::Elemental::Transformer::Pod5;
-our $VERSION = '0.092970';
+our $VERSION = '0.093000';
 
 
 use Moose;
@@ -33,7 +33,7 @@ sub _region_para_parts {
     (\S+)
     (?:\s+(.+))?
     (\s+)\z
-  /x;
+  /xsm;
 
   confess("=begin cannot be parsed") unless defined $target;
 
@@ -247,7 +247,7 @@ Pod::Elemental::Transformer::Pod5 - the default, minimal semantics of Perl5's po
 
 =head1 VERSION
 
-version 0.092970
+version 0.093000
 
 =head1 SYNOPSIS
 
@@ -290,7 +290,7 @@ options.
 
 =head1 AUTHOR
 
-Ricardo SIGNES <rjbs@cpan.org>
+  Ricardo SIGNES <rjbs@cpan.org>
 
 =head1 COPYRIGHT AND LICENSE
 

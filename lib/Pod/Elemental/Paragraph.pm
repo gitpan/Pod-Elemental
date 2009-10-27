@@ -1,5 +1,5 @@
 package Pod::Elemental::Paragraph;
-our $VERSION = '0.092970';
+our $VERSION = '0.093000';
 
 
 use namespace::autoclean;
@@ -46,7 +46,7 @@ Pod::Elemental::Paragraph - a paragraph in a Pod document
 
 =head1 VERSION
 
-version 0.092970
+version 0.093000
 
 =head1 OVERVIEW
 
@@ -71,10 +71,6 @@ has a content of "content\n"
 This attribute, which may or may not be set, indicates the line in the source
 document where the element began.
 
-=cut
-
-=pod
-
 =head1 METHODS
 
 =head2 as_pod_string
@@ -84,10 +80,6 @@ a document.  Some elements, like a C<=over> command, will stringify to include
 extra content like a C<=back> command.  In the case of elements with children,
 this method will include the stringified children as well.
 
-=cut
-
-=pod
-
 =head2 as_debug_string
 
 This method returns a string, like C<as_string>, but is meant for getting an
@@ -96,7 +88,7 @@ document.  Its exact output is likely to change over time.
 
 =head1 AUTHOR
 
-Ricardo SIGNES <rjbs@cpan.org>
+  Ricardo SIGNES <rjbs@cpan.org>
 
 =head1 COPYRIGHT AND LICENSE
 
