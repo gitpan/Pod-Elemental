@@ -1,5 +1,5 @@
 package Pod::Elemental::Element::Pod5::Ordinary;
-our $VERSION = '0.093000';
+our $VERSION = '0.093280';
 
 
 use Moose;
@@ -22,7 +22,7 @@ Pod::Elemental::Element::Pod5::Ordinary - a Pod5 ordinary text paragraph
 
 =head1 VERSION
 
-version 0.093000
+version 0.093280
 
 =head1 OVERVIEW
 

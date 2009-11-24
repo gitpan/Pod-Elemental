@@ -1,0 +1,26 @@
+---
+abstract: 'work with nestable Pod elements'
+author:
+  - 'Ricardo SIGNES <rjbs@cpan.org>'
+generated_by: 'Dist::Zilla version 1.093220'
+license: perl
+meta-spec:
+  url: http://module-build.sourceforge.net/META-spec-v1.4.html
+  version: 1.4
+name: Pod-Elemental
+requires:
+  Encode: 0
+  Mixin::Linewise::Readers: 0
+  Moose: 0
+  Moose::Autobox: 0.10
+  MooseX::Types: 0
+  Pod::Eventual::Simple: 0.004
+  String::RewritePrefix: 0
+  String::Truncate: 0
+  Sub::Exporter::ForMethods: 0
+  Test::Deep: 0
+  Test::Differences: 0
+  namespace::autoclean: 0
+resources:
+  repository: http://github.com/rjbs/pod-elemental
+version: 0.093280

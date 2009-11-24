@@ -1,5 +1,5 @@
 package Pod::Elemental::Autochomp;
-our $VERSION = '0.093000';
+our $VERSION = '0.093280';
 
 
 use namespace::autoclean;
@@ -25,7 +25,7 @@ Pod::Elemental::Autochomp - a paragraph that chomps set content
 
 =head1 VERSION
 
-version 0.093000
+version 0.093280
 
 =head1 OVERVIEW
 

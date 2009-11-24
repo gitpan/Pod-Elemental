@@ -1,5 +1,5 @@
 package Pod::Elemental::Element::Pod5::Region;
-our $VERSION = '0.093000';
+our $VERSION = '0.093280';
 
 
 # ABSTRACT: a region of Pod (this role likely to be removed)
@@ -28,12 +28,17 @@ sub closing_command { 'end' }
 sub _display_as_for {
   my ($self) = @_;
 
+  # Everything after "=for target" becomes the lone child paragraph, so there
+  # is nowhere to put the (technically illegal) content. -- rjbs, 2009-11-24
   return if $self->content =~ /\S/;
+
+  # We can't have more than one paragraph, because there'd be a blank, so we
+  # couldn't round trip. -- rjbs, 2009-11-24
   return if $self->children->length != 1;
 
   my $child = $self->children->[0];
 
-  return if $child->content =~ /\n\S/;
+  return if $child->content =~ m{^\s*$}m;
 
   my $base = 'Pod::Elemental::Element::Pod5::';
   return 1 if   $self->is_pod and $child->isa("${base}Ordinary");
@@ -123,7 +128,7 @@ Pod::Elemental::Element::Pod5::Region - a region of Pod (this role likely to be 
 
 =head1 VERSION
 
-version 0.093000
+version 0.093280
 
 =head1 OVERVIEW
 

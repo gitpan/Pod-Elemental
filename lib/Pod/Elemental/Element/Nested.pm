@@ -1,5 +1,5 @@
 package Pod::Elemental::Element::Nested;
-our $VERSION = '0.093000';
+our $VERSION = '0.093280';
 
 
 use Moose;
@@ -38,7 +38,7 @@ Pod::Elemental::Element::Nested - an element that is a command and a node
 
 =head1 VERSION
 
-version 0.093000
+version 0.093280
 
 =head1 OVERVIEW
 

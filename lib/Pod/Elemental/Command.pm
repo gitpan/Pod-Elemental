@@ -1,5 +1,5 @@
 package Pod::Elemental::Command;
-our $VERSION = '0.093000';
+our $VERSION = '0.093280';
 
 
 use Moose::Role;
@@ -36,7 +36,7 @@ Pod::Elemental::Command - a =command paragraph
 
 =head1 VERSION
 
-version 0.093000
+version 0.093280
 
 =head1 OVERVIEW
 

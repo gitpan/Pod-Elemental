@@ -1,5 +1,5 @@
 package Pod::Elemental::Transformer::Nester;
-our $VERSION = '0.093000';
+our $VERSION = '0.093280';
 
 
 use Moose;
@@ -91,7 +91,7 @@ Pod::Elemental::Transformer::Nester - group the document into sections
 
 =head1 VERSION
 
-version 0.093000
+version 0.093280
 
 =head1 OVERVIEW
 

@@ -1,7 +1,7 @@
 use strict;
 use warnings;
 package Pod::Elemental::Selectors;
-our $VERSION = '0.093000';
+our $VERSION = '0.093280';
 
 
 # ABSTRACT: predicates for selecting elements
@@ -70,7 +70,7 @@ Pod::Elemental::Selectors - predicates for selecting elements
 
 =head1 VERSION
 
-version 0.093000
+version 0.093280
 
 =head1 OVERVIEW
 

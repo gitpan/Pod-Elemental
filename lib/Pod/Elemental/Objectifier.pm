@@ -1,5 +1,5 @@
 package Pod::Elemental::Objectifier;
-our $VERSION = '0.093000';
+our $VERSION = '0.093280';
 
 
 use Moose;
@@ -65,7 +65,7 @@ Pod::Elemental::Objectifier - it turns a Pod::Eventual event stream into objects
 
 =head1 VERSION
 
-version 0.093000
+version 0.093280
 
 =head1 OVERVIEW
 

@@ -2,6 +2,8 @@
 use strict;
 use warnings;
 
+
+
 use ExtUtils::MakeMaker;
 
 WriteMakefile(
@@ -9,7 +11,7 @@ WriteMakefile(
   NAME      => 'Pod::Elemental',
   AUTHOR    => "Ricardo\ SIGNES\ \<rjbs\@cpan\.org\>",
   ABSTRACT  => "work\ with\ nestable\ Pod\ elements",
-  VERSION   => '0.093000',
+  VERSION   => '0.093280',
   EXE_FILES => [ qw() ],
   (eval { ExtUtils::MakeMaker->VERSION(6.31) } ? (LICENSE => 'perl') : ()),
   PREREQ_PM    => {
