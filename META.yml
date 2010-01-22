@@ -2,7 +2,7 @@
 abstract: 'work with nestable Pod elements'
 author:
   - 'Ricardo SIGNES <rjbs@cpan.org>'
-generated_by: 'Dist::Zilla version 1.093220'
+generated_by: 'Dist::Zilla version 1.100160'
 license: perl
 meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.4.html
@@ -10,6 +10,7 @@ meta-spec:
 name: Pod-Elemental
 requires:
   Encode: 0
+  ExtUtils::MakeMaker: 6.11
   Mixin::Linewise::Readers: 0
   Moose: 0
   Moose::Autobox: 0.10
@@ -23,4 +24,4 @@ requires:
   namespace::autoclean: 0
 resources:
   repository: http://github.com/rjbs/pod-elemental
-version: 0.093280
+version: 0.100220

@@ -1,7 +1,5 @@
 package Pod::Elemental::Command;
-our $VERSION = '0.093280';
-
-
+our $VERSION = '0.100220';
 use Moose::Role;
 with 'Pod::Elemental::Paragraph' => { excludes => [ 'as_pod_string' ] };
 # ABSTRACT: a =command paragraph
@@ -36,7 +34,7 @@ Pod::Elemental::Command - a =command paragraph
 
 =head1 VERSION
 
-version 0.093280
+version 0.100220
 
 =head1 OVERVIEW
 
@@ -53,7 +51,7 @@ an attribute, but this is not necessary.
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2009 by Ricardo SIGNES.
+This software is copyright (c) 2010 by Ricardo SIGNES.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.

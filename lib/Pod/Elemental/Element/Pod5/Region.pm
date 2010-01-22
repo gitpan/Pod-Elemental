@@ -1,7 +1,5 @@
 package Pod::Elemental::Element::Pod5::Region;
-our $VERSION = '0.093280';
-
-
+our $VERSION = '0.100220';
 # ABSTRACT: a region of Pod (this role likely to be removed)
 use Moose;
 with qw(
@@ -116,6 +114,11 @@ sub as_debug_string {
 with 'Pod::Elemental::Autoblank';
 with 'Pod::Elemental::Autochomp';
 
+# BEGIN Autochomp Replacement
+use Pod::Elemental::Types qw(ChompedString);
+has '+content' => (coerce => 1, isa => ChompedString);
+# END   Autochomp Replacement
+
 no Moose;
 1;
 
@@ -128,7 +131,7 @@ Pod::Elemental::Element::Pod5::Region - a region of Pod (this role likely to be 
 
 =head1 VERSION
 
-version 0.093280
+version 0.100220
 
 =head1 OVERVIEW
 
@@ -172,7 +175,7 @@ L<Pod::Elemental::Element::Nested>.
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2009 by Ricardo SIGNES.
+This software is copyright (c) 2010 by Ricardo SIGNES.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.

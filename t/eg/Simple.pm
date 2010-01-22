@@ -1,8 +1,6 @@
 use strict;
 package Simple;
-our $VERSION = '0.093280';
-
-
+our $VERSION = '0.100220';
 # ABSTRACT: this is just a test
 
 =head1 DESCRIPTION

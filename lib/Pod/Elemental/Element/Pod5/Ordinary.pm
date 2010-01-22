@@ -1,12 +1,15 @@
 package Pod::Elemental::Element::Pod5::Ordinary;
-our $VERSION = '0.093280';
-
-
+our $VERSION = '0.100220';
 use Moose;
 extends 'Pod::Elemental::Element::Generic::Text';
 with    'Pod::Elemental::Autoblank';
 with    'Pod::Elemental::Autochomp';
 # ABSTRACT: a Pod5 ordinary text paragraph
+
+# BEGIN Autochomp Replacement
+use Pod::Elemental::Types qw(ChompedString);
+has '+content' => (coerce => 1, isa => ChompedString);
+# END   Autochomp Replacement
 
 
 use namespace::autoclean;
@@ -22,7 +25,7 @@ Pod::Elemental::Element::Pod5::Ordinary - a Pod5 ordinary text paragraph
 
 =head1 VERSION
 
-version 0.093280
+version 0.100220
 
 =head1 OVERVIEW
 
@@ -35,7 +38,7 @@ Pod document that's gone through the Pod5 translator.
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2009 by Ricardo SIGNES.
+This software is copyright (c) 2010 by Ricardo SIGNES.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.

@@ -2,12 +2,12 @@
    "resources" : {
       "repository" : "http://github.com/rjbs/pod-elemental"
    },
+   "generated_by" : "Dist::Zilla version 1.100160",
    "meta-spec" : {
       "version" : 1.4,
       "url" : "http://module-build.sourceforge.net/META-spec-v1.4.html"
    },
-   "generated_by" : "Dist::Zilla version 1.093220",
-   "version" : "0.093280",
+   "version" : "0.100220",
    "name" : "Pod-Elemental",
    "author" : [
       "Ricardo SIGNES <rjbs@cpan.org>"
@@ -16,6 +16,7 @@
    "requires" : {
       "String::Truncate" : "0",
       "namespace::autoclean" : "0",
+      "ExtUtils::MakeMaker" : "6.11",
       "String::RewritePrefix" : "0",
       "Moose::Autobox" : "0.10",
       "Pod::Eventual::Simple" : "0.004",

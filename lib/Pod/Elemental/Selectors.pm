@@ -1,9 +1,7 @@
 use strict;
 use warnings;
 package Pod::Elemental::Selectors;
-our $VERSION = '0.093280';
-
-
+our $VERSION = '0.100220';
 # ABSTRACT: predicates for selecting elements
 
 
@@ -70,7 +68,7 @@ Pod::Elemental::Selectors - predicates for selecting elements
 
 =head1 VERSION
 
-version 0.093280
+version 0.100220
 
 =head1 OVERVIEW
 
@@ -148,7 +146,7 @@ paragraph's command must match one of the given command names.
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2009 by Ricardo SIGNES.
+This software is copyright (c) 2010 by Ricardo SIGNES.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.

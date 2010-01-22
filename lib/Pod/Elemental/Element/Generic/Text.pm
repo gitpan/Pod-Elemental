@@ -1,7 +1,5 @@
 package Pod::Elemental::Element::Generic::Text;
-our $VERSION = '0.093280';
-
-
+our $VERSION = '0.100220';
 use Moose;
 with 'Pod::Elemental::Flat';
 # ABSTRACT: a Pod text or verbatim element
@@ -20,7 +18,7 @@ Pod::Elemental::Element::Generic::Text - a Pod text or verbatim element
 
 =head1 VERSION
 
-version 0.093280
+version 0.100220
 
 =head1 OVERVIEW
 
@@ -35,7 +33,7 @@ simple flat paragraphs.
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2009 by Ricardo SIGNES.
+This software is copyright (c) 2010 by Ricardo SIGNES.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
