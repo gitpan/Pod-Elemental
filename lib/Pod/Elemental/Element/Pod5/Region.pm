@@ -1,5 +1,7 @@
 package Pod::Elemental::Element::Pod5::Region;
-our $VERSION = '0.100220';
+BEGIN {
+  $Pod::Elemental::Element::Pod5::Region::VERSION = '0.101620';
+}
 # ABSTRACT: a region of Pod (this role likely to be removed)
 use Moose;
 with qw(
@@ -131,7 +133,7 @@ Pod::Elemental::Element::Pod5::Region - a region of Pod (this role likely to be 
 
 =head1 VERSION
 
-version 0.100220
+version 0.101620
 
 =head1 OVERVIEW
 

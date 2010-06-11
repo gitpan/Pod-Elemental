@@ -1,5 +1,7 @@
 package Pod::Elemental::Element::Pod5::Nonpod;
-our $VERSION = '0.100220';
+BEGIN {
+  $Pod::Elemental::Element::Pod5::Nonpod::VERSION = '0.101620';
+}
 use Moose;
 with 'Pod::Elemental::Flat';
 with 'Pod::Elemental::Autoblank';
@@ -24,7 +26,7 @@ Pod::Elemental::Element::Pod5::Nonpod - a non-pod element in a Pod document
 
 =head1 VERSION
 
-version 0.100220
+version 0.101620
 
 =head1 OVERVIEW
 

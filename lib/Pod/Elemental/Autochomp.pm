@@ -1,5 +1,7 @@
 package Pod::Elemental::Autochomp;
-our $VERSION = '0.100220';
+BEGIN {
+  $Pod::Elemental::Autochomp::VERSION = '0.101620';
+}
 use namespace::autoclean;
 use Moose::Role;
 # ABSTRACT: a paragraph that chomps set content
@@ -23,7 +25,7 @@ Pod::Elemental::Autochomp - a paragraph that chomps set content
 
 =head1 VERSION
 
-version 0.100220
+version 0.101620
 
 =head1 OVERVIEW
 

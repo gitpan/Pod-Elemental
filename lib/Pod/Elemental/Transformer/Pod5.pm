@@ -1,5 +1,7 @@
 package Pod::Elemental::Transformer::Pod5;
-our $VERSION = '0.100220';
+BEGIN {
+  $Pod::Elemental::Transformer::Pod5::VERSION = '0.101620';
+}
 use Moose;
 with 'Pod::Elemental::Transformer';
 # ABSTRACT: the default, minimal semantics of Perl5's pod element hierarchy
@@ -111,7 +113,7 @@ sub _collect_regions {
     my $region_paras = $self->__extract_region("$colon$target", $in_paras);
 
     $region_paras->shift while s_blank($region_paras->[0]);
-    $region_paras->pop   while s_blank($region_paras->[-1]);
+    $region_paras->pop   while @$region_paras && s_blank($region_paras->[-1]);
 
     my $region = $region_class->new({
       children    => $self->_collect_regions($region_paras),
@@ -245,7 +247,7 @@ Pod::Elemental::Transformer::Pod5 - the default, minimal semantics of Perl5's po
 
 =head1 VERSION
 
-version 0.100220
+version 0.101620
 
 =head1 SYNOPSIS
 

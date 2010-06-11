@@ -1,5 +1,7 @@
 package Pod::Elemental::Element::Generic::Text;
-our $VERSION = '0.100220';
+BEGIN {
+  $Pod::Elemental::Element::Generic::Text::VERSION = '0.101620';
+}
 use Moose;
 with 'Pod::Elemental::Flat';
 # ABSTRACT: a Pod text or verbatim element
@@ -18,7 +20,7 @@ Pod::Elemental::Element::Generic::Text - a Pod text or verbatim element
 
 =head1 VERSION
 
-version 0.100220
+version 0.101620
 
 =head1 OVERVIEW
 

@@ -1,5 +1,7 @@
 package Pod::Elemental::Autoblank;
-our $VERSION = '0.100220';
+BEGIN {
+  $Pod::Elemental::Autoblank::VERSION = '0.101620';
+}
 use namespace::autoclean;
 use Moose::Role;
 # ABSTRACT: a paragraph that always displays an extra blank line in Pod form
@@ -22,7 +24,7 @@ Pod::Elemental::Autoblank - a paragraph that always displays an extra blank line
 
 =head1 VERSION
 
-version 0.100220
+version 0.101620
 
 =head1 OVERVIEW
 

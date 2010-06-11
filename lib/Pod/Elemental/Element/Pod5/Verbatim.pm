@@ -1,5 +1,7 @@
 package Pod::Elemental::Element::Pod5::Verbatim;
-our $VERSION = '0.100220';
+BEGIN {
+  $Pod::Elemental::Element::Pod5::Verbatim::VERSION = '0.101620';
+}
 use Moose;
 extends 'Pod::Elemental::Element::Generic::Text';
 with    'Pod::Elemental::Autoblank';
@@ -25,7 +27,7 @@ Pod::Elemental::Element::Pod5::Verbatim - a Pod verbatim paragraph
 
 =head1 VERSION
 
-version 0.100220
+version 0.101620
 
 =head1 OVERVIEW
 

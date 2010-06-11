@@ -1,5 +1,7 @@
 package Pod::Elemental::Element::Pod5::Command;
-our $VERSION = '0.100220';
+BEGIN {
+  $Pod::Elemental::Element::Pod5::Command::VERSION = '0.101620';
+}
 use Moose;
 # ABSTRACT: a Pod5 =command element
 
@@ -27,7 +29,7 @@ Pod::Elemental::Element::Pod5::Command - a Pod5 =command element
 
 =head1 VERSION
 
-version 0.100220
+version 0.101620
 
 =head1 OVERVIEW
 

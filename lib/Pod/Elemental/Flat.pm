@@ -1,5 +1,7 @@
 package Pod::Elemental::Flat;
-our $VERSION = '0.100220';
+BEGIN {
+  $Pod::Elemental::Flat::VERSION = '0.101620';
+}
 use Moose::Role;
 # ABSTRACT: a content-only pod paragraph
 
@@ -31,7 +33,7 @@ Pod::Elemental::Flat - a content-only pod paragraph
 
 =head1 VERSION
 
-version 0.100220
+version 0.101620
 
 =head1 OVERVIEW
 

@@ -1,5 +1,8 @@
 Revision history for Pod-Elemental
 
+0.101620  2010-06-11 19:39:05 America/New_York
+          no longer throws exception on empty regions (RT #57834)
+
 0.100220  2010-01-22 10:31:46 America/New_York
           Autochomp workaround for the loss of "has '+attr'" in roles in new
           Moose

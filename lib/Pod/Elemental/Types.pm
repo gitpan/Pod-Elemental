@@ -1,7 +1,9 @@
 use strict;
 use warnings;
 package Pod::Elemental::Types;
-our $VERSION = '0.100220';
+BEGIN {
+  $Pod::Elemental::Types::VERSION = '0.101620';
+}
 # ABSTRACT: data types for Pod::Elemental
 use MooseX::Types -declare => [ qw(FormatName ChompedString) ];
 use MooseX::Types::Moose qw(Str);
@@ -25,7 +27,7 @@ Pod::Elemental::Types - data types for Pod::Elemental
 
 =head1 VERSION
 
-version 0.100220
+version 0.101620
 
 =head1 OVERVIEW
 
