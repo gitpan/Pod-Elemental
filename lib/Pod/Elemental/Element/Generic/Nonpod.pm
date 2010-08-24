@@ -1,6 +1,6 @@
 package Pod::Elemental::Element::Generic::Nonpod;
 BEGIN {
-  $Pod::Elemental::Element::Generic::Nonpod::VERSION = '0.101620';
+  $Pod::Elemental::Element::Generic::Nonpod::VERSION = '0.102360';
 }
 use Moose;
 with 'Pod::Elemental::Flat';
@@ -20,7 +20,7 @@ Pod::Elemental::Element::Generic::Nonpod - a non-pod element in a Pod document
 
 =head1 VERSION
 
-version 0.101620
+version 0.102360
 
 =head1 OVERVIEW
 
@@ -29,7 +29,7 @@ non-pod content found in the Pod stream.
 
 =head1 AUTHOR
 
-  Ricardo SIGNES <rjbs@cpan.org>
+Ricardo SIGNES <rjbs@cpan.org>
 
 =head1 COPYRIGHT AND LICENSE
 

@@ -1,6 +1,6 @@
 package Pod::Elemental::Document;
 BEGIN {
-  $Pod::Elemental::Document::VERSION = '0.101620';
+  $Pod::Elemental::Document::VERSION = '0.102360';
 }
 use Moose;
 with 'Pod::Elemental::Node';
@@ -112,7 +112,7 @@ Pod::Elemental::Document - a pod document
 
 =head1 VERSION
 
-version 0.101620
+version 0.102360
 
 =head1 OVERVIEW
 
@@ -124,7 +124,7 @@ arrayrefs of paragraphs, and have few methods of their own.
 
 =head1 AUTHOR
 
-  Ricardo SIGNES <rjbs@cpan.org>
+Ricardo SIGNES <rjbs@cpan.org>
 
 =head1 COPYRIGHT AND LICENSE
 

@@ -1,9 +1,9 @@
 package Pod::Elemental::Command;
 BEGIN {
-  $Pod::Elemental::Command::VERSION = '0.101620';
+  $Pod::Elemental::Command::VERSION = '0.102360';
 }
-use Moose::Role;
-with 'Pod::Elemental::Paragraph' => { excludes => [ 'as_pod_string' ] };
+use Moose::Role 0.90;
+with 'Pod::Elemental::Paragraph' => { -excludes => [ 'as_pod_string' ] };
 # ABSTRACT: a =command paragraph
 
 
@@ -36,7 +36,7 @@ Pod::Elemental::Command - a =command paragraph
 
 =head1 VERSION
 
-version 0.101620
+version 0.102360
 
 =head1 OVERVIEW
 
@@ -49,7 +49,7 @@ an attribute, but this is not necessary.
 
 =head1 AUTHOR
 
-  Ricardo SIGNES <rjbs@cpan.org>
+Ricardo SIGNES <rjbs@cpan.org>
 
 =head1 COPYRIGHT AND LICENSE
 

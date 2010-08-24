@@ -1,6 +1,6 @@
 package Pod::Elemental::Element::Pod5::Region;
 BEGIN {
-  $Pod::Elemental::Element::Pod5::Region::VERSION = '0.101620';
+  $Pod::Elemental::Element::Pod5::Region::VERSION = '0.102360';
 }
 # ABSTRACT: a region of Pod (this role likely to be removed)
 use Moose;
@@ -133,7 +133,7 @@ Pod::Elemental::Element::Pod5::Region - a region of Pod (this role likely to be 
 
 =head1 VERSION
 
-version 0.101620
+version 0.102360
 
 =head1 OVERVIEW
 
@@ -173,7 +173,7 @@ L<Pod::Elemental::Element::Nested>.
 
 =head1 AUTHOR
 
-  Ricardo SIGNES <rjbs@cpan.org>
+Ricardo SIGNES <rjbs@cpan.org>
 
 =head1 COPYRIGHT AND LICENSE
 

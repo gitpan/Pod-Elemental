@@ -1,6 +1,6 @@
 package Pod::Elemental::Transformer::Pod5;
 BEGIN {
-  $Pod::Elemental::Transformer::Pod5::VERSION = '0.101620';
+  $Pod::Elemental::Transformer::Pod5::VERSION = '0.102360';
 }
 use Moose;
 with 'Pod::Elemental::Transformer';
@@ -247,7 +247,7 @@ Pod::Elemental::Transformer::Pod5 - the default, minimal semantics of Perl5's po
 
 =head1 VERSION
 
-version 0.101620
+version 0.102360
 
 =head1 SYNOPSIS
 
@@ -290,7 +290,7 @@ options.
 
 =head1 AUTHOR
 
-  Ricardo SIGNES <rjbs@cpan.org>
+Ricardo SIGNES <rjbs@cpan.org>
 
 =head1 COPYRIGHT AND LICENSE
 

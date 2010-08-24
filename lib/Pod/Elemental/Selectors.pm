@@ -2,7 +2,7 @@ use strict;
 use warnings;
 package Pod::Elemental::Selectors;
 BEGIN {
-  $Pod::Elemental::Selectors::VERSION = '0.101620';
+  $Pod::Elemental::Selectors::VERSION = '0.102360';
 }
 # ABSTRACT: predicates for selecting elements
 
@@ -70,7 +70,7 @@ Pod::Elemental::Selectors - predicates for selecting elements
 
 =head1 VERSION
 
-version 0.101620
+version 0.102360
 
 =head1 OVERVIEW
 
@@ -144,7 +144,7 @@ paragraph's command must match one of the given command names.
 
 =head1 AUTHOR
 
-  Ricardo SIGNES <rjbs@cpan.org>
+Ricardo SIGNES <rjbs@cpan.org>
 
 =head1 COPYRIGHT AND LICENSE
 

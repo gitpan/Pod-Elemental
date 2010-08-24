@@ -1,6 +1,6 @@
 package Pod::Elemental::Transformer;
 BEGIN {
-  $Pod::Elemental::Transformer::VERSION = '0.101620';
+  $Pod::Elemental::Transformer::VERSION = '0.102360';
 }
 use Moose::Role;
 use Moose::Autobox;
@@ -22,7 +22,7 @@ Pod::Elemental::Transformer - something that transforms a node tree into a new t
 
 =head1 VERSION
 
-version 0.101620
+version 0.102360
 
 =head1 OVERVIEW
 
@@ -44,7 +44,7 @@ the limit.
 
 =head1 AUTHOR
 
-  Ricardo SIGNES <rjbs@cpan.org>
+Ricardo SIGNES <rjbs@cpan.org>
 
 =head1 COPYRIGHT AND LICENSE
 

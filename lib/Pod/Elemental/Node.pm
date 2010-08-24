@@ -1,6 +1,6 @@
 package Pod::Elemental::Node;
 BEGIN {
-  $Pod::Elemental::Node::VERSION = '0.101620';
+  $Pod::Elemental::Node::VERSION = '0.102360';
 }
 use Moose::Role;
 # ABSTRACT: a thing with Pod::Elemental::Nodes as children
@@ -47,7 +47,7 @@ Pod::Elemental::Node - a thing with Pod::Elemental::Nodes as children
 
 =head1 VERSION
 
-version 0.101620
+version 0.102360
 
 =head1 OVERVIEW
 
@@ -65,7 +65,7 @@ elements contained by an object.
 
 =head1 AUTHOR
 
-  Ricardo SIGNES <rjbs@cpan.org>
+Ricardo SIGNES <rjbs@cpan.org>
 
 =head1 COPYRIGHT AND LICENSE
 

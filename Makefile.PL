@@ -29,7 +29,7 @@ my %WriteMakefileArgs = (
     'Mixin::Linewise::Readers' => '0',
     'Moose' => '0',
     'Moose::Autobox' => '0.10',
-    'Moose::Role' => '0',
+    'Moose::Role' => '0.90',
     'Moose::Util::TypeConstraints' => '0',
     'MooseX::Types' => '0',
     'MooseX::Types::Moose' => '0',
@@ -43,7 +43,7 @@ my %WriteMakefileArgs = (
     'namespace::autoclean' => '0',
     'utf8' => '0'
   },
-  'VERSION' => '0.101620',
+  'VERSION' => '0.102360',
   'test' => {
     'TESTS' => 't/*.t t/elem/*.t t/pod5/*.t'
   }

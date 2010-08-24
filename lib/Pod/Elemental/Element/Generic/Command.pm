@@ -1,6 +1,6 @@
 package Pod::Elemental::Element::Generic::Command;
 BEGIN {
-  $Pod::Elemental::Element::Generic::Command::VERSION = '0.101620';
+  $Pod::Elemental::Element::Generic::Command::VERSION = '0.102360';
 }
 use Moose;
 # ABSTRACT: a Pod =command element
@@ -29,7 +29,7 @@ Pod::Elemental::Element::Generic::Command - a Pod =command element
 
 =head1 VERSION
 
-version 0.101620
+version 0.102360
 
 =head1 OVERVIEW
 
@@ -45,7 +45,7 @@ This attribute contains the name of the command, like C<head1> or C<encoding>.
 
 =head1 AUTHOR
 
-  Ricardo SIGNES <rjbs@cpan.org>
+Ricardo SIGNES <rjbs@cpan.org>
 
 =head1 COPYRIGHT AND LICENSE
 

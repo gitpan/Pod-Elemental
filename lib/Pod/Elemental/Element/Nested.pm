@@ -1,6 +1,6 @@
 package Pod::Elemental::Element::Nested;
 BEGIN {
-  $Pod::Elemental::Element::Nested::VERSION = '0.101620';
+  $Pod::Elemental::Element::Nested::VERSION = '0.102360';
 }
 use Moose;
 extends 'Pod::Elemental::Element::Generic::Command';
@@ -43,7 +43,7 @@ Pod::Elemental::Element::Nested - an element that is a command and a node
 
 =head1 VERSION
 
-version 0.101620
+version 0.102360
 
 =head1 OVERVIEW
 
@@ -60,7 +60,7 @@ L<Pod::Elemental::Element::Pod5::Region>.
 
 =head1 AUTHOR
 
-  Ricardo SIGNES <rjbs@cpan.org>
+Ricardo SIGNES <rjbs@cpan.org>
 
 =head1 COPYRIGHT AND LICENSE
 

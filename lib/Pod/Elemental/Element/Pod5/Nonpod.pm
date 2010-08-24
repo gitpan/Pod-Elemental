@@ -1,6 +1,6 @@
 package Pod::Elemental::Element::Pod5::Nonpod;
 BEGIN {
-  $Pod::Elemental::Element::Pod5::Nonpod::VERSION = '0.101620';
+  $Pod::Elemental::Element::Pod5::Nonpod::VERSION = '0.102360';
 }
 use Moose;
 with 'Pod::Elemental::Flat';
@@ -26,7 +26,7 @@ Pod::Elemental::Element::Pod5::Nonpod - a non-pod element in a Pod document
 
 =head1 VERSION
 
-version 0.101620
+version 0.102360
 
 =head1 OVERVIEW
 
@@ -45,7 +45,7 @@ following differences:
 
 =head1 AUTHOR
 
-  Ricardo SIGNES <rjbs@cpan.org>
+Ricardo SIGNES <rjbs@cpan.org>
 
 =head1 COPYRIGHT AND LICENSE
 

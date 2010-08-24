@@ -1,6 +1,6 @@
 package Pod::Elemental::Objectifier;
 BEGIN {
-  $Pod::Elemental::Objectifier::VERSION = '0.101620';
+  $Pod::Elemental::Objectifier::VERSION = '0.102360';
 }
 use Moose;
 use Moose::Autobox;
@@ -65,7 +65,7 @@ Pod::Elemental::Objectifier - it turns a Pod::Eventual event stream into objects
 
 =head1 VERSION
 
-version 0.101620
+version 0.102360
 
 =head1 OVERVIEW
 
@@ -91,7 +91,7 @@ This method returns the name of the class to be used for the given event.
 
 =head1 AUTHOR
 
-  Ricardo SIGNES <rjbs@cpan.org>
+Ricardo SIGNES <rjbs@cpan.org>
 
 =head1 COPYRIGHT AND LICENSE
 

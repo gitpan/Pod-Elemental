@@ -1,6 +1,6 @@
 package Pod::Elemental::Transformer::Nester;
 BEGIN {
-  $Pod::Elemental::Transformer::Nester::VERSION = '0.101620';
+  $Pod::Elemental::Transformer::Nester::VERSION = '0.102360';
 }
 use Moose;
 with 'Pod::Elemental::Transformer';
@@ -91,7 +91,7 @@ Pod::Elemental::Transformer::Nester - group the document into sections
 
 =head1 VERSION
 
-version 0.101620
+version 0.102360
 
 =head1 OVERVIEW
 
@@ -154,7 +154,7 @@ top-level container may be moved under the container.
 
 =head1 AUTHOR
 
-  Ricardo SIGNES <rjbs@cpan.org>
+Ricardo SIGNES <rjbs@cpan.org>
 
 =head1 COPYRIGHT AND LICENSE
 

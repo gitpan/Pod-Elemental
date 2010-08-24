@@ -1,6 +1,6 @@
 package Pod::Elemental::Element::Pod5::Command;
 BEGIN {
-  $Pod::Elemental::Element::Pod5::Command::VERSION = '0.101620';
+  $Pod::Elemental::Element::Pod5::Command::VERSION = '0.102360';
 }
 use Moose;
 # ABSTRACT: a Pod5 =command element
@@ -29,7 +29,7 @@ Pod::Elemental::Element::Pod5::Command - a Pod5 =command element
 
 =head1 VERSION
 
-version 0.101620
+version 0.102360
 
 =head1 OVERVIEW
 
@@ -40,7 +40,7 @@ paragraphs in a Pod5 document.
 
 =head1 AUTHOR
 
-  Ricardo SIGNES <rjbs@cpan.org>
+Ricardo SIGNES <rjbs@cpan.org>
 
 =head1 COPYRIGHT AND LICENSE
 
