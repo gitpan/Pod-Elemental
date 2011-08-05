@@ -1,6 +1,6 @@
 package Pod::Elemental::Paragraph;
-BEGIN {
-  $Pod::Elemental::Paragraph::VERSION = '0.102360';
+{
+  $Pod::Elemental::Paragraph::VERSION = '0.102361';
 }
 use namespace::autoclean;
 use Moose::Role;
@@ -46,7 +46,7 @@ Pod::Elemental::Paragraph - a paragraph in a Pod document
 
 =head1 VERSION
 
-version 0.102360
+version 0.102361
 
 =head1 OVERVIEW
 
@@ -92,7 +92,7 @@ Ricardo SIGNES <rjbs@cpan.org>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2010 by Ricardo SIGNES.
+This software is copyright (c) 2011 by Ricardo SIGNES.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.

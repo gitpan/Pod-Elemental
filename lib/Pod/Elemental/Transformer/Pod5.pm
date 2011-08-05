@@ -1,6 +1,6 @@
 package Pod::Elemental::Transformer::Pod5;
-BEGIN {
-  $Pod::Elemental::Transformer::Pod5::VERSION = '0.102360';
+{
+  $Pod::Elemental::Transformer::Pod5::VERSION = '0.102361';
 }
 use Moose;
 with 'Pod::Elemental::Transformer';
@@ -142,7 +142,7 @@ sub _autotype_paras {
 
   $paras->each(sub {
     my ($i, $elem) = @_;
-    
+
     if ($elem->isa( $self->_gen_class('Text') )) {
       my $class = $is_pod
                 ? $elem->content =~ /\A\s/
@@ -181,7 +181,7 @@ sub _collect_runs {
   my ($self, $paras) = @_;
 
   $paras->grep(sub { $_->isa( $self->_class('Region') ) })->each_value(sub {
-    $self->_collect_runs($_->children) 
+    $self->_collect_runs($_->children)
   });
 
   PASS: for my $start (0 .. $#$paras) {
@@ -196,7 +196,7 @@ sub _collect_runs {
         push @to_collect, $next;
         next NEXT;
       }
-      
+
       last NEXT;
     }
 
@@ -216,12 +216,25 @@ sub _collect_runs {
     redo PASS;
   }
 
-  @$paras = grep { not s_blank($_) } @$paras;
+  my @out;
+  PASS: for (my $i = 0; $i < @$paras; $i++) {
+    my $this = $paras->[$i];
+    push @out, $this;
+
+    while ($paras->[$i+1] and s_blank($paras->[$i+1])) {
+      $i++;
+      next unless $this->isa( $self->_class('Data') );
+      $this->content( $this->content . $paras->[$i]->content );
+    }
+  }
+
+  # @out = grep { not s_blank($_) } @$paras;
 
   # I really don't feel bad about rewriting in place by the time we get here.
   # These are private methods, and I know the consequence of calling them.
   # Nobody else should be.  So there.  -- rjbs, 2009-10-17
-  return $paras;
+  @$paras = @out;
+  return \@out;
 }
 
 sub transform_node {
@@ -247,7 +260,7 @@ Pod::Elemental::Transformer::Pod5 - the default, minimal semantics of Perl5's po
 
 =head1 VERSION
 
-version 0.102360
+version 0.102361
 
 =head1 SYNOPSIS
 
@@ -294,7 +307,7 @@ Ricardo SIGNES <rjbs@cpan.org>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2010 by Ricardo SIGNES.
+This software is copyright (c) 2011 by Ricardo SIGNES.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.

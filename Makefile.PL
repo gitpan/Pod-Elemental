@@ -4,7 +4,7 @@ use warnings;
 
 
 
-use ExtUtils::MakeMaker 6.31;
+use ExtUtils::MakeMaker 6.30;
 
 
 
@@ -15,10 +15,10 @@ my %WriteMakefileArgs = (
     'Data::Dumper' => '0',
     'Test::Deep' => '0',
     'Test::Differences' => '0',
-    'Test::More' => '0'
+    'Test::More' => '0.96'
   },
   'CONFIGURE_REQUIRES' => {
-    'ExtUtils::MakeMaker' => '6.31'
+    'ExtUtils::MakeMaker' => '6.30'
   },
   'DISTNAME' => 'Pod-Elemental',
   'EXE_FILES' => [],
@@ -43,7 +43,7 @@ my %WriteMakefileArgs = (
     'namespace::autoclean' => '0',
     'utf8' => '0'
   },
-  'VERSION' => '0.102360',
+  'VERSION' => '0.102361',
   'test' => {
     'TESTS' => 't/*.t t/elem/*.t t/pod5/*.t'
   }

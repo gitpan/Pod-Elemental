@@ -1,6 +1,6 @@
 package Pod::Elemental;
-BEGIN {
-  $Pod::Elemental::VERSION = '0.102360';
+{
+  $Pod::Elemental::VERSION = '0.102361';
 }
 use Moose;
 # ABSTRACT: work with nestable Pod elements
@@ -70,7 +70,7 @@ Pod::Elemental - work with nestable Pod elements
 
 =head1 VERSION
 
-version 0.102360
+version 0.102361
 
 =head1 SYNOPSIS
 
@@ -136,7 +136,7 @@ Ricardo SIGNES <rjbs@cpan.org>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2010 by Ricardo SIGNES.
+This software is copyright (c) 2011 by Ricardo SIGNES.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.

@@ -47,6 +47,7 @@ t/nester.t
 t/objectifier.t
 t/pod5/combine.t
 t/pod5/cut.t
+t/pod5/data-blanks.t
 t/pod5/for-begin.t
 t/pod5/nested-same.t
 t/pod5/region.t
