@@ -1,6 +1,6 @@
 package Pod::Elemental::Transformer::Nester;
 {
-  $Pod::Elemental::Transformer::Nester::VERSION = '0.102361';
+  $Pod::Elemental::Transformer::Nester::VERSION = '0.102362';
 }
 use Moose;
 with 'Pod::Elemental::Transformer';
@@ -42,10 +42,16 @@ sub _is_containable {
 sub transform_node {
   my ($self, $node) = @_;
 
-  # We use -2 because if we're already at the last element, we can't nest
-  # anything -- there's nothing subsequent to the potential top-level element
-  # to nest! -- rjbs, 2009-10-18
-  PASS: for my $i (0 .. $node->children->length - 2) {
+  # We used to say (length -2) because "if we're already at the last element,
+  # we can't nest anything -- there's nothing subsequent to the potential
+  # top-level element to nest!" -- my (rjbs's) reasoning in 2009.
+  #
+  # This was an unneeded optimization, and therefore stupid.  Worse, it was a
+  # bug.  It meant that a nestable element that was the last element in a
+  # sequence wouldn't be upgraded to a Nested element, so later munging could
+  # barf.  In fact, that's what happened in [rt.cpan.org #69189]
+  # -- rjbs, 2012-05-04
+  PASS: for my $i (0 .. $node->children->length - 1) {
     last PASS if $i >= $node->children->length;
 
     my $para = $node->children->[ $i ];
@@ -69,7 +75,7 @@ sub transform_node {
     }
 
     if (@to_nest) {
-      my @to_nest_elem = 
+      my @to_nest_elem =
         splice @{ $node->children }, $to_nest[0], scalar(@to_nest);
 
       $para->children->push(@to_nest_elem);
@@ -91,7 +97,7 @@ Pod::Elemental::Transformer::Nester - group the document into sections
 
 =head1 VERSION
 
-version 0.102361
+version 0.102362
 
 =head1 OVERVIEW
 
@@ -158,7 +164,7 @@ Ricardo SIGNES <rjbs@cpan.org>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2011 by Ricardo SIGNES.
+This software is copyright (c) 2012 by Ricardo SIGNES.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.

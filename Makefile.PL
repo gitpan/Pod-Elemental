@@ -9,43 +9,45 @@ use ExtUtils::MakeMaker 6.30;
 
 
 my %WriteMakefileArgs = (
-  'ABSTRACT' => 'work with nestable Pod elements',
-  'AUTHOR' => 'Ricardo SIGNES <rjbs@cpan.org>',
-  'BUILD_REQUIRES' => {
-    'Data::Dumper' => '0',
-    'Test::Deep' => '0',
-    'Test::Differences' => '0',
-    'Test::More' => '0.96'
+  "ABSTRACT" => "work with nestable Pod elements",
+  "AUTHOR" => "Ricardo SIGNES <rjbs\@cpan.org>",
+  "BUILD_REQUIRES" => {
+    "Data::Dumper" => 0,
+    "Test::Deep" => 0,
+    "Test::Differences" => 0,
+    "Test::More" => "0.96"
   },
-  'CONFIGURE_REQUIRES' => {
-    'ExtUtils::MakeMaker' => '6.30'
+  "CONFIGURE_REQUIRES" => {
+    "ExtUtils::MakeMaker" => "6.30"
   },
-  'DISTNAME' => 'Pod-Elemental',
-  'EXE_FILES' => [],
-  'LICENSE' => 'perl',
-  'NAME' => 'Pod::Elemental',
-  'PREREQ_PM' => {
-    'Encode' => '0',
-    'Mixin::Linewise::Readers' => '0',
-    'Moose' => '0',
-    'Moose::Autobox' => '0.10',
-    'Moose::Role' => '0.90',
-    'Moose::Util::TypeConstraints' => '0',
-    'MooseX::Types' => '0',
-    'MooseX::Types::Moose' => '0',
-    'Pod::Eventual::Simple' => '0.004',
-    'String::RewritePrefix' => '0',
-    'String::Truncate' => '0',
-    'Sub::Exporter' => '0',
-    'Sub::Exporter::ForMethods' => '0',
-    'Test::Deep' => '0',
-    'Test::Differences' => '0',
-    'namespace::autoclean' => '0',
-    'utf8' => '0'
+  "DISTNAME" => "Pod-Elemental",
+  "EXE_FILES" => [],
+  "LICENSE" => "perl",
+  "NAME" => "Pod::Elemental",
+  "PREREQ_PM" => {
+    "Encode" => 0,
+    "Mixin::Linewise::Readers" => 0,
+    "Moose" => 0,
+    "Moose::Autobox" => "0.10",
+    "Moose::Role" => "0.90",
+    "Moose::Util::TypeConstraints" => 0,
+    "MooseX::Types" => 0,
+    "MooseX::Types::Moose" => 0,
+    "Pod::Eventual::Simple" => "0.004",
+    "String::RewritePrefix" => 0,
+    "String::Truncate" => 0,
+    "Sub::Exporter" => 0,
+    "Sub::Exporter::ForMethods" => 0,
+    "Test::Deep" => 0,
+    "Test::Differences" => 0,
+    "namespace::autoclean" => 0,
+    "strict" => 0,
+    "utf8" => 0,
+    "warnings" => 0
   },
-  'VERSION' => '0.102361',
-  'test' => {
-    'TESTS' => 't/*.t t/elem/*.t t/pod5/*.t'
+  "VERSION" => "0.102362",
+  "test" => {
+    "TESTS" => "t/*.t t/elem/*.t t/pod5/*.t"
   }
 );
 
