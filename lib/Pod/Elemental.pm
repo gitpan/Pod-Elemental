@@ -1,6 +1,6 @@
 package Pod::Elemental;
 {
-  $Pod::Elemental::VERSION = '0.102362';
+  $Pod::Elemental::VERSION = '0.102363';
 }
 use Moose;
 # ABSTRACT: work with nestable Pod elements
@@ -12,10 +12,10 @@ use Mixin::Linewise::Readers
   { installer => Sub::Exporter::ForMethods::method_installer },
   -readers;
 
-use Moose::Autobox;
+use Moose::Autobox 0.10; # each_ iterators
 use MooseX::Types;
 
-use Pod::Eventual::Simple;
+use Pod::Eventual::Simple 0.004; # nonpod events
 use Pod::Elemental::Document;
 use Pod::Elemental::Transformer::Pod5;
 use Pod::Elemental::Objectifier;
@@ -62,6 +62,7 @@ no Moose;
 1;
 
 __END__
+
 =pod
 
 =head1 NAME
@@ -70,7 +71,7 @@ Pod::Elemental - work with nestable Pod elements
 
 =head1 VERSION
 
-version 0.102362
+version 0.102363
 
 =head1 SYNOPSIS
 
@@ -136,10 +137,9 @@ Ricardo SIGNES <rjbs@cpan.org>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2012 by Ricardo SIGNES.
+This software is copyright (c) 2013 by Ricardo SIGNES.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
 
 =cut
-

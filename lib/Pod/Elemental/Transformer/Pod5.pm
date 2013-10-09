@@ -1,6 +1,6 @@
 package Pod::Elemental::Transformer::Pod5;
 {
-  $Pod::Elemental::Transformer::Pod5::VERSION = '0.102362';
+  $Pod::Elemental::Transformer::Pod5::VERSION = '0.102363';
 }
 use Moose;
 with 'Pod::Elemental::Transformer';
@@ -252,6 +252,7 @@ sub transform_node {
 1;
 
 __END__
+
 =pod
 
 =head1 NAME
@@ -260,7 +261,7 @@ Pod::Elemental::Transformer::Pod5 - the default, minimal semantics of Perl5's po
 
 =head1 VERSION
 
-version 0.102362
+version 0.102363
 
 =head1 SYNOPSIS
 
@@ -307,10 +308,9 @@ Ricardo SIGNES <rjbs@cpan.org>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2012 by Ricardo SIGNES.
+This software is copyright (c) 2013 by Ricardo SIGNES.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
 
 =cut
-

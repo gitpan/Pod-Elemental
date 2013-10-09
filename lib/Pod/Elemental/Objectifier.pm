@@ -1,6 +1,6 @@
 package Pod::Elemental::Objectifier;
 {
-  $Pod::Elemental::Objectifier::VERSION = '0.102362';
+  $Pod::Elemental::Objectifier::VERSION = '0.102363';
 }
 use Moose;
 use Moose::Autobox;
@@ -57,6 +57,7 @@ sub element_class_for_event {
 1;
 
 __END__
+
 =pod
 
 =head1 NAME
@@ -65,7 +66,7 @@ Pod::Elemental::Objectifier - it turns a Pod::Eventual event stream into objects
 
 =head1 VERSION
 
-version 0.102362
+version 0.102363
 
 =head1 OVERVIEW
 
@@ -95,10 +96,9 @@ Ricardo SIGNES <rjbs@cpan.org>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2012 by Ricardo SIGNES.
+This software is copyright (c) 2013 by Ricardo SIGNES.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
 
 =cut
-
