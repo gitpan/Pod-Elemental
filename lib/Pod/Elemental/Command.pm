@@ -1,6 +1,6 @@
 package Pod::Elemental::Command;
 {
-  $Pod::Elemental::Command::VERSION = '0.102363';
+  $Pod::Elemental::Command::VERSION = '0.102364';
 }
 use Moose::Role 0.90;
 with 'Pod::Elemental::Paragraph' => { -excludes => [ 'as_pod_string' ] };
@@ -31,13 +31,15 @@ __END__
 
 =pod
 
+=encoding UTF-8
+
 =head1 NAME
 
 Pod::Elemental::Command - a =command paragraph
 
 =head1 VERSION
 
-version 0.102363
+version 0.102364
 
 =head1 OVERVIEW
 

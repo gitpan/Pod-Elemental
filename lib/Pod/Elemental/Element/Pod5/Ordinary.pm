@@ -1,6 +1,6 @@
 package Pod::Elemental::Element::Pod5::Ordinary;
 {
-  $Pod::Elemental::Element::Pod5::Ordinary::VERSION = '0.102363';
+  $Pod::Elemental::Element::Pod5::Ordinary::VERSION = '0.102364';
 }
 use Moose;
 extends 'Pod::Elemental::Element::Generic::Text';
@@ -22,13 +22,15 @@ __END__
 
 =pod
 
+=encoding UTF-8
+
 =head1 NAME
 
 Pod::Elemental::Element::Pod5::Ordinary - a Pod5 ordinary text paragraph
 
 =head1 VERSION
 
-version 0.102363
+version 0.102364
 
 =head1 OVERVIEW
 

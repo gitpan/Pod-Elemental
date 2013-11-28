@@ -1,6 +1,6 @@
 package Pod::Elemental::Objectifier;
 {
-  $Pod::Elemental::Objectifier::VERSION = '0.102363';
+  $Pod::Elemental::Objectifier::VERSION = '0.102364';
 }
 use Moose;
 use Moose::Autobox;
@@ -60,13 +60,15 @@ __END__
 
 =pod
 
+=encoding UTF-8
+
 =head1 NAME
 
 Pod::Elemental::Objectifier - it turns a Pod::Eventual event stream into objects
 
 =head1 VERSION
 
-version 0.102363
+version 0.102364
 
 =head1 OVERVIEW
 

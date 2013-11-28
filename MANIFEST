@@ -34,7 +34,6 @@ lib/Pod/Elemental/Transformer/Gatherer.pm
 lib/Pod/Elemental/Transformer/Nester.pm
 lib/Pod/Elemental/Transformer/Pod5.pm
 lib/Pod/Elemental/Types.pm
-t/00-compile.t
 t/000-report-versions-tiny.t
 t/eg/Simple.pm
 t/eg/from-lol.pod

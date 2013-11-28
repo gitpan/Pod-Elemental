@@ -1,6 +1,6 @@
 package Pod::Elemental::Transformer::Gatherer;
 {
-  $Pod::Elemental::Transformer::Gatherer::VERSION = '0.102363';
+  $Pod::Elemental::Transformer::Gatherer::VERSION = '0.102364';
 }
 use Moose;
 with 'Pod::Elemental::Transformer';
@@ -52,13 +52,15 @@ __END__
 
 =pod
 
+=encoding UTF-8
+
 =head1 NAME
 
 Pod::Elemental::Transformer::Gatherer - gather related paragraphs under a shared header
 
 =head1 VERSION
 
-version 0.102363
+version 0.102364
 
 =head1 OVERVIEW
 

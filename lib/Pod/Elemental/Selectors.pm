@@ -2,7 +2,7 @@ use strict;
 use warnings;
 package Pod::Elemental::Selectors;
 {
-  $Pod::Elemental::Selectors::VERSION = '0.102363';
+  $Pod::Elemental::Selectors::VERSION = '0.102364';
 }
 # ABSTRACT: predicates for selecting elements
 
@@ -65,13 +65,15 @@ __END__
 
 =pod
 
+=encoding UTF-8
+
 =head1 NAME
 
 Pod::Elemental::Selectors - predicates for selecting elements
 
 =head1 VERSION
 
-version 0.102363
+version 0.102364
 
 =head1 OVERVIEW
 

@@ -1,6 +1,6 @@
 package Pod::Elemental::Transformer::Nester;
 {
-  $Pod::Elemental::Transformer::Nester::VERSION = '0.102363';
+  $Pod::Elemental::Transformer::Nester::VERSION = '0.102364';
 }
 use Moose;
 with 'Pod::Elemental::Transformer';
@@ -92,13 +92,15 @@ __END__
 
 =pod
 
+=encoding UTF-8
+
 =head1 NAME
 
 Pod::Elemental::Transformer::Nester - group the document into sections
 
 =head1 VERSION
 
-version 0.102363
+version 0.102364
 
 =head1 OVERVIEW
 

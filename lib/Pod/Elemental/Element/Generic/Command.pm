@@ -1,6 +1,6 @@
 package Pod::Elemental::Element::Generic::Command;
 {
-  $Pod::Elemental::Element::Generic::Command::VERSION = '0.102363';
+  $Pod::Elemental::Element::Generic::Command::VERSION = '0.102364';
 }
 use Moose;
 # ABSTRACT: a Pod =command element
@@ -24,13 +24,15 @@ __END__
 
 =pod
 
+=encoding UTF-8
+
 =head1 NAME
 
 Pod::Elemental::Element::Generic::Command - a Pod =command element
 
 =head1 VERSION
 
-version 0.102363
+version 0.102364
 
 =head1 OVERVIEW
 

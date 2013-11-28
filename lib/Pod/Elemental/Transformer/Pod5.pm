@@ -1,6 +1,6 @@
 package Pod::Elemental::Transformer::Pod5;
 {
-  $Pod::Elemental::Transformer::Pod5::VERSION = '0.102363';
+  $Pod::Elemental::Transformer::Pod5::VERSION = '0.102364';
 }
 use Moose;
 with 'Pod::Elemental::Transformer';
@@ -255,13 +255,15 @@ __END__
 
 =pod
 
+=encoding UTF-8
+
 =head1 NAME
 
 Pod::Elemental::Transformer::Pod5 - the default, minimal semantics of Perl5's pod element hierarchy
 
 =head1 VERSION
 
-version 0.102363
+version 0.102364
 
 =head1 SYNOPSIS
 
