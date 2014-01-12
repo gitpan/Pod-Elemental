@@ -1,15 +1,30 @@
 package Pod::Elemental::Transformer;
-{
-  $Pod::Elemental::Transformer::VERSION = '0.102364';
-}
+# ABSTRACT: something that transforms a node tree into a new tree
+$Pod::Elemental::Transformer::VERSION = '0.103000';
 use Moose::Role;
 use Moose::Autobox;
-# ABSTRACT: something that transforms a node tree into a new tree
 
 use namespace::autoclean;
 
 requires 'transform_node';
 
+# =head1 OVERVIEW
+# 
+# Pod::Elemental::Transformer is a role to be composed by anything that takes a
+# node and messes around with its contents.  This includes transformers to
+# implement Pod dialects, Pod tree nesting strategies, and Pod document
+# rewriters.
+# 
+# A class including this role must implement the following methods:
+# 
+# =method transform_node
+# 
+#   my $node = $nester->transform_node($node);
+# 
+# This method alters the given node and returns it.  Apart from that, the sky is
+# the limit.
+# 
+# =cut
 
 1;
 
@@ -25,7 +40,7 @@ Pod::Elemental::Transformer - something that transforms a node tree into a new t
 
 =head1 VERSION
 
-version 0.102364
+version 0.103000
 
 =head1 OVERVIEW
 
@@ -51,7 +66,7 @@ Ricardo SIGNES <rjbs@cpan.org>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2013 by Ricardo SIGNES.
+This software is copyright (c) 2014 by Ricardo SIGNES.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.

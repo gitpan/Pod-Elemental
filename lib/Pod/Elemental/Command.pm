@@ -1,11 +1,19 @@
 package Pod::Elemental::Command;
-{
-  $Pod::Elemental::Command::VERSION = '0.102364';
-}
+# ABSTRACT: a =command paragraph
+$Pod::Elemental::Command::VERSION = '0.103000';
 use Moose::Role 0.90;
 with 'Pod::Elemental::Paragraph' => { -excludes => [ 'as_pod_string' ] };
-# ABSTRACT: a =command paragraph
 
+# =head1 OVERVIEW
+# 
+# This is a role to be included by paragraph classes that represent Pod commands.
+# It defines C<as_pod_string> and C<as_debug_string> methods.  Most code looking
+# for commands will check for the inclusion of this role, so be sure to use it
+# even if you override the provided methods.  Classes implementing this role must
+# also provide a C<command> method.  Generally this method will implemented by
+# an attribute, but this is not necessary.
+# 
+# =cut
 
 use Moose::Autobox;
 
@@ -39,7 +47,7 @@ Pod::Elemental::Command - a =command paragraph
 
 =head1 VERSION
 
-version 0.102364
+version 0.103000
 
 =head1 OVERVIEW
 
@@ -56,7 +64,7 @@ Ricardo SIGNES <rjbs@cpan.org>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2013 by Ricardo SIGNES.
+This software is copyright (c) 2014 by Ricardo SIGNES.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.

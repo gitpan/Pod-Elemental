@@ -1,11 +1,19 @@
 package Pod::Elemental::Objectifier;
-{
-  $Pod::Elemental::Objectifier::VERSION = '0.102364';
-}
+# ABSTRACT: it turns a Pod::Eventual event stream into objects
+$Pod::Elemental::Objectifier::VERSION = '0.103000';
 use Moose;
 use Moose::Autobox;
-# ABSTRACT: it turns a Pod::Eventual event stream into objects
 
+# =head1 OVERVIEW
+# 
+# An objectifier is responsible for taking the events produced by
+# L<Pod::Eventual|Pod::Eventual> and converting them into objects that perform
+# the Pod::Elemental::Paragraph role.
+# 
+# In general, it does this by producing a sequence of element objects in the
+# Pod::Elemental::Element::Generic namespace.
+# 
+# =cut
 
 use namespace::autoclean;
 
@@ -14,6 +22,14 @@ use Pod::Elemental::Element::Generic::Command;
 use Pod::Elemental::Element::Generic::Nonpod;
 use Pod::Elemental::Element::Generic::Text;
 
+# =method objectify_events
+# 
+#   my $elements = $objectifier->objectify_events(\@events);
+# 
+# Given an arrayref of Pod events, this method returns an arrayref of objects
+# formed from the event stream.
+# 
+# =cut
 
 sub objectify_events {
   my ($self, $events) = @_;
@@ -34,6 +50,11 @@ sub objectify_events {
 }
 
 
+# =method element_class_for_event
+# 
+# This method returns the name of the class to be used for the given event.
+# 
+# =cut
 
 sub __class_for {
   return {
@@ -68,7 +89,7 @@ Pod::Elemental::Objectifier - it turns a Pod::Eventual event stream into objects
 
 =head1 VERSION
 
-version 0.102364
+version 0.103000
 
 =head1 OVERVIEW
 
@@ -98,7 +119,7 @@ Ricardo SIGNES <rjbs@cpan.org>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2013 by Ricardo SIGNES.
+This software is copyright (c) 2014 by Ricardo SIGNES.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.

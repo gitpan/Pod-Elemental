@@ -1,12 +1,17 @@
 package Pod::Elemental::Flat;
-{
-  $Pod::Elemental::Flat::VERSION = '0.102364';
-}
-use Moose::Role;
 # ABSTRACT: a content-only pod paragraph
+$Pod::Elemental::Flat::VERSION = '0.103000';
+use Moose::Role;
 
 use namespace::autoclean;
 
+# =head1 OVERVIEW
+# 
+# Pod::Elemental::Flat is a role that is included to indicate that a class
+# represents a Pod paragraph that will have no children, and represents only its
+# own content.  Generally it is used for text paragraphs.
+# 
+# =cut
 
 with 'Pod::Elemental::Paragraph';
 excludes 'Pod::Elemental::Node';
@@ -36,7 +41,7 @@ Pod::Elemental::Flat - a content-only pod paragraph
 
 =head1 VERSION
 
-version 0.102364
+version 0.103000
 
 =head1 OVERVIEW
 
@@ -50,7 +55,7 @@ Ricardo SIGNES <rjbs@cpan.org>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2013 by Ricardo SIGNES.
+This software is copyright (c) 2014 by Ricardo SIGNES.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.

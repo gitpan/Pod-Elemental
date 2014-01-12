@@ -1,11 +1,49 @@
 package Pod::Elemental::Transformer::Pod5;
-{
-  $Pod::Elemental::Transformer::Pod5::VERSION = '0.102364';
-}
+# ABSTRACT: the default, minimal semantics of Perl5's pod element hierarchy
+$Pod::Elemental::Transformer::Pod5::VERSION = '0.103000';
 use Moose;
 with 'Pod::Elemental::Transformer';
-# ABSTRACT: the default, minimal semantics of Perl5's pod element hierarchy
 
+# =head1 SYNOPSIS
+# 
+#   Pod::Elemental::Transformer::Pod5->new->transform_node($pod_elem_document);
+# 
+# ...and that's it.
+# 
+# =head1 OVERVIEW
+# 
+# The Pod5 transformer is meant to be used to convert the result of a "stock"
+# Pod::Elemental::Document into something simpler to work with.  It assumes that
+# the document conforms more or less to the convetions laid out in L<perlpod> and
+# L<perlpodspec>.  It is not very strict, and makes very few assumptions,
+# described here:
+# 
+# =over 4
+# 
+# =item * =begin/=end and =for enclose or produce regions within the document
+# 
+# =item * regions are associated with format names; format names that begin with a colon enclose more pod-like content
+# 
+# =item * regions nest strictly; all inner regions must end before outer regions
+# 
+# =item * paragraphs in non-pod regions are "data" paragraphs
+# 
+# =item * non-data paragraphs that start with spaces are "verbatim" paragraphs
+# 
+# =item * groups of data or verbatim paragraphs can be consolodated
+# 
+# =back
+# 
+# Further, all elements are replaced with equivalent elements that perform the
+# L<Pod::Elemental::Autoblank> role, so all "blank" events can be removed form
+# the tree and ignored.
+# 
+# =head1 CONFIGURATION
+# 
+# None.  For now, it just does the same thing every time with no configuration or
+# options.
+# 
+# =cut
 
 use Moose::Autobox 0.10;
 
@@ -263,7 +301,7 @@ Pod::Elemental::Transformer::Pod5 - the default, minimal semantics of Perl5's po
 
 =head1 VERSION
 
-version 0.102364
+version 0.103000
 
 =head1 SYNOPSIS
 
@@ -310,7 +348,7 @@ Ricardo SIGNES <rjbs@cpan.org>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2013 by Ricardo SIGNES.
+This software is copyright (c) 2014 by Ricardo SIGNES.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.

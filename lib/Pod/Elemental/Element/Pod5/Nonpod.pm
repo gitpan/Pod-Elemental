@@ -1,12 +1,26 @@
 package Pod::Elemental::Element::Pod5::Nonpod;
-{
-  $Pod::Elemental::Element::Pod5::Nonpod::VERSION = '0.102364';
-}
+# ABSTRACT: a non-pod element in a Pod document
+$Pod::Elemental::Element::Pod5::Nonpod::VERSION = '0.103000';
 use Moose;
 with 'Pod::Elemental::Flat';
 with 'Pod::Elemental::Autoblank';
-# ABSTRACT: a non-pod element in a Pod document
 
+# =head1 OVERVIEW
+# 
+# A Pod5::Nonpod element represents a hunk of non-Pod content found in a Pod
+# document tree.  It is equivalent to a
+# L<Generic::Nonpod|Pod::Elemental::Element::Generic::Nonpod> element, with the
+# following differences:
+# 
+# =over 4
+# 
+# =item * it includes L<Pod::Elemental::Autoblank>
+# 
+# =item * when producing a pod string, it wraps the non-pod content in =cut/=pod
+# 
+# =back
+# 
+# =cut
 
 use namespace::autoclean;
 
@@ -29,7 +43,7 @@ Pod::Elemental::Element::Pod5::Nonpod - a non-pod element in a Pod document
 
 =head1 VERSION
 
-version 0.102364
+version 0.103000
 
 =head1 OVERVIEW
 
@@ -52,7 +66,7 @@ Ricardo SIGNES <rjbs@cpan.org>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2013 by Ricardo SIGNES.
+This software is copyright (c) 2014 by Ricardo SIGNES.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.

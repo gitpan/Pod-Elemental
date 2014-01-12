@@ -1,10 +1,8 @@
 package Pod::Elemental::Document;
-{
-  $Pod::Elemental::Document::VERSION = '0.102364';
-}
+# ABSTRACT: a pod document
+$Pod::Elemental::Document::VERSION = '0.103000';
 use Moose;
 with 'Pod::Elemental::Node';
-# ABSTRACT: a pod document
 
 use Moose::Autobox;
 use namespace::autoclean;
@@ -12,6 +10,15 @@ use namespace::autoclean;
 use Pod::Elemental::Element::Generic::Blank;
 use String::RewritePrefix;
 
+# =head1 OVERVIEW
+# 
+# Pod::Elemental::Document is a container for Pod documents.  It performs
+# L<Pod::Elemental::Node> but I<not> L<Pod::Elemental::Paragraph>.
+# 
+# Documents are used almost exclusively to give a small amount of behavior to
+# arrayrefs of paragraphs, and have few methods of their own.
+# 
+# =cut
 
 sub _expand_name {
   my ($self, $name) = @_;
@@ -28,10 +35,12 @@ sub _expand_name {
 sub as_pod_string {
   my ($self) = @_;
 
-  join q{},
-    "=pod\n\n",
-    $self->children->map(sub { $_->as_pod_string })->flatten,
-    "=cut\n";
+  my $str = join q{}, $self->children->map(sub { $_->as_pod_string })->flatten;
+
+  $str = "=pod\n\n$str" unless $str =~ /\A=pod\n/;
+  $str .= "=cut\n" unless $str =~ /=cut\n+\z/;
+
+  return $str;
 }
 
 sub as_debug_string {
@@ -115,7 +124,7 @@ Pod::Elemental::Document - a pod document
 
 =head1 VERSION
 
-version 0.102364
+version 0.103000
 
 =head1 OVERVIEW
 
@@ -131,7 +140,7 @@ Ricardo SIGNES <rjbs@cpan.org>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2013 by Ricardo SIGNES.
+This software is copyright (c) 2014 by Ricardo SIGNES.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
