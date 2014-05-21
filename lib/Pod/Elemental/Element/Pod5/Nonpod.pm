@@ -1,26 +1,26 @@
 package Pod::Elemental::Element::Pod5::Nonpod;
 # ABSTRACT: a non-pod element in a Pod document
-$Pod::Elemental::Element::Pod5::Nonpod::VERSION = '0.103000';
+$Pod::Elemental::Element::Pod5::Nonpod::VERSION = '0.103001';
 use Moose;
 with 'Pod::Elemental::Flat';
 with 'Pod::Elemental::Autoblank';
 
-# =head1 OVERVIEW
-# 
-# A Pod5::Nonpod element represents a hunk of non-Pod content found in a Pod
-# document tree.  It is equivalent to a
-# L<Generic::Nonpod|Pod::Elemental::Element::Generic::Nonpod> element, with the
-# following differences:
-# 
-# =over 4
-# 
-# =item * it includes L<Pod::Elemental::Autoblank>
-# 
-# =item * when producing a pod string, it wraps the non-pod content in =cut/=pod
-# 
-# =back
-# 
-# =cut
+#pod =head1 OVERVIEW
+#pod
+#pod A Pod5::Nonpod element represents a hunk of non-Pod content found in a Pod
+#pod document tree.  It is equivalent to a
+#pod L<Generic::Nonpod|Pod::Elemental::Element::Generic::Nonpod> element, with the
+#pod following differences:
+#pod
+#pod =over 4
+#pod
+#pod =item * it includes L<Pod::Elemental::Autoblank>
+#pod
+#pod =item * when producing a pod string, it wraps the non-pod content in =cut/=pod
+#pod
+#pod =back
+#pod
+#pod =cut
 
 use namespace::autoclean;
 
@@ -43,7 +43,7 @@ Pod::Elemental::Element::Pod5::Nonpod - a non-pod element in a Pod document
 
 =head1 VERSION
 
-version 0.103000
+version 0.103001
 
 =head1 OVERVIEW
 

@@ -1,6 +1,6 @@
 package Pod::Elemental::Element::Nested;
 # ABSTRACT: an element that is a command and a node
-$Pod::Elemental::Element::Nested::VERSION = '0.103000';
+$Pod::Elemental::Element::Nested::VERSION = '0.103001';
 use Moose;
 extends 'Pod::Elemental::Element::Generic::Command';
 with 'Pod::Elemental::Node';
@@ -15,20 +15,20 @@ use Pod::Elemental::Types qw(ChompedString);
 has '+content' => (coerce => 1, isa => ChompedString);
 # END   Autochomp Replacement
 
-# =head1 WARNING
-# 
-# This class is somewhat sketchy and may be refactored somewhat in the future,
-# specifically to refactor its similarities to
-# L<Pod::Elemental::Element::Pod5::Region>.
-# 
-# =head1 OVERVIEW
-# 
-# A Nested element is a Generic::Command element that is also a node.
-# 
-# It's used by the nester transformer to produce commands with children, to make
-# documents seem more structured for easy manipulation.
-# 
-# =cut
+#pod =head1 WARNING
+#pod
+#pod This class is somewhat sketchy and may be refactored somewhat in the future,
+#pod specifically to refactor its similarities to
+#pod L<Pod::Elemental::Element::Pod5::Region>.
+#pod
+#pod =head1 OVERVIEW
+#pod
+#pod A Nested element is a Generic::Command element that is also a node.
+#pod
+#pod It's used by the nester transformer to produce commands with children, to make
+#pod documents seem more structured for easy manipulation.
+#pod
+#pod =cut
 
 override as_pod_string => sub {
   my ($self) = @_;
@@ -58,7 +58,7 @@ Pod::Elemental::Element::Nested - an element that is a command and a node
 
 =head1 VERSION
 
-version 0.103000
+version 0.103001
 
 =head1 OVERVIEW
 

@@ -1,19 +1,19 @@
 package Pod::Elemental::Element::Generic::Text;
 # ABSTRACT: a Pod text or verbatim element
-$Pod::Elemental::Element::Generic::Text::VERSION = '0.103000';
+$Pod::Elemental::Element::Generic::Text::VERSION = '0.103001';
 use Moose;
 with 'Pod::Elemental::Flat';
 
 use namespace::autoclean;
 
-# =head1 OVERVIEW
-# 
-# Generic::Text elements represent text paragraphs found in raw Pod.  They are
-# likely to be fed to a Pod5 translator and converted to ordinary, verbatim, or
-# data paragraphs in that dialect.  Otherwise, Generic::Text paragraphs are
-# simple flat paragraphs.
-# 
-# =cut
+#pod =head1 OVERVIEW
+#pod
+#pod Generic::Text elements represent text paragraphs found in raw Pod.  They are
+#pod likely to be fed to a Pod5 translator and converted to ordinary, verbatim, or
+#pod data paragraphs in that dialect.  Otherwise, Generic::Text paragraphs are
+#pod simple flat paragraphs.
+#pod
+#pod =cut
 
 1;
 
@@ -29,7 +29,7 @@ Pod::Elemental::Element::Generic::Text - a Pod text or verbatim element
 
 =head1 VERSION
 
-version 0.103000
+version 0.103001
 
 =head1 OVERVIEW
 

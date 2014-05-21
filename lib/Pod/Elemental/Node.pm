@@ -1,6 +1,6 @@
 package Pod::Elemental::Node;
 # ABSTRACT: a thing with Pod::Elemental::Nodes as children
-$Pod::Elemental::Node::VERSION = '0.103000';
+$Pod::Elemental::Node::VERSION = '0.103001';
 use Moose::Role;
 
 use namespace::autoclean;
@@ -13,19 +13,19 @@ use Moose::Util::TypeConstraints qw(class_type);
 requires 'as_pod_string';
 requires 'as_debug_string';
 
-# =head1 OVERVIEW
-# 
-# Classes that include Pod::Elemental::Node represent collections of child
-# Pod::Elemental::Paragraphs.  This includes Pod documents, Pod5 regions, and
-# nested Pod elements produced by the Gatherer transformer.
-# 
-# =attr children
-# 
-# This attribute is an arrayref of
-# L<Pod::Elemental::Node|Pod::Elemental::Node>-performing objects, and represents
-# elements contained by an object.
-# 
-# =cut
+#pod =head1 OVERVIEW
+#pod
+#pod Classes that include Pod::Elemental::Node represent collections of child
+#pod Pod::Elemental::Paragraphs.  This includes Pod documents, Pod5 regions, and
+#pod nested Pod elements produced by the Gatherer transformer.
+#pod
+#pod =attr children
+#pod
+#pod This attribute is an arrayref of
+#pod L<Pod::Elemental::Node|Pod::Elemental::Node>-performing objects, and represents
+#pod elements contained by an object.
+#pod
+#pod =cut
 
 has children => (
   is   => 'rw',
@@ -61,7 +61,7 @@ Pod::Elemental::Node - a thing with Pod::Elemental::Nodes as children
 
 =head1 VERSION
 
-version 0.103000
+version 0.103001
 
 =head1 OVERVIEW
 

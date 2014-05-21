@@ -1,17 +1,17 @@
 package Pod::Elemental::Autochomp;
 # ABSTRACT: a paragraph that chomps set content
-$Pod::Elemental::Autochomp::VERSION = '0.103000';
+$Pod::Elemental::Autochomp::VERSION = '0.103001';
 use namespace::autoclean;
 use Moose::Role;
 
 use Pod::Elemental::Types qw(ChompedString);
 
-# =head1 OVERVIEW
-# 
-# This role exists primarily to simplify elements produced by the Pod5
-# transformer.
-# 
-# =cut
+#pod =head1 OVERVIEW
+#pod
+#pod This role exists primarily to simplify elements produced by the Pod5
+#pod transformer.
+#pod
+#pod =cut
 
 # has '+content' => (
 #   coerce => 1,
@@ -32,7 +32,7 @@ Pod::Elemental::Autochomp - a paragraph that chomps set content
 
 =head1 VERSION
 
-version 0.103000
+version 0.103001
 
 =head1 OVERVIEW
 

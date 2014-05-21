@@ -1,6 +1,6 @@
 package Pod::Elemental::Element::Pod5::Command;
 # ABSTRACT: a Pod5 =command element
-$Pod::Elemental::Element::Pod5::Command::VERSION = '0.103000';
+$Pod::Elemental::Element::Pod5::Command::VERSION = '0.103001';
 use Moose;
 
 extends 'Pod::Elemental::Element::Generic::Command';
@@ -13,14 +13,14 @@ has '+content' => (
   isa    => ChompedString,
 );
 
-# =head1 OVERVIEW
-# 
-# Pod5::Command elements are identical to
-# L<Generic::Command|Pod::Elemental::Element::Generic::Command> elements, except
-# that they incorporate L<Pod::Elemental::Autoblank>.  They represent command
-# paragraphs in a Pod5 document.
-# 
-# =cut
+#pod =head1 OVERVIEW
+#pod
+#pod Pod5::Command elements are identical to
+#pod L<Generic::Command|Pod::Elemental::Element::Generic::Command> elements, except
+#pod that they incorporate L<Pod::Elemental::Autoblank>.  They represent command
+#pod paragraphs in a Pod5 document.
+#pod
+#pod =cut
 
 use namespace::autoclean;
 
@@ -38,7 +38,7 @@ Pod::Elemental::Element::Pod5::Command - a Pod5 =command element
 
 =head1 VERSION
 
-version 0.103000
+version 0.103001
 
 =head1 OVERVIEW
 

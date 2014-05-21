@@ -1,19 +1,19 @@
 package Pod::Elemental::Objectifier;
 # ABSTRACT: it turns a Pod::Eventual event stream into objects
-$Pod::Elemental::Objectifier::VERSION = '0.103000';
+$Pod::Elemental::Objectifier::VERSION = '0.103001';
 use Moose;
 use Moose::Autobox;
 
-# =head1 OVERVIEW
-# 
-# An objectifier is responsible for taking the events produced by
-# L<Pod::Eventual|Pod::Eventual> and converting them into objects that perform
-# the Pod::Elemental::Paragraph role.
-# 
-# In general, it does this by producing a sequence of element objects in the
-# Pod::Elemental::Element::Generic namespace.
-# 
-# =cut
+#pod =head1 OVERVIEW
+#pod
+#pod An objectifier is responsible for taking the events produced by
+#pod L<Pod::Eventual|Pod::Eventual> and converting them into objects that perform
+#pod the Pod::Elemental::Paragraph role.
+#pod
+#pod In general, it does this by producing a sequence of element objects in the
+#pod Pod::Elemental::Element::Generic namespace.
+#pod
+#pod =cut
 
 use namespace::autoclean;
 
@@ -22,14 +22,14 @@ use Pod::Elemental::Element::Generic::Command;
 use Pod::Elemental::Element::Generic::Nonpod;
 use Pod::Elemental::Element::Generic::Text;
 
-# =method objectify_events
-# 
-#   my $elements = $objectifier->objectify_events(\@events);
-# 
-# Given an arrayref of Pod events, this method returns an arrayref of objects
-# formed from the event stream.
-# 
-# =cut
+#pod =method objectify_events
+#pod
+#pod   my $elements = $objectifier->objectify_events(\@events);
+#pod
+#pod Given an arrayref of Pod events, this method returns an arrayref of objects
+#pod formed from the event stream.
+#pod
+#pod =cut
 
 sub objectify_events {
   my ($self, $events) = @_;
@@ -50,11 +50,11 @@ sub objectify_events {
 }
 
 
-# =method element_class_for_event
-# 
-# This method returns the name of the class to be used for the given event.
-# 
-# =cut
+#pod =method element_class_for_event
+#pod
+#pod This method returns the name of the class to be used for the given event.
+#pod
+#pod =cut
 
 sub __class_for {
   return {
@@ -89,7 +89,7 @@ Pod::Elemental::Objectifier - it turns a Pod::Eventual event stream into objects
 
 =head1 VERSION
 
-version 0.103000
+version 0.103001
 
 =head1 OVERVIEW
 

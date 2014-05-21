@@ -1,17 +1,17 @@
 package Pod::Elemental::Flat;
 # ABSTRACT: a content-only pod paragraph
-$Pod::Elemental::Flat::VERSION = '0.103000';
+$Pod::Elemental::Flat::VERSION = '0.103001';
 use Moose::Role;
 
 use namespace::autoclean;
 
-# =head1 OVERVIEW
-# 
-# Pod::Elemental::Flat is a role that is included to indicate that a class
-# represents a Pod paragraph that will have no children, and represents only its
-# own content.  Generally it is used for text paragraphs.
-# 
-# =cut
+#pod =head1 OVERVIEW
+#pod
+#pod Pod::Elemental::Flat is a role that is included to indicate that a class
+#pod represents a Pod paragraph that will have no children, and represents only its
+#pod own content.  Generally it is used for text paragraphs.
+#pod
+#pod =cut
 
 with 'Pod::Elemental::Paragraph';
 excludes 'Pod::Elemental::Node';
@@ -41,7 +41,7 @@ Pod::Elemental::Flat - a content-only pod paragraph
 
 =head1 VERSION
 
-version 0.103000
+version 0.103001
 
 =head1 OVERVIEW
 

@@ -1,6 +1,6 @@
 package Pod::Elemental::Element::Pod5::Region;
 # ABSTRACT: a region of Pod (this role likely to be removed)
-$Pod::Elemental::Element::Pod5::Region::VERSION = '0.103000';
+$Pod::Elemental::Element::Pod5::Region::VERSION = '0.103001';
 use Moose;
 with qw(
   Pod::Elemental::Paragraph
@@ -8,52 +8,52 @@ with qw(
   Pod::Elemental::Command
 );
 
-# =head1 WARNING
-# 
-# This class is somewhat sketchy and may be refactored somewhat in the future,
-# specifically to refactor its similarities to
-# L<Pod::Elemental::Element::Nested>.
-# 
-# =head1 OVERVIEW
-# 
-# A Pod5::Region element represents a region marked by a C<=for> command or a
-# pair of C<=begin> and C<=end> commands.  It may have content of its own as well
-# as child paragraphs.
-# 
-# Its C<as_pod_string> method will emit either a C<=begin/=end>-enclosed string
-# or a C<=for> command, based on whichever is permissible.
-# 
-# =cut
+#pod =head1 WARNING
+#pod
+#pod This class is somewhat sketchy and may be refactored somewhat in the future,
+#pod specifically to refactor its similarities to
+#pod L<Pod::Elemental::Element::Nested>.
+#pod
+#pod =head1 OVERVIEW
+#pod
+#pod A Pod5::Region element represents a region marked by a C<=for> command or a
+#pod pair of C<=begin> and C<=end> commands.  It may have content of its own as well
+#pod as child paragraphs.
+#pod
+#pod Its C<as_pod_string> method will emit either a C<=begin/=end>-enclosed string
+#pod or a C<=for> command, based on whichever is permissible.
+#pod
+#pod =cut
 
 use Moose::Autobox;
 
 use Pod::Elemental::Types qw(FormatName);
 use MooseX::Types::Moose qw(Bool);
 
-# =attr format_name
-# 
-# This is the format to which the region was targeted.  
-# 
-# B<Note!>  The format name should I<not> include the leading colon to indicate a
-# pod paragraph.  For that, see C<L</is_pod>>.
-# 
-# =cut
+#pod =attr format_name
+#pod
+#pod This is the format to which the region was targeted.  
+#pod
+#pod B<Note!>  The format name should I<not> include the leading colon to indicate a
+#pod pod paragraph.  For that, see C<L</is_pod>>.
+#pod
+#pod =cut
 
 has format_name => (is => 'ro', isa => FormatName, required => 1);
 
-# =attr is_pod
-# 
-# If true, this region contains pod (ordinary or verbatim) paragraphs, as opposed
-# to data paragraphs.  This will generally result from the document originating
-# in a C<=begin> block with a colon-prefixed target identifier:
-# 
-#   =begin :html
-# 
-#     This is still a verbatim paragraph.
-# 
-#   =end :html
-# 
-# =cut
+#pod =attr is_pod
+#pod
+#pod If true, this region contains pod (ordinary or verbatim) paragraphs, as opposed
+#pod to data paragraphs.  This will generally result from the document originating
+#pod in a C<=begin> block with a colon-prefixed target identifier:
+#pod
+#pod   =begin :html
+#pod
+#pod     This is still a verbatim paragraph.
+#pod
+#pod   =end :html
+#pod
+#pod =cut
 
 has is_pod => (is => 'ro', isa => Bool, required => 1, default => 1);
 
@@ -171,7 +171,7 @@ Pod::Elemental::Element::Pod5::Region - a region of Pod (this role likely to be 
 
 =head1 VERSION
 
-version 0.103000
+version 0.103001
 
 =head1 OVERVIEW
 

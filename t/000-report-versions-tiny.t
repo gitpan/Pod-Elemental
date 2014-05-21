@@ -48,6 +48,7 @@ sub pmver {
     return sprintf('%-45s => %-10s%-15s%s', $module, $pmver, $wanted, "\n");
 }
 
+eval { $v .= pmver('Class::Load','any version') };
 eval { $v .= pmver('Data::Dumper','any version') };
 eval { $v .= pmver('Encode','any version') };
 eval { $v .= pmver('ExtUtils::MakeMaker','6.30') };

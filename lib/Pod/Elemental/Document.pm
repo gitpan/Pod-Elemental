@@ -1,24 +1,25 @@
 package Pod::Elemental::Document;
 # ABSTRACT: a pod document
-$Pod::Elemental::Document::VERSION = '0.103000';
+$Pod::Elemental::Document::VERSION = '0.103001';
 use Moose;
 with 'Pod::Elemental::Node';
 
+use Class::Load ();
 use Moose::Autobox;
 use namespace::autoclean;
 
 use Pod::Elemental::Element::Generic::Blank;
 use String::RewritePrefix;
 
-# =head1 OVERVIEW
-# 
-# Pod::Elemental::Document is a container for Pod documents.  It performs
-# L<Pod::Elemental::Node> but I<not> L<Pod::Elemental::Paragraph>.
-# 
-# Documents are used almost exclusively to give a small amount of behavior to
-# arrayrefs of paragraphs, and have few methods of their own.
-# 
-# =cut
+#pod =head1 OVERVIEW
+#pod
+#pod Pod::Elemental::Document is a container for Pod documents.  It performs
+#pod L<Pod::Elemental::Node> but I<not> L<Pod::Elemental::Paragraph>.
+#pod
+#pod Documents are used almost exclusively to give a small amount of behavior to
+#pod arrayrefs of paragraphs, and have few methods of their own.
+#pod
+#pod =cut
 
 sub _expand_name {
   my ($self, $name) = @_;
@@ -124,7 +125,7 @@ Pod::Elemental::Document - a pod document
 
 =head1 VERSION
 
-version 0.103000
+version 0.103001
 
 =head1 OVERVIEW
 

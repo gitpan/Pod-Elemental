@@ -1,17 +1,17 @@
 package Pod::Elemental::Element::Generic::Blank;
 # ABSTRACT: a series of blank lines
-$Pod::Elemental::Element::Generic::Blank::VERSION = '0.103000';
+$Pod::Elemental::Element::Generic::Blank::VERSION = '0.103001';
 use Moose;
 with 'Pod::Elemental::Flat';
 
-# =head1 OVERVIEW
-# 
-# Generic::Blank elements represent vertical whitespace in a Pod document.  For
-# the most part, these are meant to be placeholders until made unnecessary by the
-# Pod5 transformer.  Most end-users will never need to worry about these
-# elements.
-# 
-# =cut
+#pod =head1 OVERVIEW
+#pod
+#pod Generic::Blank elements represent vertical whitespace in a Pod document.  For
+#pod the most part, these are meant to be placeholders until made unnecessary by the
+#pod Pod5 transformer.  Most end-users will never need to worry about these
+#pod elements.
+#pod
+#pod =cut
 
 use namespace::autoclean;
 
@@ -31,7 +31,7 @@ Pod::Elemental::Element::Generic::Blank - a series of blank lines
 
 =head1 VERSION
 
-version 0.103000
+version 0.103001
 
 =head1 OVERVIEW
 

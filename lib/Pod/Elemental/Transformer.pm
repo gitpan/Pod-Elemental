@@ -1,6 +1,6 @@
 package Pod::Elemental::Transformer;
 # ABSTRACT: something that transforms a node tree into a new tree
-$Pod::Elemental::Transformer::VERSION = '0.103000';
+$Pod::Elemental::Transformer::VERSION = '0.103001';
 use Moose::Role;
 use Moose::Autobox;
 
@@ -8,23 +8,23 @@ use namespace::autoclean;
 
 requires 'transform_node';
 
-# =head1 OVERVIEW
-# 
-# Pod::Elemental::Transformer is a role to be composed by anything that takes a
-# node and messes around with its contents.  This includes transformers to
-# implement Pod dialects, Pod tree nesting strategies, and Pod document
-# rewriters.
-# 
-# A class including this role must implement the following methods:
-# 
-# =method transform_node
-# 
-#   my $node = $nester->transform_node($node);
-# 
-# This method alters the given node and returns it.  Apart from that, the sky is
-# the limit.
-# 
-# =cut
+#pod =head1 OVERVIEW
+#pod
+#pod Pod::Elemental::Transformer is a role to be composed by anything that takes a
+#pod node and messes around with its contents.  This includes transformers to
+#pod implement Pod dialects, Pod tree nesting strategies, and Pod document
+#pod rewriters.
+#pod
+#pod A class including this role must implement the following methods:
+#pod
+#pod =method transform_node
+#pod
+#pod   my $node = $nester->transform_node($node);
+#pod
+#pod This method alters the given node and returns it.  Apart from that, the sky is
+#pod the limit.
+#pod
+#pod =cut
 
 1;
 
@@ -40,7 +40,7 @@ Pod::Elemental::Transformer - something that transforms a node tree into a new t
 
 =head1 VERSION
 
-version 0.103000
+version 0.103001
 
 =head1 OVERVIEW
 

@@ -1,6 +1,6 @@
 package Pod::Elemental::Element::Pod5::Ordinary;
 # ABSTRACT: a Pod5 ordinary text paragraph
-$Pod::Elemental::Element::Pod5::Ordinary::VERSION = '0.103000';
+$Pod::Elemental::Element::Pod5::Ordinary::VERSION = '0.103001';
 use Moose;
 extends 'Pod::Elemental::Element::Generic::Text';
 with    'Pod::Elemental::Autoblank';
@@ -11,12 +11,12 @@ use Pod::Elemental::Types qw(ChompedString);
 has '+content' => (coerce => 1, isa => ChompedString);
 # END   Autochomp Replacement
 
-# =head1 OVERVIEW
-# 
-# A Pod5::Ordinary element represents a plain old paragraph of text found in a
-# Pod document that's gone through the Pod5 translator.
-# 
-# =cut
+#pod =head1 OVERVIEW
+#pod
+#pod A Pod5::Ordinary element represents a plain old paragraph of text found in a
+#pod Pod document that's gone through the Pod5 translator.
+#pod
+#pod =cut
 
 use namespace::autoclean;
 
@@ -34,7 +34,7 @@ Pod::Elemental::Element::Pod5::Ordinary - a Pod5 ordinary text paragraph
 
 =head1 VERSION
 
-version 0.103000
+version 0.103001
 
 =head1 OVERVIEW
 
