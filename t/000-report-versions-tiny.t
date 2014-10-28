@@ -51,7 +51,7 @@ sub pmver {
 eval { $v .= pmver('Class::Load','any version') };
 eval { $v .= pmver('Data::Dumper','any version') };
 eval { $v .= pmver('Encode','any version') };
-eval { $v .= pmver('ExtUtils::MakeMaker','6.30') };
+eval { $v .= pmver('ExtUtils::MakeMaker','any version') };
 eval { $v .= pmver('Mixin::Linewise::Readers','any version') };
 eval { $v .= pmver('Moose','any version') };
 eval { $v .= pmver('Moose::Autobox','0.10') };
