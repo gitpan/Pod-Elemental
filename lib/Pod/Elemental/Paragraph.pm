@@ -1,6 +1,6 @@
 package Pod::Elemental::Paragraph;
 # ABSTRACT: a paragraph in a Pod document
-$Pod::Elemental::Paragraph::VERSION = '0.103003';
+$Pod::Elemental::Paragraph::VERSION = '0.103004';
 use namespace::autoclean;
 use Moose::Role;
 
@@ -83,7 +83,7 @@ Pod::Elemental::Paragraph - a paragraph in a Pod document
 
 =head1 VERSION
 
-version 0.103003
+version 0.103004
 
 =head1 OVERVIEW
 

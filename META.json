@@ -72,7 +72,7 @@
          "web" : "https://github.com/rjbs/Pod-Elemental"
       }
    },
-   "version" : "0.103003",
+   "version" : "0.103004",
    "x_Dist_Zilla" : {
       "perl" : {
          "version" : "5.021005"
@@ -434,7 +434,7 @@
                "Dist::Zilla::Plugin::Git::Tag" : {
                   "branch" : null,
                   "signed" : 0,
-                  "tag" : "0.103003",
+                  "tag" : "0.103004",
                   "tag_format" : "%v",
                   "tag_message" : "v%v",
                   "time_zone" : "local"

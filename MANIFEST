@@ -53,6 +53,7 @@ t/pod5/cut.t
 t/pod5/data-blanks.t
 t/pod5/for-begin.t
 t/pod5/nested-same.t
+t/pod5/nonpod.t
 t/pod5/region.t
 t/pod5/text-type.t
 t/selectors.t

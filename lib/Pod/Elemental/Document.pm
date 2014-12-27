@@ -1,6 +1,6 @@
 package Pod::Elemental::Document;
 # ABSTRACT: a pod document
-$Pod::Elemental::Document::VERSION = '0.103003';
+$Pod::Elemental::Document::VERSION = '0.103004';
 use Moose;
 with 'Pod::Elemental::Node';
 
@@ -126,7 +126,7 @@ Pod::Elemental::Document - a pod document
 
 =head1 VERSION
 
-version 0.103003
+version 0.103004
 
 =head1 OVERVIEW
 

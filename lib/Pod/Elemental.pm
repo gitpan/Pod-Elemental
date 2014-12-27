@@ -1,6 +1,6 @@
 package Pod::Elemental;
 # ABSTRACT: work with nestable Pod elements
-$Pod::Elemental::VERSION = '0.103003';
+$Pod::Elemental::VERSION = '0.103004';
 use Moose;
 
 use namespace::autoclean;
@@ -128,7 +128,7 @@ Pod::Elemental - work with nestable Pod elements
 
 =head1 VERSION
 
-version 0.103003
+version 0.103004
 
 =head1 SYNOPSIS
 

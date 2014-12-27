@@ -1,6 +1,6 @@
 package Pod::Elemental::Element::Nested;
 # ABSTRACT: an element that is a command and a node
-$Pod::Elemental::Element::Nested::VERSION = '0.103003';
+$Pod::Elemental::Element::Nested::VERSION = '0.103004';
 use Moose;
 extends 'Pod::Elemental::Element::Generic::Command';
 with 'Pod::Elemental::Node';
@@ -58,7 +58,7 @@ Pod::Elemental::Element::Nested - an element that is a command and a node
 
 =head1 VERSION
 
-version 0.103003
+version 0.103004
 
 =head1 OVERVIEW
 

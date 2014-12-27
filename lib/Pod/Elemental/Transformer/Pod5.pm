@@ -1,6 +1,6 @@
 package Pod::Elemental::Transformer::Pod5;
 # ABSTRACT: the default, minimal semantics of Perl5's pod element hierarchy
-$Pod::Elemental::Transformer::Pod5::VERSION = '0.103003';
+$Pod::Elemental::Transformer::Pod5::VERSION = '0.103004';
 use Moose;
 with 'Pod::Elemental::Transformer';
 
@@ -107,13 +107,13 @@ sub __extract_region {
 sub _upgrade_nonpod {
   my ($self, $in_paras) = @_;
 
-  $in_paras = [ map {
+  @$in_paras = map {
     $_->isa( $self->_gen_class('Nonpod') )
       ? $self->_class('Nonpod')->new({
           content => $_->content,
         })
       : $_
-  } @$in_paras ];
+  } @$in_paras;
 }
 
 sub _collect_regions {
@@ -301,7 +301,7 @@ Pod::Elemental::Transformer::Pod5 - the default, minimal semantics of Perl5's po
 
 =head1 VERSION
 
-version 0.103003
+version 0.103004
 
 =head1 SYNOPSIS
 
